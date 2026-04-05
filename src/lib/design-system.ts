@@ -189,33 +189,31 @@ export const colorSchemes = {
 
 // Helper function to get CSS custom properties
 export const getCSSVariables = (scheme: keyof typeof colorSchemes = 'gold') => {
-  const tokens = colorSchemes[scheme];
   
   return {
-    '--color-primary': tokens.colors.primary,
-    '--color-secondary': tokens.colors.secondary,
-    '--color-accent': tokens.colors.accent,
-    '--color-gold': tokens.colors.gold,
-    '--color-gold-light': tokens.colors.goldLight,
-    '--color-gold-dark': tokens.colors.goldDark,
-    '--spacing-xs': tokens.spacing.xs,
-    '--spacing-sm': tokens.spacing.sm,
-    '--spacing-md': tokens.spacing.md,
-    '--spacing-lg': tokens.spacing.lg,
-    '--spacing-xl': tokens.spacing.xl,
-    '--spacing-xxl': tokens.spacing.xxl,
-    '--radius-sm': tokens.borderRadius.sm,
-    '--radius-md': tokens.borderRadius.md,
-    '--radius-lg': tokens.borderRadius.lg,
-    '--radius-xl': tokens.borderRadius.xl,
-    '--shadow-gold': tokens.shadows.gold,
-    '--font-sans': tokens.typography.fontFamily.sans.join(', '),
-    '--font-display': tokens.typography.fontFamily.display.join(', '),
+    '--color-primary': colorSchemes[scheme].colors.primary,
+    '--color-secondary': colorSchemes[scheme].colors.secondary,
+    '--color-accent': colorSchemes[scheme].colors.accent,
+    '--color-gold': colorSchemes[scheme].colors.gold,
+    '--color-gold-light': colorSchemes[scheme].colors.goldLight,
+    '--color-gold-dark': colorSchemes[scheme].colors.goldDark,
+    '--spacing-xs': colorSchemes[scheme].spacing.xs,
+    '--spacing-sm': colorSchemes[scheme].spacing.sm,
+    '--spacing-md': colorSchemes[scheme].spacing.md,
+    '--spacing-lg': colorSchemes[scheme].spacing.lg,
+    '--spacing-xl': colorSchemes[scheme].spacing.xl,
+    '--radius-sm': colorSchemes[scheme].borderRadius.sm,
+    '--radius-md': colorSchemes[scheme].borderRadius.md,
+    '--radius-lg': colorSchemes[scheme].borderRadius.lg,
+    '--radius-xl': colorSchemes[scheme].borderRadius.xl,
+    '--shadow-gold': colorSchemes[scheme].shadows.gold,
+    '--font-sans': colorSchemes[scheme].typography.fontFamily.sans.join(', '),
+    '--font-display': colorSchemes[scheme].typography.fontFamily.display.join(', '),
   };
 };
 
 // Utility classes generator
-export const generateUtilityClasses = (_scheme: keyof typeof colorSchemes = 'gold') => {
+export const generateUtilityClasses = () => {
   return {
     primary: 'bg-primary text-primary-foreground',
     secondary: 'bg-secondary text-secondary-foreground',

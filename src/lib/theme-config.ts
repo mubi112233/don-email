@@ -198,7 +198,6 @@ export const generateCSSVariables = () => {
 const themeConfig = {
   colorSchemes,
   currentTheme,
-  theme,
   hsl,
   cssVar,
   generateCSSVariables

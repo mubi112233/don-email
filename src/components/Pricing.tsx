@@ -37,7 +37,8 @@ const plans: PricingPlan[] = [
       "Slack/Email Support",
       "14 Days Money-Back Warranty"
     ],
-    highlighted: false
+    highlighted: false,
+    badge: "Perfect for small businesses"
   },
   {
     id: 'professional',
@@ -52,7 +53,8 @@ const plans: PricingPlan[] = [
       "Bi-weekly Progress Reports",
       "Flexible Hour Rollover"
     ],
-    highlighted: true
+    highlighted: true,
+    badge: undefined
   },
   {
     id: 'enterprise',
@@ -60,6 +62,7 @@ const plans: PricingPlan[] = [
     hours: "40h / week",
     price: 1169,
     setupFee: 0,
+    highlighted: false,
     badge: "Best Value",
     features: [
       "Everything in Professional",
@@ -67,8 +70,7 @@ const plans: PricingPlan[] = [
       "Dedicated Account Manager",
       "Weekly Strategy Calls",
       "Custom Workflow Integration"
-    ],
-    highlighted: false
+    ]
   }
 ];
 
@@ -346,7 +348,7 @@ export const Pricing = () => {
           {plans.map((plan, index) => {
             const localizedName = copy.plans[plan.id].name || plan.name;
             const localizedHours = copy.plans[plan.id].hours || plan.hours;
-            const localizedBadge = plan.badge ? copy.plans[plan.id].badge : undefined;
+            // const localizedBadge = (plan as any).badge ? copy.plans[plan.id]?.badge : undefined;
             const localizedFeatures = copy.plans[plan.id].features || plan.features;
             
             return (
@@ -390,7 +392,7 @@ export const Pricing = () => {
                   transition={{ duration: 0.8, delay: 0.3 }}
                 />
                 
-                {localizedBadge && (
+                {(plan as any).badge && (
                   <motion.div 
                     className="absolute -top-4 right-6 bg-gradient-to-r from-foreground to-foreground/95 text-primary px-4 py-1.5 rounded-full text-xs font-bold shadow-xl flex items-center gap-1.5 border border-primary/20"
                     initial={{ y: -10, opacity: 0 }}
@@ -404,7 +406,7 @@ export const Pricing = () => {
                     >
                       <Star className="w-3.5 h-3.5 fill-current" />
                     </motion.div>
-                    {localizedBadge}
+                    {(plan as any).badge}
                   </motion.div>
                 )}
                 
