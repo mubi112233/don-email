@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { ArrowRight, Calendar, Sparkles, Users, Award, Loader2 } from "lucide-react";
+import { ArrowRight, Calendar, Sparkles, Users, Award, Loader2, TrendingUp } from "lucide-react";
 import { fetchHero, HeroData } from "@/lib/api";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
