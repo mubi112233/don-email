@@ -10,6 +10,15 @@
     "@next/next/next-script-for-ga": "off",
     "react/no-unescaped-entities": "warn",
     "react-hooks/exhaustive-deps": "warn",
+    "react-refresh/only-export-components": "off",
     "import/no-anonymous-default-export": "warn"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "react-refresh/only-export-components": "off"
+      }
+    }
+  ]
 }
