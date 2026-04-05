@@ -3,18 +3,15 @@
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { ArrowRight, Calendar, Sparkles, TrendingUp, Users, Star, Award, Loader2 } from "lucide-react";
+import { ArrowRight, Calendar, Sparkles, Users, Award, Loader2 } from "lucide-react";
 import { fetchHero, HeroData } from "@/lib/api";
-import { SPACING } from "@/lib/constants";
 import { useRouter } from "next/navigation";
-import { useDesignColors } from "@/hooks/useDesignColors";
 import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 
 export const Hero = () => {
   const ref = useRef<HTMLElement | null>(null);
   const router = useRouter();
-  const colors = useDesignColors();
   // Use global scroll progress to avoid target hydration issues in DEV/strict mode
   const { scrollYProgress } = useScroll();
   
@@ -322,11 +319,13 @@ export const Hero = () => {
             </motion.div>
             
             <div className="relative rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] sm:shadow-[0_25px_80px_-18px_rgba(0,0,0,0.75)] md:shadow-[0_30px_100px_-20px_rgba(0,0,0,0.8)] border-2 border-primary/40 hover:border-primary/80 group transition-all duration-700 aspect-[4/3]">
-              <img
+              <Image
                 src={heroImage}
                 alt={isGe ? "Virtueller Assistent am Arbeiten" : "Virtual Assistant Working"}
+                fill
                 className="w-full h-full object-cover"
-                style={{ zIndex: 1 }}
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 45vw"
               />
               
               {/* Floating stats overlay - positioned outside image area */}
