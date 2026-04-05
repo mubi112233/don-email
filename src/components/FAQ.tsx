@@ -12,7 +12,6 @@ import { HelpCircle, Shield, Zap, Loader2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { fetchFAQ } from "@/lib/api";
 import { getCopy } from "@/lib/copy";
-import { SPACING } from "@/lib/constants";
 import { usePathname } from "next/navigation";
 
 interface FAQItem {

@@ -76,7 +76,6 @@ export default async function BlogPostPage({
   const structuredData = generateBlogStructuredData({
     title: post.title,
     description: post.excerpt,
-    author: post.author,
     publishedAt: post.date,
     updatedAt: post.date,
     image: post.image,

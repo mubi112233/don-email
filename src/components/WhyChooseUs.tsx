@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, Target, Zap, Shield, HeartHandshake, TrendingUp, Loader2 } from "lucide-react";
+import { Award, Loader2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import * as LucideIcons from "lucide-react";
 import { fetchWhyChooseUs } from "@/lib/api";
@@ -30,7 +30,6 @@ const getIconComponent = (iconName: string) => {
 export const WhyChooseUs = () => {
   const [whyChooseUsData, setWhyChooseUsData] = useState<WhyChooseUsData | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
 const pathname = usePathname();
   const currentLang = pathname.startsWith('/ge') || pathname.startsWith('/de') ? 'ge' : 'en';

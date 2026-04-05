@@ -1,9 +1,6 @@
-import { Metadata } from "next";
-
 interface BlogStructuredDataProps {
   title: string;
   description: string;
-  author: string;
   publishedAt: string;
   updatedAt?: string;
   image: string;
@@ -13,7 +10,6 @@ interface BlogStructuredDataProps {
 export function generateBlogStructuredData({
   title,
   description,
-  author,
   publishedAt,
   updatedAt,
   image,

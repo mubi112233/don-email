@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle, Sparkles, Clock, CheckCircle2, Users, TrendingUp, Award, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { SPACING } from "@/lib/constants";
 import { usePathname } from "next/navigation";
 import { siteConfig, normalizeLocale, localizedPath, getWhatsAppUrl } from "@/lib/site-config";
 
@@ -43,13 +42,6 @@ const fallbackCopy = {
     primaryCta: "Kostenlose Beratung buchen",
     secondaryCta: "Per WhatsApp chatten",
   },
-};
-
-const getLangFromPath = (): string => {
-  if (typeof window === "undefined") return "en";
-  const match = window.location.pathname.match(/^\/(en|ge|de)\b/i);
-  const raw = match?.[1]?.toLowerCase() || "en";
-  return raw === "de" ? "ge" : raw;
 };
 
 interface FinalCTAData {

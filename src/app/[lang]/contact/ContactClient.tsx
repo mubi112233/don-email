@@ -18,7 +18,6 @@ import { useToast } from "@/components/ui/use-toast";
 import { Navbar } from "@/components/Navbar";
 import {
   Mail,
-  Phone,
   Send,
   CheckCircle2,
   Users,
@@ -295,7 +294,7 @@ export default function ContactClient({ lang }: { lang: string }) {
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 text-gold fill-gold" />)}
               </div>
               <p className="text-sm text-muted-foreground italic leading-relaxed">
-                "Don Va transformed our operations. We saved over €40k in the first year alone."
+                &ldquo;Don Va transformed our operations. We saved over €40k in the first year alone.&rdquo;
               </p>
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gold/30 to-gold/10 flex items-center justify-center">

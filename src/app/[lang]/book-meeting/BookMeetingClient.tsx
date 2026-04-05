@@ -227,7 +227,7 @@ export default function BookMeetingClient() {
 
             {/* We'll Discuss */}
             <div className="space-y-4 p-5 sm:p-6 bg-gold/5 border border-gold/20 rounded-xl">
-              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4">We'll Discuss</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4">We&apos;ll Discuss</h3>
               <ul className="space-y-3">
                 {[
                   "Your current operational challenges",
@@ -328,7 +328,7 @@ export default function BookMeetingClient() {
                     <Star key={i} className="w-4 h-4 text-gold fill-gold" />
                   ))}
                 </div>
-                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">"{t.text}"</p>
+                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">&ldquo;{t.text}&rdquo;</p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold/30 to-gold/10 flex items-center justify-center">
                     <span className="text-gold font-bold text-sm">

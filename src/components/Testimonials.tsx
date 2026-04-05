@@ -133,7 +133,7 @@ export const Testimonials = () => {
               </div>
               
               <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-5 md:mb-6 leading-relaxed">
-                "{testimonial.content}"
+                &ldquo;{testimonial.content}&rdquo;
               </p>
               
               <div className="border-t border-border pt-3 sm:pt-4">

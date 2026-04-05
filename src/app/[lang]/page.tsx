@@ -1,6 +1,4 @@
 import { Hero } from "@/components/Hero";
-import { Services } from "@/components/Services";
-import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { Navbar } from "@/components/Navbar";
 import { HomeBelowFold } from "@/components/HomeBelowFold.client";
 import { notFound } from "next/navigation";
