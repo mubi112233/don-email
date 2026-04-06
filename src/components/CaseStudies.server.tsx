@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { getCopy } from "@/lib/copy";
 import { SPACING } from "@/lib/constants";
+import { localizedPath, siteConfig, localeUrlPrefix, type SiteLocale } from "@/lib/site-config";
 import { fetchCaseStudiesCardsData } from "@/lib/data-fetching";
 
 const slugify = (title: string) =>
@@ -16,12 +17,13 @@ const slugify = (title: string) =>
 export async function CaseStudies({ lang }: { lang: string }) {
   const studies = await fetchCaseStudiesCardsData(lang);
   const copy = getCopy(lang, "caseStudies");
+  const urlSeg = localeUrlPrefix((lang === "ge" ? "ge" : "en") as SiteLocale);
 
   if (!studies.length) {
     return (
       <section
         id="case-studies"
-        className="relative py-8 sm:py-10 md:py-12 lg:py-14 bg-gradient-to-b from-background via-muted/30 to-background"
+        className="relative py-8 sm:py-10 md:py-12 lg:py-14 bg-background"
       >
         <div className={`container mx-auto ${SPACING.container}`}>
           <div className="text-center py-20">
@@ -39,7 +41,7 @@ export async function CaseStudies({ lang }: { lang: string }) {
   return (
     <section
       id="case-studies"
-      className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-background via-muted/20 to-background"
+      className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-background"
     >
       <div className="absolute top-0 left-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-gold/5 rounded-full blur-[100px] md:blur-[150px]" />
       <div className="absolute bottom-0 right-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-gold/5 rounded-full blur-[100px] md:blur-[150px]" />
@@ -62,7 +64,7 @@ export async function CaseStudies({ lang }: { lang: string }) {
           {studies.map((study) => (
             <Link
               key={study.id}
-              href={`/${lang}/case-study/${slugify(study.title)}-${study.id}`}
+              href={`/${urlSeg}/case-study/${slugify(study.title)}-${study.id}`}
               className="group bg-card border border-border/50 rounded-xl sm:rounded-2xl overflow-hidden hover:border-gold/50 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] transition-all duration-300 hover:-translate-y-2 w-full block"
             >
               <div className="relative h-44 sm:h-52 md:h-48 lg:h-56 overflow-hidden">
@@ -118,7 +120,7 @@ export async function CaseStudies({ lang }: { lang: string }) {
               : "Ready to achieve similar results?"}
           </p>
           <Link
-            href={`/${lang}/book-meeting`}
+            href={localizedPath((lang === "ge" ? "ge" : "en") as SiteLocale, siteConfig.routes.bookMeeting)}
             className="inline-block w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-gold text-foreground font-bold text-base sm:text-lg rounded-2xl hover:bg-gold/90 transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl text-center"
           >
             <span className="hidden sm:inline">

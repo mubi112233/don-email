@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { BlogListingClient } from "./BlogListingClient";
-import { absoluteUrl, hreflangAlternates, localePathSegment } from "@/lib/site-url";
+import { absoluteUrl, hreflangAlternates, publicLocalePathSegment } from "@/lib/site-url";
 
 export async function generateMetadata({
   params,
@@ -8,11 +8,11 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang: raw } = await params;
-  const seg = localePathSegment(raw);
+  const seg = publicLocalePathSegment(raw);
   const { languages } = hreflangAlternates("blog");
   const canonical = absoluteUrl(`/${seg}/blog`);
 
-  const isDe = seg === "ge";
+  const isDe = seg === "de";
   const title = isDe
     ? "Blog — Tipps zu virtuellen Assistenten & Remote-Teams | DON VA"
     : "Blog — Virtual Assistant Tips & Remote Work | DON VA";

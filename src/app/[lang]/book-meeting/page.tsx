@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import BookMeetingClient from "./BookMeetingClient";
-import { absoluteUrl, hreflangAlternates, localePathSegment } from "@/lib/site-url";
+import { absoluteUrl, hreflangAlternates, publicLocalePathSegment } from "@/lib/site-url";
 
 const SUPPORTED_LANGS = ["en", "ge", "de"];
 
@@ -11,8 +11,8 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang: raw } = await params;
-  const seg = localePathSegment(raw);
-  const isDE = seg === "ge";
+  const seg = publicLocalePathSegment(raw);
+  const isDE = seg === "de";
   const title = isDE ? "Termin buchen — Kostenlose Beratung | DON VA" : "Book a Meeting — Free Consultation | DON VA";
   const description = isDE
     ? "Vereinbaren Sie eine kostenlose Beratung mit DON VA und erfahren Sie, wie deutschsprachige virtuelle Assistenten Ihr Team entlasten."

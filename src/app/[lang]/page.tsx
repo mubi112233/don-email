@@ -4,8 +4,7 @@ import { HomeBelowFold } from "@/components/HomeBelowFold.hybrid";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { fetchApiData, API_ENDPOINTS, normalizeLanguage } from "@/lib/api";
-import { SPACING } from "@/lib/constants";
-import { SITE_URL, absoluteUrl, hreflangAlternates } from "@/lib/site-url";
+import { SITE_URL, absoluteUrl, hreflangAlternates, publicLocalePathSegment } from "@/lib/site-url";
 
 export const revalidate = 3600;
 
@@ -60,7 +59,7 @@ export async function generateMetadata({
     "DON VA",
   ];
   const keywords = keywordsFromHero ?? (lang === "ge" ? defaultDeKeywords : defaultEnKeywords);
-  const pathSeg = lang === "ge" ? "ge" : "en";
+  const pathSeg = publicLocalePathSegment(lang);
   const canonical = absoluteUrl(`/${pathSeg}`);
   const { languages } = hreflangAlternates("");
 
@@ -137,7 +136,7 @@ const pageJsonLd = (baseUrl: string) => ({
       { "@type": "Country", name: "Switzerland" },
     ],
     availableLanguage: ["Deutsch", "Englisch"],
-    url: `${baseUrl}/ge`,
+    url: `${baseUrl}/de`,
     inLanguage: "de-DE",
   },
 });
@@ -164,10 +163,8 @@ export default async function HomeLangPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Navbar />
-      <main id="main-content">
-        <div className={SPACING.container}>
-          <Hero />
-        </div>
+      <main id="main-content" className="overflow-x-hidden">
+        <Hero />
         <HomeBelowFold lang={lang} />
       </main>
     </div>

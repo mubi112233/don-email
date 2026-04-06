@@ -3,14 +3,12 @@
  */
 
 export const SPACING = {
-  // Horizontal padding for containers (match frontend / Next Navbar)
-  container: "px-4 sm:px-6 md:px-6 lg:px-10 xl:px-12",
-  
-  // Wrapper padding (same as container)
-  wrapper: "px-4 sm:px-6 md:px-6 lg:px-10 xl:px-12",
-  
-  // Combined spacing (kept for compatibility with existing usage)
-  containerWithSpace: "px-4 sm:px-6 md:px-6 lg:px-10 xl:px-12",
+  // Horizontal padding inside `container mx-auto` — matches frontend Services / sections
+  container: "px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16",
+
+  wrapper: "px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16",
+
+  containerWithSpace: "px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16",
   
   // Side margins for sections
   sectionMargin: "mx-4 sm:mx-6 md:mx-6 lg:mx-10 xl:mx-12",

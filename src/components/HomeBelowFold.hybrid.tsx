@@ -1,26 +1,30 @@
-import { Services } from "@/components/Services.server";
-import { Testimonials } from "@/components/Testimonials.server";
-import { HowItWorks } from "@/components/HowItWorks.server";
-import { Pricing } from "@/components/Pricing.server";
-import { ToolsIntegration } from "@/components/ToolsIntegration.server";
+import { Services } from "@/components/Services";
+import { Testimonials } from "@/components/Testimonials";
+import { HowItWorks } from "@/components/HowItWorks";
+import { Pricing } from "@/components/Pricing";
+import { ToolsIntegration } from "@/components/ToolsIntegration";
 import { CaseStudies } from "@/components/CaseStudies.server";
-import { Blog } from "@/components/Blog.server";
-import { FAQ } from "@/components/FAQ.server";
+import { Blog } from "@/components/Blog";
+import { FAQInteractive } from "@/components/FAQInteractive.client";
 import { FinalCTA } from "@/components/FinalCTA.server";
 import { SPACING } from "@/lib/constants";
+import { fetchFAQ } from "@/lib/api";
 
-export function HomeBelowFold({ lang }: { lang: string }) {
+export async function HomeBelowFold({ lang }: { lang: string }) {
+  const faqs = await fetchFAQ(lang);
+  const faqData = faqs?.faqs || [];
+
   return (
     <>
       <div className={SPACING.container}>
-        <HowItWorks lang={lang} />
-        <Services lang={lang} />
-        <Pricing lang={lang} />
-        <ToolsIntegration lang={lang} />
-        <Testimonials lang={lang} />
-        <Blog lang={lang} />
+        <HowItWorks />
+        <Services />
+        <Pricing />
+        <ToolsIntegration />
+        <Testimonials />
+        <Blog />
         <CaseStudies lang={lang} />
-        <FAQ lang={lang} />
+        <FAQInteractive faqs={faqData} lang={lang} />
       </div>
       <FinalCTA lang={lang} />
     </>

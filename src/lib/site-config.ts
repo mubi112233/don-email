@@ -38,10 +38,24 @@ export const normalizeLocale = (locale: string): SiteLocale => {
   return "en";
 };
 
+/** URL path segment for public links (`de` for German locale, not `ge`). */
+export function localeUrlPrefix(locale: SiteLocale): "en" | "de" {
+  return locale === "ge" ? "de" : "en";
+}
+
 export const localizedPath = (locale: SiteLocale, pathname: string): string => {
   const clean = pathname.startsWith("/") ? pathname : `/${pathname}`;
-  return `/${locale}${clean}`;
+  return `/${localeUrlPrefix(locale)}${clean}`;
 };
+
+/** Ensure internal paths like `/book-meeting` get `/en/...` or `/de/...`. */
+export function withLocalePrefix(href: string, locale: SiteLocale): string {
+  const h = href.trim();
+  if (!h || /^[a-z][a-z0-9+.-]*:/i.test(h)) return h;
+  if (/^\/(en|ge|de)(\/|$)/i.test(h)) return h;
+  const clean = h.startsWith("/") ? h : `/${h}`;
+  return localizedPath(locale, clean);
+}
 
 export const getWhatsAppUrl = (number?: string): string | null => {
   if (!number) return null;

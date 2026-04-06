@@ -8,6 +8,7 @@ import { useState } from "react";
 import { getCopy } from "@/lib/copy";
 import { SPACING } from "@/lib/constants";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { localizedPath, siteConfig, type SiteLocale } from "@/lib/site-config";
 
 interface BlogPost {
   blogId: number;
@@ -222,7 +223,11 @@ export default function BlogPostClient({
             {isGe ? "Entdecken Sie, wie virtuelle Assistenten Ihr Unternehmen transformieren können." : "Discover how virtual assistants can transform your business."}
           </p>
           <button
-            onClick={() => router.push(`/${lang}/book-meeting`)}
+            onClick={() =>
+              router.push(
+                localizedPath((lang === "ge" ? "ge" : "en") as SiteLocale, siteConfig.routes.bookMeeting)
+              )
+            }
             className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gold text-foreground text-sm sm:text-base font-bold rounded-xl hover:bg-gold/90 transition-all hover:shadow-xl hover:scale-105"
           >
             {isGe ? "Jetzt starten" : "Get Started"}

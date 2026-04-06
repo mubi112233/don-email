@@ -103,7 +103,7 @@ export const WhyChooseUs = () => {
 
   return (
     <motion.section 
-      className="relative py-8 sm:py-10 md:py-12 lg:py-14 bg-gradient-to-b from-background via-muted/30 to-background z-40"
+      className="relative py-8 sm:py-10 md:py-12 lg:py-14 bg-background z-40"
       initial={{ opacity: 0, y: 200 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}

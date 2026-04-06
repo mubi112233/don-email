@@ -48,7 +48,7 @@ export const ToolsIntegration = () => {
 
   return (
     <motion.section
-      className="relative py-8 sm:py-10 md:py-12 lg:py-14 bg-gradient-to-b from-background via-muted/30 to-background"
+      className="relative py-8 sm:py-10 md:py-12 lg:py-14 bg-background"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}

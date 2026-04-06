@@ -7,21 +7,74 @@ const base = SITE_URL;
 const slugify = (title: string) =>
   title.toLowerCase().replace(/[^\w\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-").trim();
 
+const href = (path: string) => ({
+  en: `${base}/en${path}`,
+  de: `${base}/de${path}`,
+  "x-default": `${base}/en${path}`,
+});
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${base}/en`, lastModified: now, changeFrequency: "weekly", priority: 1.0, alternates: { languages: { en: `${base}/en`, de: `${base}/ge`, "x-default": `${base}/en` } } },
-    { url: `${base}/ge`, lastModified: now, changeFrequency: "weekly", priority: 1.0, alternates: { languages: { en: `${base}/en`, de: `${base}/ge`, "x-default": `${base}/en` } } },
-    { url: `${base}/en/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.85, alternates: { languages: { en: `${base}/en/blog`, de: `${base}/ge/blog`, "x-default": `${base}/en/blog` } } },
-    { url: `${base}/ge/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.85, alternates: { languages: { en: `${base}/en/blog`, de: `${base}/ge/blog`, "x-default": `${base}/en/blog` } } },
-    { url: `${base}/en/book-meeting`, lastModified: now, changeFrequency: "monthly", priority: 0.8, alternates: { languages: { en: `${base}/en/book-meeting`, de: `${base}/ge/book-meeting` } } },
-    { url: `${base}/ge/book-meeting`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/en/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.7, alternates: { languages: { en: `${base}/en/contact`, de: `${base}/ge/contact` } } },
-    { url: `${base}/ge/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    {
+      url: `${base}/en`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 1.0,
+      alternates: { languages: href("") },
+    },
+    {
+      url: `${base}/de`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 1.0,
+      alternates: { languages: href("") },
+    },
+    {
+      url: `${base}/en/blog`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.85,
+      alternates: { languages: href("/blog") },
+    },
+    {
+      url: `${base}/de/blog`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.85,
+      alternates: { languages: href("/blog") },
+    },
+    {
+      url: `${base}/en/book-meeting`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: { languages: href("/book-meeting") },
+    },
+    {
+      url: `${base}/de/book-meeting`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: { languages: href("/book-meeting") },
+    },
+    {
+      url: `${base}/en/contact`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+      alternates: { languages: href("/contact") },
+    },
+    {
+      url: `${base}/de/contact`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+      alternates: { languages: href("/contact") },
+    },
   ];
 
-  // Blog posts — API returns { posts: BlogPost[] }, BlogPost has blogId + title + slug
   let blogRoutes: MetadataRoute.Sitemap = [];
   try {
     const [enData, geData] = await Promise.all([
@@ -38,7 +91,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.8,
       })),
       ...gePosts.map((p: any) => ({
-        url: `${base}/ge/blog/${p.slug || `${slugify(p.title)}-${p.blogId}`}`,
+        url: `${base}/de/blog/${p.slug || `${slugify(p.title)}-${p.blogId}`}`,
         lastModified: p.publishedAt || p.updatedAt ? new Date(p.publishedAt || p.updatedAt) : now,
         changeFrequency: "weekly" as const,
         priority: 0.8,
@@ -46,7 +99,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ];
   } catch {}
 
-  // Case studies — API returns { caseStudies: CaseStudy[] }, uses caseStudyId + title
   let caseRoutes: MetadataRoute.Sitemap = [];
   try {
     const [enData, geData] = await Promise.all([
@@ -63,7 +115,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.7,
       })),
       ...geStudies.map((s: any) => ({
-        url: `${base}/ge/case-study/${slugify(s.title)}-${s.caseStudyId}`,
+        url: `${base}/de/case-study/${slugify(s.title)}-${s.caseStudyId}`,
         lastModified: s.updatedAt ? new Date(s.updatedAt) : now,
         changeFrequency: "monthly" as const,
         priority: 0.7,

@@ -44,10 +44,7 @@ const nextConfig = {
   poweredByHeader: false,
   compress: true,
   async redirects() {
-    return [
-      { source: '/de', destination: '/ge', permanent: true },
-      { source: '/de/:path*', destination: '/ge/:path*', permanent: true },
-    ];
+    return [];
   },
   // Add ISR configuration for better content freshness
   async rewrites() {

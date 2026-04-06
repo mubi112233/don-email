@@ -11,9 +11,9 @@ export function absoluteUrl(path: string): string {
   return `${SITE_URL}${p}`;
 }
 
-/** Normalize route param to folder prefix (`ge` or `en`). */
-export function localePathSegment(lang: string): "en" | "ge" {
-  return lang === "ge" || lang === "de" ? "ge" : "en";
+/** Path segment for canonical / OG URLs: `de` for German (valid hreflang), `en` for English. */
+export function publicLocalePathSegment(lang: string): "en" | "de" {
+  return lang === "ge" || lang === "de" ? "de" : "en";
 }
 
 /**
@@ -28,10 +28,10 @@ export function hreflangAlternates(pathAfterLocale: string): {
   const tail = pathAfterLocale ? `/${pathAfterLocale.replace(/^\//, "")}` : "";
   return {
     canonicalEn: absoluteUrl(`/en${tail}`),
-    canonicalDe: absoluteUrl(`/ge${tail}`),
+    canonicalDe: absoluteUrl(`/de${tail}`),
     languages: {
       en: absoluteUrl(`/en${tail}`),
-      de: absoluteUrl(`/ge${tail}`),
+      de: absoluteUrl(`/de${tail}`),
       "x-default": absoluteUrl(`/en${tail}`),
     },
   };

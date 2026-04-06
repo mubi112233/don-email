@@ -22,8 +22,8 @@ export default function BookMeetingClient() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const lang = pathname.startsWith("/ge") ? "de" : "en";
-  const homePath = lang === "de" ? "/ge" : "/en";
+  const lang = pathname.startsWith("/ge") || pathname.startsWith("/de") ? "de" : "en";
+  const homePath = lang === "de" ? "/de" : "/en";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);

@@ -11,6 +11,7 @@ import {
 import {
   siteConfig,
   localizedPath,
+  withLocalePrefix,
   getWhatsAppUrl,
   type SiteLocale,
 } from "@/lib/site-config";
@@ -98,13 +99,13 @@ function mergeFinalCta(
     stats: { ...fb.stats, ...api?.stats },
     trust: { ...fb.trust, ...api?.trust },
     primaryCta: api?.ctas?.primaryLabel ?? fb.primaryCta,
-    primaryHref:
-      api?.ctas?.primaryHref ?? localizedPath(locale, siteConfig.routes.bookMeeting),
+    primaryHref: api?.ctas?.primaryHref
+      ? withLocalePrefix(api.ctas.primaryHref, locale)
+      : localizedPath(locale, siteConfig.routes.bookMeeting),
     secondaryCta: api?.ctas?.secondaryLabel ?? fb.secondaryCta,
-    secondaryHref:
-      api?.ctas?.secondaryHref ??
-      getWhatsAppUrl(api?.whatsAppNumber || siteConfig.external.whatsappNumber) ??
-      "#",
+    secondaryHref: api?.ctas?.secondaryHref
+      ? withLocalePrefix(api.ctas.secondaryHref, locale)
+      : getWhatsAppUrl(api?.whatsAppNumber || siteConfig.external.whatsappNumber) ?? "#",
     statsLabels: fb.statsLabels,
   };
 }

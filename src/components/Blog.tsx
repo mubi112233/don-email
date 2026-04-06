@@ -3,19 +3,30 @@
 import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowRight, Loader2 } from "lucide-react";
 import Image from "next/image";
-import { useRouter, usePathname } from "next/navigation";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { fetchBlog } from "@/lib/api";
 import { getCopy } from "@/lib/copy";
 import { SPACING } from "@/lib/constants";
 
-// Helper to create URL-friendly slug from title
+const decodeHtml = (value: string) => {
+  if (!value) return value;
+  if (!value.includes("&")) return value;
+  return value
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&amp;/g, "&");
+};
+
 const slugify = (title: string) => {
   return title
     .toLowerCase()
-    .replace(/[^\w\s-]/g, '') // Remove special chars
-    .replace(/\s+/g, '-')     // Replace spaces with hyphens
-    .replace(/-+/g, '-')       // Replace multiple hyphens with single
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
     .trim();
 };
 
@@ -36,40 +47,34 @@ interface BlogPost {
 }
 
 export const Blog = () => {
-  const router = useRouter();
   const pathname = usePathname();
-  const currentLang = pathname.startsWith('/ge') || pathname.startsWith('/de') ? 'ge' : 'en';
+  const currentLang = pathname.startsWith("/ge") || pathname.startsWith("/de") ? "ge" : "en";
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const copy = getCopy(currentLang, 'blog');
+  const copy = getCopy(currentLang, "blog");
 
-  // Fetch blogs from API
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
         setLoading(true);
         setError(null);
         const data = await fetchBlog(currentLang);
-        
-        if (!data) throw new Error('Failed to fetch blogs');
-        
-        const fetchedBlogs = Array.isArray((data as any).blogs) 
-          ? (data as any).blogs.sort((a: BlogPost, b: BlogPost) => (a.order || 0) - (b.order || 0) || a.blogId - b.blogId)
+
+        if (!data) throw new Error("Failed to fetch blogs");
+
+        const fetchedBlogs = Array.isArray((data as any).blogs)
+          ? (data as any).blogs.sort(
+              (a: BlogPost, b: BlogPost) =>
+                (a.order || 0) - (b.order || 0) || a.blogId - b.blogId
+            )
           : [];
-        
-        if (process.env.NODE_ENV === 'development') {
-          console.log(`[Blog] Fetched ${fetchedBlogs.length} blogs for lang=${currentLang}`);
-        }
-        
+
         setPosts(fetchedBlogs);
       } catch (err) {
-        if (process.env.NODE_ENV === 'development') {
-          console.error('Error fetching blogs:', err);
-        }
-        setError(err instanceof Error ? err.message : 'Failed to load blogs');
-        setPosts([]); // No fallback - only use database
+        setError(err instanceof Error ? err.message : "Failed to load blogs");
+        setPosts([]);
       } finally {
         setLoading(false);
       }
@@ -78,7 +83,6 @@ export const Blog = () => {
     fetchBlogs();
   }, [currentLang]);
 
-  // Loading state
   if (loading) {
     return (
       <motion.section
@@ -94,7 +98,6 @@ export const Blog = () => {
     );
   }
 
-  // Error or empty state
   if (error || posts.length === 0) {
     return (
       <motion.section
@@ -103,10 +106,10 @@ export const Blog = () => {
       >
         <div className={`container mx-auto ${SPACING.container}`}>
           <div className="text-center py-20">
-            <p className="text-muted-foreground mb-4">
-              {error || (currentLang === 'ge'
-                ? 'Keine Blog-Artikel verfügbar. Bitte fügen Sie Blog-Artikel im Admin-Panel hinzu.'
-                : 'No blog posts available. Please add blog posts in the admin panel.')}
+            <p className="text-muted-foreground">
+              {error || (currentLang === "ge"
+                ? "Keine Blog-Artikel verfügbar."
+                : "No blog posts available.")}
             </p>
           </div>
         </div>
@@ -123,90 +126,88 @@ export const Blog = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
-      <div className={`container mx-auto ${SPACING.container}`}>
-        {/* Header */}
-        <motion.div
-          className="relative mb-8 sm:mb-12 lg:mb-16 text-left"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-gold/10 text-gold text-xs sm:text-sm font-semibold rounded-full mb-3 sm:mb-4">
+      <div className="absolute top-0 left-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-gold/5 rounded-full blur-[100px] md:blur-[150px]" />
+      <div className="absolute bottom-0 right-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-gold/5 rounded-full blur-[100px] md:blur-[150px]" />
+
+      <div className={`container mx-auto ${SPACING.container} relative z-10`}>
+        <div className="mb-12 sm:mb-16 lg:mb-20 text-left max-w-5xl">
+          <span className="inline-block px-4 py-2 bg-gold text-foreground text-sm font-bold rounded-full mb-4 shadow-md">
             {copy.badge}
           </span>
-          <h2 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 text-foreground"
-            dangerouslySetInnerHTML={{ __html: copy.heading }}
+          <h2
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 text-foreground leading-tight"
+            dangerouslySetInnerHTML={{ __html: decodeHtml(copy.heading) }}
           />
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-4xl leading-relaxed">
             {copy.description}
           </p>
-        </motion.div>
+        </div>
 
-        {/* Blog Grid */}
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            {posts.map((post: BlogPost, index: number) => (
-            <motion.article
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
+          {posts.map((post: BlogPost, index: number) => (
+            <motion.div
               key={post.blogId || post.id}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group bg-card border border-border/50 rounded-xl sm:rounded-2xl overflow-hidden hover:border-gold/50 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] transition-all duration-300 cursor-pointer w-full"
-              onClick={() => router.push(`/${currentLang}/blog/${slugify(post.title)}-${post.blogId || post.id}`)}
-              whileHover={{ y: -8 }}
             >
-              {/* Image */}
-              <div className="relative h-44 sm:h-52 md:h-48 lg:h-56 overflow-hidden">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-gold text-foreground text-xs font-bold rounded-full">
-                    {post.category}
-                  </span>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-4 sm:p-5 lg:p-6">
-                <div className="flex items-center gap-3 sm:gap-4 text-xs text-muted-foreground mb-2 sm:mb-3">
-                  <div className="flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />
-                    <span>{post.date}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-3 h-3" />
-                    <span>{post.readTime}</span>
+              <Link
+                href={`/${currentLang}/blog/${slugify(post.title)}-${post.blogId || post.id}`}
+                className="group bg-card border border-border/50 rounded-xl sm:rounded-2xl overflow-hidden hover:border-gold/50 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] transition-all duration-300 hover:-translate-y-2 w-full block h-full"
+              >
+                {/* Image */}
+                <div className="relative h-44 sm:h-52 md:h-48 lg:h-56 overflow-hidden">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 bg-gold text-foreground text-xs font-bold rounded-full">
+                      {post.category}
+                    </span>
                   </div>
                 </div>
 
-                <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-2 sm:mb-3 text-foreground group-hover:text-gold transition-colors line-clamp-2">
-                  {post.title}
-                </h3>
+                {/* Content */}
+                <div className="p-4 sm:p-5 lg:p-6 flex flex-col h-full">
+                  <div className="flex items-center gap-3 sm:gap-4 text-xs text-muted-foreground mb-3 sm:mb-4">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="w-3 h-3" />
+                      <span>{post.date}</span>
+                    </div>
+                    <span>·</span>
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" />
+                      <span>{post.readTime}</span>
+                    </div>
+                  </div>
 
-                <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3">
-                  {post.excerpt}
-                </p>
+                  <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-2 sm:mb-3 text-foreground group-hover:text-gold transition-colors line-clamp-2 flex-grow">
+                    {post.title}
+                  </h3>
 
-                <div className="flex items-center justify-between">
-                  <span className="text-xs sm:text-sm text-muted-foreground">{copy.by} {post.author}</span>
-                  <div className="flex items-center gap-1 sm:gap-2 text-gold font-semibold text-xs sm:text-sm group-hover:gap-2 sm:group-hover:gap-3 transition-all">
-                    <span className="hidden sm:inline">{copy.readMore}</span>
-                    <span className="sm:hidden">{copy.read}</span>
-                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-6 line-clamp-2 sm:line-clamp-3">
+                    {post.excerpt}
+                  </p>
+
+                  <div className="flex items-center justify-between pt-4 sm:pt-6 border-t border-border/50 mt-auto">
+                    <span className="text-xs sm:text-sm text-muted-foreground truncate">
+                      {copy.by} {post.author}
+                    </span>
+                    <div className="flex items-center gap-1 sm:gap-2 text-gold font-semibold text-xs sm:text-sm group-hover:gap-2 sm:group-hover:gap-3 transition-all flex-shrink-0">
+                      <span className="hidden sm:inline">{copy.readMore}</span>
+                      <span className="sm:hidden">{copy.read}</span>
+                      <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.article>
+              </Link>
+            </motion.div>
           ))}
-          </div>
         </div>
       </div>
     </motion.section>

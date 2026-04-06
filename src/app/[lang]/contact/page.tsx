@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import ContactClient from "./ContactClient";
-import { absoluteUrl, hreflangAlternates, localePathSegment } from "@/lib/site-url";
+import { absoluteUrl, hreflangAlternates, publicLocalePathSegment } from "@/lib/site-url";
 
 const SUPPORTED_LANGS = ["en", "ge", "de"];
 
@@ -11,8 +11,8 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang: raw } = await params;
-  const seg = localePathSegment(raw);
-  const isDE = seg === "ge";
+  const seg = publicLocalePathSegment(raw);
+  const isDE = seg === "de";
   const title = isDE ? "Kontakt — DON VA | Virtuelle Assistenten" : "Contact — DON VA | Virtual Assistants";
   const description = isDE
     ? "Kontaktieren Sie DON VA für Beratung zu deutschsprachigen virtuellen Assistenten und Remote-Teams."

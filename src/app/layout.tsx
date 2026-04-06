@@ -92,7 +92,7 @@ export const metadata: Metadata = {
     canonical: absoluteUrl("/en"),
     languages: {
       en: absoluteUrl("/en"),
-      de: absoluteUrl("/ge"),
+      de: absoluteUrl("/de"),
       "x-default": absoluteUrl("/en"),
     },
   },

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
-import { siteConfig, normalizeLocale, localizedPath } from "@/lib/site-config";
+import { siteConfig, normalizeLocale, localizedPath, localeUrlPrefix } from "@/lib/site-config";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,9 +17,10 @@ export const Navbar = () => {
   const pathname = usePathname();
   const siteLocale = normalizeLocale(pathname);
 
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-  // Scroll to hash section after navigation lands on home page
   useEffect(() => {
     if (typeof window === "undefined") return;
     const hash = window.location.hash;
@@ -62,16 +63,19 @@ export const Navbar = () => {
   };
 
   const switchLanguage = (lang: "en" | "de") => {
-    const apiLang = lang === "de" ? "ge" : "en";
+    const targetSeg = lang === "de" ? "de" : "en";
     const hasLangPrefix = /^\/(en|de|ge)(\/|$)/i.test(pathname);
     const finalPath = hasLangPrefix
-      ? pathname.replace(/^\/(en|de|ge)(?=\/|$)/i, `/${apiLang}`)
-      : pathname === "/" ? `/${apiLang}` : `/${apiLang}${pathname}`;
-    
+      ? pathname.replace(/^\/(en|de|ge)(?=\/|$)/i, `/${targetSeg}`)
+      : pathname === "/"
+        ? `/${targetSeg}`
+        : `/${targetSeg}${pathname}`;
+
     router.push(finalPath);
   };
 
-  const isHomePage = pathname === "/en" || pathname === "/ge" || pathname === "/de" || pathname === "/";
+  const isHomePage =
+    pathname === "/en" || pathname === "/ge" || pathname === "/de" || pathname === "/";
 
   const handleNavClick = (hash: string) => {
     const id = hash.replace("#", "");
@@ -79,7 +83,7 @@ export const Navbar = () => {
       const el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     } else {
-      router.push(`${currentLang === "de" ? "/ge" : "/en"}${hash}`);
+      router.push(`${currentLang === "de" ? "/de" : "/en"}${hash}`);
     }
     setIsOpen(false);
   };
@@ -87,26 +91,15 @@ export const Navbar = () => {
   const ThemeIcon = () => {
     if (!mounted) return <div className="w-5 h-5" />;
     const current = theme === "system" || !theme ? "light" : theme;
-    return (
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={current}
-          initial={{ scale: 0.5, rotate: -180, opacity: 0 }}
-          animate={{ scale: 1, rotate: 0, opacity: 1 }}
-          exit={{ scale: 0.5, rotate: 180, opacity: 0 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-        >
-          {current === "light" ? <Sun className="h-4 w-4 sm:h-5 sm:w-5" /> : <Moon className="h-4 w-4 sm:h-5 sm:w-5" />}
-        </motion.div>
-      </AnimatePresence>
+    return current === "light" ? (
+      <Sun className="h-4 w-4 sm:h-5 sm:w-5" />
+    ) : (
+      <Moon className="h-4 w-4 sm:h-5 sm:w-5" />
     );
   };
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.6, -0.05, 0.01, 0.99] }}
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-black/5"
@@ -115,112 +108,78 @@ export const Navbar = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 md:px-6 lg:px-10 xl:px-12">
         <div className="flex items-center justify-between h-16 sm:h-18 md:h-[72px] lg:h-20">
-          {/* Logo */}
-          <motion.button
-            onClick={() => router.push(`/${siteLocale}`)}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+          <button
+            type="button"
+            onClick={() => router.push(`/${localeUrlPrefix(siteLocale)}`)}
             className="flex items-center space-x-2 sm:space-x-3 hover:bg-gold/10 rounded-lg px-2 py-1 transition-all duration-300"
           >
             <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-9 md:h-9 lg:w-10 lg:h-10 bg-gold rounded-lg flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110">
-              <span className="text-black font-bold text-base sm:text-lg md:text-lg lg:text-xl">{siteConfig.brandMarkText}</span>
+              <span className="text-black font-bold text-base sm:text-lg md:text-lg lg:text-xl">
+                {siteConfig.brandMarkText}
+              </span>
             </div>
-            <span className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold text-foreground hover:text-gold transition-colors duration-300">{siteConfig.brandName}</span>
-          </motion.button>
+            <span className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold text-foreground hover:text-gold transition-colors duration-300">
+              {siteConfig.brandName}
+            </span>
+          </button>
 
-          {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-2 md:space-x-3 lg:space-x-6 xl:space-x-8">
-            {navItems.map((item, index) => (
-              <motion.button
+            {navItems.map((item) => (
+              <button
                 type="button"
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                 className="relative text-foreground hover:text-gold transition-all duration-300 font-medium text-sm md:text-sm lg:text-base px-2 md:px-2.5 lg:px-3 py-2 rounded-lg hover:bg-gold/10 group whitespace-nowrap"
               >
                 {item.name}
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gold group-hover:w-3/4 transition-all duration-300" />
-              </motion.button>
+              </button>
             ))}
           </div>
 
-          {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-2 md:space-x-2.5 lg:space-x-3 xl:space-x-4">
-            {/* Language Toggle */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.35 }}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => switchLanguage(currentLang === "en" ? "de" : "en")}
+              className="px-2 py-1 text-xs md:text-xs lg:text-sm hover:bg-gold/10 hover:text-gold"
+              aria-label="Change language"
             >
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => switchLanguage(currentLang === "en" ? "de" : "en")}
-                className="px-2 py-1 text-xs md:text-xs lg:text-sm hover:bg-gold/10 hover:text-gold"
-                aria-label="Change language"
-              >
-                {currentLang.toUpperCase()}
-              </Button>
-            </motion.div>
+              {currentLang.toUpperCase()}
+            </Button>
 
-            {/* Theme Toggle */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              className="relative hover:bg-gold/10 hover:text-gold w-9 h-9 md:w-9 md:h-9 lg:w-10 lg:h-10 transition-all duration-300 hover:scale-110 overflow-hidden"
+              aria-label="Toggle theme"
             >
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={toggleTheme}
-                className="relative hover:bg-gold/10 hover:text-gold w-9 h-9 md:w-9 md:h-9 lg:w-10 lg:h-10 transition-all duration-300 hover:scale-110 overflow-hidden"
-                aria-label="Toggle theme"
-              >
-                <ThemeIcon />
-              </Button>
-            </motion.div>
+              <ThemeIcon />
+            </Button>
 
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
+            <button
+              type="button"
+              onClick={() => {
+                router.push(localizedPath(siteLocale, siteConfig.routes.contact));
+              }}
+              className="text-sm md:text-sm lg:text-base px-4 md:px-4 lg:px-6 py-2 md:py-2 lg:py-2 border border-border/60 text-foreground rounded-lg hover:bg-gold/10 hover:text-gold transition-all duration-300 font-semibold whitespace-nowrap"
             >
-              <button
-                onClick={() => {
-                  router.push(localizedPath(siteLocale, siteConfig.routes.contact));
-                }}
-                className="text-sm md:text-sm lg:text-base px-4 md:px-4 lg:px-6 py-2 md:py-2 lg:py-2 border border-border/60 text-foreground rounded-lg hover:bg-gold/10 hover:text-gold transition-all duration-300 font-semibold whitespace-nowrap"
-              >
-                {currentLang === "de" ? "Kontakt" : "Contact"}
-              </button>
-            </motion.div>
+              {currentLang === "de" ? "Kontakt" : "Contact"}
+            </button>
 
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.55 }}
+            <button
+              type="button"
+              onClick={() => {
+                router.push(localizedPath(siteLocale, siteConfig.routes.bookMeeting));
+              }}
+              className="text-sm md:text-sm lg:text-base px-4 md:px-4 lg:px-7 py-2 md:py-2 lg:py-2.5 bg-gold text-black rounded-lg hover:shadow-lg hover:shadow-gold/30 transition-all duration-300 hover:scale-105 font-semibold whitespace-nowrap"
             >
-              <button
-                onClick={() => {
-                  router.push(localizedPath(siteLocale, siteConfig.routes.bookMeeting));
-                }}
-                className="text-sm md:text-sm lg:text-base px-4 md:px-4 lg:px-7 py-2 md:py-2 lg:py-2.5 bg-gold text-black rounded-lg hover:shadow-lg hover:shadow-gold/30 transition-all duration-300 hover:scale-105 font-semibold whitespace-nowrap"
-              >
-                {currentLang === "de" ? "Jetzt starten" : "Get Started"}
-              </button>
-            </motion.div>
+              {currentLang === "de" ? "Jetzt starten" : "Get Started"}
+            </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="md:hidden flex items-center space-x-2"
-          >
+          <div className="md:hidden flex items-center space-x-2">
             <div className="flex items-center space-x-1">
               <Button
                 variant="ghost"
@@ -248,55 +207,37 @@ export const Navbar = () => {
               className="hover:bg-gold/10 hover:text-gold w-9 h-9 transition-all duration-300"
               aria-label="Toggle menu"
             >
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={isOpen ? "close" : "open"}
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-                </motion.div>
-              </AnimatePresence>
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
-          </motion.div>
+          </div>
         </div>
 
-        {/* Mobile Navigation */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
+              initial={{ height: 0 }}
+              animate={{ height: "auto" }}
+              exit={{ height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="md:hidden overflow-hidden bg-background/98 backdrop-blur-xl border-t border-border/50 shadow-lg"
             >
               <div className="py-3 space-y-1">
-                {navItems.map((item, index) => (
-                  <motion.button
+                {navItems.map((item) => (
+                  <button
                     type="button"
                     key={item.name}
                     onClick={() => handleNavClick(item.href)}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.2, delay: index * 0.05 }}
                     className="block w-full text-left text-foreground hover:text-gold hover:bg-gold/10 active:bg-gold/20 transition-all duration-200 font-medium py-3 px-4 rounded-lg mx-2"
                   >
                     {item.name}
-                  </motion.button>
+                  </button>
                 ))}
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.2, delay: navItems.length * 0.05 }}
-                  className="pt-3 px-3 border-t border-border/50"
-                >
+                <div className="pt-3 px-3 border-t border-border/50">
                   <div className="grid grid-cols-2 gap-2">
                     <button
+                      type="button"
                       onClick={() => {
-                        router.push(currentLang === "de" ? "/ge/contact" : "/en/contact");
+                        router.push(currentLang === "de" ? "/de/contact" : "/en/contact");
                         setIsOpen(false);
                       }}
                       className="w-full text-center text-base py-3 border border-border/60 rounded-lg font-semibold hover:bg-gold/10 hover:text-gold transition-colors"
@@ -304,8 +245,9 @@ export const Navbar = () => {
                       {currentLang === "de" ? "Kontakt" : "Contact"}
                     </button>
                     <button
+                      type="button"
                       onClick={() => {
-                        router.push(currentLang === "de" ? "/ge/book-meeting" : "/en/book-meeting");
+                        router.push(currentLang === "de" ? "/de/book-meeting" : "/en/book-meeting");
                         setIsOpen(false);
                       }}
                       className="w-full text-center text-base py-3 bg-gold text-black rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
@@ -313,12 +255,12 @@ export const Navbar = () => {
                       {currentLang === "de" ? "Jetzt starten" : "Get Started"}
                     </button>
                   </div>
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
-    </motion.nav>
+    </nav>
   );
 };

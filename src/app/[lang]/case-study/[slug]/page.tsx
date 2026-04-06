@@ -6,7 +6,7 @@ import { fetchCaseStudiesServer } from "@/lib/api";
 import { getCopy } from "@/lib/copy";
 import { SPACING } from "@/lib/constants";
 import type { Metadata } from "next";
-import { absoluteUrl, hreflangAlternates, localePathSegment } from "@/lib/site-url";
+import { absoluteUrl, hreflangAlternates, publicLocalePathSegment } from "@/lib/site-url";
 
 interface CaseStudyData {
   caseStudyId: number;
@@ -32,7 +32,7 @@ export async function generateMetadata({
   const lang = resolvedParams.lang;
   const slug = resolvedParams.slug;
   const currentLang = lang === "de" || lang === "ge" ? "ge" : "en";
-  const urlSeg = localePathSegment(lang);
+  const urlSeg = publicLocalePathSegment(lang);
 
   const caseId = slug.split("-").pop();
   const caseStudyId = Number(caseId);
