@@ -25,7 +25,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 1,
     title: "E-commerce Automation Success",
-    description: "How we helped an online retailer reduce operational costs by 40% through virtual assistant integration.",
+    description: "How we helped an online retailer increase organic traffic by 340% through technical SEO and content optimization.",
     image: "/api/placeholder/600/400",
     category: "E-commerce",
     tags: ["Automation", "Cost Reduction", "Efficiency"],
@@ -38,12 +38,12 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 2,
-    title: "Real Estate Virtual Assistant Implementation",
-    description: "Transforming a real estate agency's workflow with dedicated virtual support.",
+    title: "Real Estate SEO Growth Campaign",
+    description: "Transforming a real estate agency's online visibility with targeted local SEO strategies.",
     image: "/api/placeholder/600/400",
     category: "Real Estate",
     tags: ["Real Estate", "Workflow", "Support"],
-    content: "Detailed case study content about real estate VA implementation...",
+    content: "Detailed case study content about real estate SEO implementation...",
     results: [
       { metric: "Lead Conversion", value: "+35%" },
       { metric: "Response Time", value: "-80%" },
@@ -52,12 +52,12 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 3,
-    title: "Startup Scaling with Virtual Teams",
-    description: "Helping a tech startup scale operations without increasing headcount.",
+    title: "SaaS Startup Organic Growth",
+    description: "Helping a tech startup achieve 10x organic traffic growth through strategic SEO.",
     image: "/api/placeholder/600/400",
     category: "Startup",
     tags: ["Scaling", "Startup", "Growth"],
-    content: "Detailed case study content about startup scaling...",
+    content: "Detailed case study content about SaaS SEO growth...",
     results: [
       { metric: "Growth Rate", value: "150%" },
       { metric: "Cost Efficiency", value: "60%" },

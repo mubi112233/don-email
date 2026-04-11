@@ -33,7 +33,7 @@ const plans: PricingPlan[] = [
     price: 369,
     setupFee: 149,
     features: [
-      "Dedicated VA",
+      "Dedicated SEO Specialist",
       "Native Quality Control", 
       "24h Replacement Guarantee",
       "Slack/Email Support",
@@ -101,9 +101,9 @@ export const Pricing = () => {
   const totalPrice = plans.reduce((sum, plan) => sum + plan.price, 0) * vaCount;
   const savings = discount > 0 ? Math.round(totalPrice * discount) : 0;
   
-  // Calculate average price per VA per hour
+  // Calculate average price per month
   const avgHoursPerWeek = 20; // Professional plan baseline
-  const avgPricePerVA = plans[1].price; // Professional plan price
+  const avgPricePerPlan = plans[1].price; // Professional plan price
 
   return (
     <motion.section 
@@ -239,7 +239,7 @@ export const Pricing = () => {
           </p>
         </motion.div>
 
-        {/* VA Count Selector */}
+        {/* Plan Count Selector */}
         <motion.div 
           className="max-w-xl mx-auto mb-8 sm:mb-10 md:mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -270,8 +270,8 @@ export const Pricing = () => {
               style={{
                 backgroundImage: 'none'
               }}
-              aria-label="Select number of virtual assistants"
-              aria-describedby="va-count-description"
+              aria-label="Select SEO plan level"
+              aria-describedby="plan-count-description"
             >
               {Array.from({ length: MAX_VA_COUNT }, (_, i) => i + 1).map(num => (
                 <option 
@@ -279,7 +279,7 @@ export const Pricing = () => {
                   value={num} 
                   className="text-foreground bg-card py-2 sm:py-3"
                 >
-                  {num} VA{num > 1 ? 's' : ''}
+                  {num} Plan{num > 1 ? 's' : ''}
                 </option>
               ))}
             </select>
@@ -302,7 +302,7 @@ export const Pricing = () => {
             </div>
           </div>
 
-          {/* Price per VA indicator */}
+          {/* Price indicator */}
           <motion.div 
             className="mt-4 sm:mt-5 text-center"
             initial={{ opacity: 0, y: 10 }}
@@ -310,7 +310,7 @@ export const Pricing = () => {
             transition={{ delay: 0.2 }}
           >
             <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-gold/10 text-foreground text-xs sm:text-sm font-semibold rounded-full border border-gold/30 shadow-sm">
-              {copy.startingFrom.replace('{price}', avgPricePerVA.toString()).replace('{hourly}', Math.round(avgPricePerVA / (avgHoursPerWeek * 4)).toString())}
+              {copy.startingFrom.replace('{price}', avgPricePerPlan.toString()).replace('{hourly}', Math.round(avgPricePerPlan / (avgHoursPerWeek * 4)).toString())}
             </span>
           </motion.div>
 

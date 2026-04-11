@@ -19,12 +19,12 @@ const sectionCopy = {
   en: {
     badge: "Services",
     heading: "Our Services",
-    description: "Comprehensive virtual assistant solutions tailored to your business needs. From administrative tasks to specialized support, we've got you covered.",
+    description: "Comprehensive SEO solutions tailored to your business needs. From technical optimization to content strategy, we've got you covered.",
   },
   ge: {
     badge: "Dienstleistungen",
     heading: "Unsere Dienstleistungen",
-    description: "Umfassende virtuelle Assistenzlösungen, die auf Ihre Geschäftsbedürfnisse zugeschnitten sind. Von administrativen Aufgaben bis hin zu spezialisierten Dienstleistungen.",
+    description: "Umfassende SEO-Lösungen, die auf Ihre Geschäftsbedürfnisse zugeschnitten sind. Von technischer Optimierung bis hin zur Content-Strategie.",
   },
 };
 

@@ -97,13 +97,13 @@ export const copy = {
     pricing: {
       sectionBadge: "Pricing",
       sectionTitle: "Simple, transparent pricing",
-      sectionDescription: "Choose a plan and number of VAs that fits your needs. Scale up or down anytime.",
-      vaCountLabel: "How many VAs do you need?",
-      vaCountHelper: "Select the number of virtual assistants",
+      sectionDescription: "Choose a plan that fits your needs. Scale up or down anytime.",
+      vaCountLabel: "Select your SEO plan",
+      vaCountHelper: "Choose the right SEO package for your business",
       startingFrom: "Starting from €{price}/mo · ~€{hourly}/hr",
       bulkDiscount: "{percent}% bulk discount applied!",
       bulkSavings: "You save €{amount} total",
-      bulkHint: "Add {count} more VA{suffix} to unlock {percent}% bulk discount",
+      bulkHint: "Add {count} more plan{suffix} to unlock {percent}% bulk discount",
       bannerBadge: "Limited Time",
       bannerTitle: "Book a Free Meeting",
       bannerSubtitle: "Schedule your free consultation and get started today",
@@ -117,7 +117,7 @@ export const copy = {
           name: "Starter",
           hours: "10h / week",
           features: [
-            "Dedicated VA",
+            "Dedicated SEO Specialist",
             "Native Quality Control",
             "24h Replacement Guarantee",
             "Slack/Email Support",
@@ -153,7 +153,7 @@ export const copy = {
       hoursUnit: "hours",
       planSetupFee: "+€{fee} setup fee",
       planNoSetupFee: "No setup fee",
-      disclaimer: "All prices are per VA. Bulk discounts apply automatically. Setup fees are one-time charges."
+      disclaimer: "All prices are per plan. Bulk discounts apply automatically. Setup fees are one-time charges."
     },
 
     // Final CTA
@@ -232,7 +232,7 @@ export const copy = {
     caseStudies: {
       badge: "Erfolgsgeschichten",
       heading: "Echte <span class=\"text-gold\">Erfolgsgeschichten</span>",
-      description: "Bewährte Ergebnisse von Unternehmen, die ihre organische Präsenz mit DON SEO ausbauen."
+      description: "Bewährte Ergebnisse von Unternehmen, die ihre organische Präsenz mit DON SEO ausbauen.",
       labels: {
         saved: "Gespart",
         teamSize: "Teamgröße",
@@ -262,8 +262,8 @@ export const copy = {
       sectionBadge: "Pricing",
       sectionTitle: "Simple, Transparent Pricing",
       sectionDescription: "Choose the perfect plan for your business. Scale up or down anytime.",
-      vaCountLabel: "How many VAs do you need?",
-      vaCountHelper: "Select the number of virtual assistants",
+      vaCountLabel: "Wählen Sie Ihr SEO-Paket",
+      vaCountHelper: "Wählen Sie das richtige SEO-Paket für Ihr Unternehmen",
       startingFrom: "Starting from €{price}/hour",
       bulkDiscount: "{percent}% discount - {suffix} more!",
       bulkSavings: "Save €{amount} total",
@@ -281,7 +281,7 @@ export const copy = {
           name: "Starter",
           hours: "10h / week",
           features: [
-            "Dedicated VA",
+            "Dedicated SEO Specialist",
             "Native Quality Control",
             "24h Replacement Guarantee", 
             "Slack/Email Support",
@@ -317,7 +317,7 @@ export const copy = {
       hoursUnit: "hours",
       planSetupFee: "+€{fee} setup fee",
       planNoSetupFee: "No setup fee",
-      disclaimer: "All prices are per VA. Bulk discounts apply automatically. Setup fees are one-time charges."
+      disclaimer: "All prices are per plan. Bulk discounts apply automatically. Setup fees are one-time charges."
     },
 
     // Final CTA

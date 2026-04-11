@@ -202,8 +202,8 @@ export default function BlogPostClient({
               <div className="font-bold text-foreground text-base sm:text-lg mb-1">{post.author}</div>
               <div className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 {isGe
-                  ? "Experte für virtuelle Assistenten und Remote-Arbeit."
-                  : "Expert in virtual assistance and remote work. Sharing insights and best practices for efficient team collaboration."}
+                  ? "Experte für Suchmaschinenoptimierung und digitales Marketing."
+                  : "Expert in SEO and digital marketing. Sharing insights and best practices for search optimization."}
               </div>
             </div>
           </div>
@@ -217,10 +217,10 @@ export default function BlogPostClient({
           className="mt-8 sm:mt-10 p-6 sm:p-8 bg-gradient-to-br from-gold/10 via-gold/5 to-transparent border-2 border-gold/30 rounded-2xl text-center"
         >
           <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">
-            {isGe ? "Bereit, Ihr Team zu skalieren?" : "Ready to Scale Your Team?"}
+            {isGe ? "Bereit, Ihre Rankings zu verbessern?" : "Ready to Improve Your Rankings?"}
           </h3>
           <p className="text-sm sm:text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
-            {isGe ? "Entdecken Sie, wie virtuelle Assistenten Ihr Unternehmen transformieren können." : "Discover how virtual assistants can transform your business."}
+            {isGe ? "Entdecken Sie, wie SEO Ihre organische Sichtbarkeit verbessern kann." : "Discover how SEO can transform your organic visibility."}
           </p>
           <button
             onClick={() =>

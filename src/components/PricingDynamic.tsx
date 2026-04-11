@@ -41,8 +41,8 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
     if (key === "pricing.sectionBadge") return "Pricing";
     if (key === "pricing.sectionTitle") return "Simple, transparent pricing";
     if (key === "pricing.sectionDescription") return "Choose the plan that fits your business.";
-    if (key === "pricing.vaCountLabel") return "How many VAs do you need?";
-    if (key === "pricing.vaCountHelper") return "Select the number of virtual assistants.";
+    if (key === "pricing.vaCountLabel") return "Select your SEO plan";
+    if (key === "pricing.vaCountHelper") return "Choose the right SEO package for your business.";
     if (key === "pricing.perMonth") return "/mo";
     if (key === "pricing.hoursUnit") return "hours";
     if (key === "pricing.cta") return "Get Started";
@@ -313,11 +313,11 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
               onChange={(e) => setVaCount(Number(e.target.value))}
               className="relative w-full p-3 sm:p-4 md:p-5 bg-card/90 backdrop-blur-sm border-2 border-border/50 hover:border-gold/70 focus:border-gold rounded-lg sm:rounded-xl text-center font-bold text-lg sm:text-xl lg:text-2xl focus:outline-none focus:ring-2 focus:ring-gold/20 transition-all duration-300 text-foreground appearance-none cursor-pointer shadow-md hover:shadow-lg hover:shadow-gold/10 active:scale-[0.98]"
               style={{ backgroundImage: 'none' }}
-              aria-label="Select number of virtual assistants"
+              aria-label="Select SEO plan level"
             >
               {Array.from({ length: MAX_VA_COUNT }, (_, i) => i + 1).map(num => (
                 <option key={num} value={num} className="text-foreground bg-card py-2 sm:py-3">
-                  {num} VA{num > 1 ? 's' : ''}
+                  {num} Plan{num > 1 ? 's' : ''}
                 </option>
               ))}
             </select>

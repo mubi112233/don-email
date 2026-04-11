@@ -73,20 +73,20 @@ export const HowItWorksDynamic = () => {
             },
             {
               stepNumber: 2,
-              title: "Get Matched with Your VA",
-              description: "We'll match you with a pre-vetted virtual assistant based on your specific needs.",
+              title: "Get Your SEO Audit",
+              description: "We'll analyze your website and create a customized SEO strategy based on your specific needs.",
               icon: "UserCheck"
             },
             {
               stepNumber: 3,
-              title: "Onboard and Start Working",
-              description: "Meet your VA and begin delegating tasks. We'll handle all the paperwork.",
+              title: "Implementation Begins",
+              description: "Our team starts optimizing your site. We'll handle all technical SEO and content improvements.",
               icon: "Rocket"
             },
             {
               stepNumber: 4,
-              title: "Scale Your Business",
-              description: "Watch your productivity soar as your VA handles routine tasks and supports your growth.",
+              title: "Watch Your Rankings Grow",
+              description: "See your organic traffic increase as our SEO strategies take effect and drive measurable growth.",
               icon: "LineChart"
             }
           ];
@@ -107,20 +107,20 @@ export const HowItWorksDynamic = () => {
           },
           {
             stepNumber: 2,
-            title: "Get Matched with Your VA",
-            description: "We'll match you with a pre-vetted virtual assistant based on your specific needs.",
+            title: "Get Your SEO Audit",
+            description: "We'll analyze your website and create a customized SEO strategy based on your specific needs.",
             icon: "UserCheck"
           },
           {
             stepNumber: 3,
-            title: "Onboard and Start Working",
-            description: "Meet your VA and begin delegating tasks. We'll handle all the paperwork.",
+            title: "Implementation Begins",
+            description: "Our team starts optimizing your site. We'll handle all technical SEO and content improvements.",
             icon: "Rocket"
           },
           {
             stepNumber: 4,
-            title: "Scale Your Business",
-            description: "Watch your productivity soar as your VA handles routine tasks and supports your growth.",
+            title: "Watch Your Rankings Grow",
+            description: "See your organic traffic increase as our SEO strategies take effect and drive measurable growth.",
             icon: "LineChart"
           }
         ];

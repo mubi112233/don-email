@@ -90,23 +90,23 @@ const translations: Record<string, Record<string, string>> = {
   },
   ge: {
     badge: "Kontakt aufnehmen",
-    title: "Finden Sie Ihren perfekten VA",
-    subtitle: "Erzählen Sie uns von Ihren Bedürfnissen und wir finden den richtigen VA innerhalb von 48 Stunden.",
+    title: "Lassen Sie Ihre SEO verbessern",
+    subtitle: "Erzählen Sie uns von Ihrer Website und Ihren Zielen, und wir erstellen eine maßgeschneiderte SEO-Strategie innerhalb von 48 Stunden.",
     email: "E-Mail-Adresse",
     phone: "Telefonnummer",
     mainServiceLabel: "Hauptdienstleistung",
     mainServicePlaceholder: "Dienst auswählen",
     mainServiceOtherLabel: "Dienst beschreiben",
     mainServiceOtherPlaceholder: "Beschreiben Sie Ihre Anforderungen...",
-    vaCountLabel: "Wie viele VAs benötigen Sie?",
-    vaCountPlaceholder: "z.B. 2",
-    va1Label: "VA #1 — Hintergrund & Aufgaben",
-    va2IndustryLabel: "VA #2 — Branche",
-    va2Label: "VA #2 — Hintergrund & Aufgaben",
-    va3IndustryLabel: "VA #3 — Branche",
-    va3Label: "VA #3 — Hintergrund & Aufgaben",
-    va4IndustryLabel: "VA #4 — Branche",
-    va4Label: "VA #4 — Hintergrund & Aufgaben",
+    vaCountLabel: "Monatliches Budget (EUR)?",
+    vaCountPlaceholder: "z.B. 2000",
+    va1Label: "Website-URL",
+    va2IndustryLabel: "Branche",
+    va2Label: "Aktuelle SEO-Herausforderungen",
+    va3IndustryLabel: "Zielmarkt",
+    va3Label: "Ziele & Objectives",
+    va4IndustryLabel: "Wettbewerber",
+    va4Label: "Zusätzliche Informationen",
     otherTasksLabel: "Weitere Anmerkungen",
     otherTasksPlaceholder: "Was sollen wir noch wissen...",
     submit: "Nachricht senden",
@@ -116,15 +116,15 @@ const translations: Record<string, Record<string, string>> = {
     phoneRequired: "Telefon ist erforderlich",
     phoneInvalid: "Gültige Telefonnummer eingeben",
     mainServiceRequired: "Bitte wählen Sie einen Dienst",
-    vaCountRequired: "Bitte geben Sie die Anzahl der VAs ein",
+    vaCountRequired: "Bitte geben Sie Ihr monatliches Budget ein",
     sideTitle: "Warum mit uns arbeiten?",
     stat1Value: "200+",
     stat1Label: "Zufriedene Kunden",
-    stat2Value: "48h",
-    stat2Label: "Onboarding-Zeit",
+    stat2Value: "340%",
+    stat2Label: "Traffic-Wachstum",
     stat3Value: "4.9/5",
     stat3Label: "Durchschnittsbewertung",
-    feature1: "Geprüfte, deutschsprachige VAs",
+    feature1: "Datengesteuerte SEO-Strategien",
     feature2: "Bis zu 70% günstiger als lokale Einstellungen",
     feature3: "14-Tage-Geld-zurück-Garantie",
     feature4: "Persönlicher Account Manager",
@@ -404,7 +404,7 @@ export default function ContactClient({ lang }: { lang: string }) {
                   </div>
                 </FormSection>
 
-                {/* VA Count */}
+                {/* Budget */}
                 <FormSection icon={Users} title="Team Size">
                   <div className="space-y-1.5">
                     <Label htmlFor="vaCount" className="text-sm">{c.vaCountLabel} <span className="text-gold">*</span></Label>
@@ -420,7 +420,7 @@ export default function ContactClient({ lang }: { lang: string }) {
                     <FieldError message={errors.vaCount?.message} />
                   </div>
 
-                  {/* Dynamic VA fields */}
+                  {/* Dynamic fields */}
                   <AnimatePresence>
                     {[1, 2, 3, 4].map((n) =>
                       Number(vaCountValue) >= n ? (

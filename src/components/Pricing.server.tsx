@@ -24,7 +24,7 @@ const plans: PricingPlan[] = [
     price: 369,
     setupFee: 149,
     features: [
-      "Dedicated VA",
+      "Dedicated SEO Specialist",
       "Native Quality Control", 
       "24h Replacement Guarantee",
       "Slack/Email Support",
@@ -70,9 +70,9 @@ const plans: PricingPlan[] = [
 export async function Pricing({ lang }: { lang: string }) {
   const copy = getCopy(lang, 'pricing');
   
-  // Calculate average price per VA per hour
+  // Calculate average price per month
   const avgHoursPerWeek = 20; // Professional plan baseline
-  const avgPricePerVA = plans[1].price; // Professional plan price
+  const avgPricePerPlan = plans[1].price; // Professional plan price
 
   return (
     <section 
@@ -149,10 +149,10 @@ export async function Pricing({ lang }: { lang: string }) {
           </p>
         </div>
 
-        {/* Price per VA indicator */}
+        {/* Price indicator */}
         <div className="max-w-xl mx-auto mb-8 sm:mb-10 md:mb-12 text-center">
           <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-gold/10 text-foreground text-xs sm:text-sm font-semibold rounded-full border border-gold/30 shadow-sm">
-            {copy.startingFrom.replace('{price}', avgPricePerVA.toString()).replace('{hourly}', Math.round(avgPricePerVA / (avgHoursPerWeek * 4)).toString())}
+            {copy.startingFrom.replace('{price}', avgPricePerPlan.toString()).replace('{hourly}', Math.round(avgPricePerPlan / (avgHoursPerWeek * 4)).toString())}
           </span>
         </div>
 

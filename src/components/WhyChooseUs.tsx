@@ -41,21 +41,21 @@ export const WhyChooseUs = () => {
     heading: "Was uns <span class=\"text-gold\">auszeichnet</span>",
     description: "Deutschsprachige Talente, native Qualitätskontrolle, schnelles Onboarding und eine Null‑Risiko‑Garantie.",
     items: [
-      { icon: "Target", title: "Sorgfältig geprüfte Fachkräfte", description: "Jeder virtuelle Assistent wird sorgfältig geprüft und getestet, um unsere hohen Qualitätsstandards zu erfüllen." },
+      { icon: "Target", title: "Sorgfältig geprüfte Experten", description: "Jeder SEO-Experte wird sorgfältig geprüft und getestet, um unsere hohen Qualitätsstandards zu erfüllen." },
       { icon: "Shield", title: "Sicher & vertraulich", description: "Ihre Daten und Geschäftsinformationen sind durch Sicherheitsmaßnahmen auf Unternehmensebene geschützt." },
-      { icon: "Zap", title: "Blitzschnelles Onboarding", description: "Starten Sie innerhalb von 24 Stunden. Unser optimierter Prozess stellt sicher, dass Sie schnell den richtigen Assistenten haben." },
+      { icon: "Zap", title: "Schnelle Umsetzung", description: "Starten Sie innerhalb von 24 Stunden. Unser optimierter Prozess stellt sicher, dass Sie schnell erste Ergebnisse sehen." },
       { icon: "HeartHandshake", title: "Dedizierter Support", description: "Unser Team ist immer verfügbar, um eine reibungslose Zusammenarbeit zu gewährleisten und Anliegen zu klären." },
       { icon: "TrendingUp", title: "Skalierbare Lösungen", description: "Skalieren Sie flexibel nach oben oder unten, ohne den Aufwand traditioneller Einstellungen." },
       { icon: "Award", title: "Bewährte Erfolgsbilanz", description: "Von 200+ Unternehmen vertraut mit einer Kundenzufriedenheitsrate von 95%." },
     ]
   } : {
     badge: "Why Choose Us",
-    heading: "The Perfect Virtual Assistant Solution",
-    description: "Experience the difference with our professional virtual assistants who are trained to deliver exceptional results.",
+    heading: "The Perfect SEO Solution",
+    description: "Experience the difference with our professional SEO experts who are trained to deliver exceptional results.",
     items: [
-      { icon: "Target", title: "Expertly Vetted Professionals", description: "Every virtual assistant is carefully screened and tested to ensure they meet our high standards of excellence." },
+      { icon: "Target", title: "Expertly Vetted Professionals", description: "Every SEO expert is carefully screened and tested to ensure they meet our high standards of excellence." },
       { icon: "Shield", title: "Secure & Confidential", description: "Your data and business information are protected with enterprise-grade security measures." },
-      { icon: "Zap", title: "Lightning Fast Onboarding", description: "Get started within 24 hours. Our streamlined process ensures you have the right assistant quickly." },
+      { icon: "Zap", title: "Lightning Fast Results", description: "Get started within 24 hours. Our streamlined process ensures you see improvements quickly." },
       { icon: "HeartHandshake", title: "Dedicated Support", description: "Our team is always available to ensure smooth collaboration and address any concerns." },
       { icon: "TrendingUp", title: "Scalable Solutions", description: "Easily scale up or down based on your business needs without the overhead of traditional hiring." },
       { icon: "Award", title: "Proven Track Record", description: "Trusted by 200+ businesses with a 95% client satisfaction rate." },
