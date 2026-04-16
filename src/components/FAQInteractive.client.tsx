@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { HelpCircle, Shield, Zap } from "lucide-react";
+import { Shield, Zap } from "lucide-react";
 import { getCopy } from "@/lib/copy";
 import type { FAQItem } from "@/lib/api";
 

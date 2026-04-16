@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Check, Star, Sparkles, Calendar, ArrowRight } from "lucide-react";
 import { getCopy } from "@/lib/copy";
 import { SPACING } from "@/lib/constants";
@@ -284,7 +283,7 @@ export async function Pricing({ lang }: { lang: string }) {
                 </a>
               </div>
             </div>
-          )})
+          )})}
         </div>
 
         <p className="text-center text-white/60 mt-10 sm:mt-12 md:mt-16 lg:mt-20 max-w-3xl mx-auto leading-relaxed text-sm sm:text-base px-4">

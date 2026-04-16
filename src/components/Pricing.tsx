@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Check, Star, Sparkles, Calendar, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { SPACING } from "@/lib/constants";
 import { getCopy } from "@/lib/copy";
 import { siteConfig, localizedPath } from "@/lib/site-config";
 

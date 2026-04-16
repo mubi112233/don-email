@@ -49,8 +49,7 @@ export async function fetchAPI(
 ): Promise<Response> {
   const url = endpoint.startsWith('http') ? endpoint : `${getApiBase()}${endpoint}`;
   const fetchOptions = createFetchOptions(options);
-  const tenantId = getTenantId();
-  
+
   // Log actual headers being sent
   const headersObj: Record<string, string> = {};
   if (fetchOptions.headers instanceof Headers) {
@@ -58,7 +57,7 @@ export async function fetchAPI(
       headersObj[key] = value;
     });
   }
-  
+
   console.log('[API Server] Fetching:', url);
   console.log('[API Server] Headers:', headersObj);
   console.log('[API Server] Tenant ID from env:', process.env.NEXT_PUBLIC_TENANT_ID);
@@ -76,8 +75,7 @@ export async function fetchAPIClient(
 ): Promise<Response> {
   const url = endpoint.startsWith('http') ? endpoint : `${getApiBase()}${endpoint}`;
   const fetchOptions = createFetchOptions(options);
-  const tenantId = getTenantId();
-  
+
   // Log actual headers being sent
   const headersObj: Record<string, string> = {};
   if (fetchOptions.headers instanceof Headers) {
@@ -85,7 +83,7 @@ export async function fetchAPIClient(
       headersObj[key] = value;
     });
   }
-  
+
   console.log('[API Client] Fetching:', url);
   console.log('[API Client] Headers:', headersObj);
   console.log('[API Client] Tenant ID from env:', process.env.NEXT_PUBLIC_TENANT_ID);

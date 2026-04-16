@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import * as LucideIcons from "lucide-react";
 import { fetchServices, Service } from "@/lib/api";
-import { SPACING } from "@/lib/constants";
 import { usePathname } from "next/navigation";
 
 const iconMap: Record<string, any> = {

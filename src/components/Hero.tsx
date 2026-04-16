@@ -5,9 +5,7 @@ import { motion, useInView, useScroll, useSpring, useTransform, useMotionValue }
 import { useRef, useState, useEffect, useMemo } from "react";
 import {
   ArrowRight,
-  Calendar,
   Sparkles,
-  Award,
   Loader2,
   TrendingUp,
   Search,
@@ -23,6 +21,7 @@ import { siteConfig, localizedPath, type SiteLocale } from "@/lib/site-config";
 
 export const Hero = () => {
   const ref = useRef(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const isInView = useInView(ref, { once: true, amount: 0.3 });
   const router = useRouter();
 
