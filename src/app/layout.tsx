@@ -65,6 +65,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  verification: {
+    google: "owA83i5dtMBx2-hhn9CBrI0wGgffRYCV2ux3FXUGG04",
+  },
   robots: {
     index: true,
     follow: true,
