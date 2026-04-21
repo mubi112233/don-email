@@ -70,10 +70,10 @@ export default function BookMeetingClient() {
               </motion.div>
               <div className="flex flex-col">
                 <span className="text-xl sm:text-2xl font-black bg-gradient-to-r from-foreground via-foreground to-foreground/90 bg-clip-text text-transparent group-hover:from-blue-400 group-hover:to-blue-600 transition-all duration-300">
-                  TalentSource
+                  don-webdesign
                 </span>
                 <span className="text-[10px] sm:text-xs text-blue-400/80 font-semibold -mt-1 tracking-wide">
-                  VA Services
+                  Web Design Agency
                 </span>
               </div>
             </motion.div>
@@ -230,9 +230,9 @@ export default function BookMeetingClient() {
               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4">We&apos;ll Discuss</h3>
               <ul className="space-y-3">
                 {[
-                  "Your current operational challenges",
-                  "How VAs can improve your operational efficiency",
-                  "Custom solutions for your business",
+                  "Your current brand & design challenges",
+                  "How great design can elevate your brand",
+                  "Custom creative solutions for your business",
                   "Pricing & team structure options",
                   "Next steps to get started",
                 ].map((item) => (
@@ -249,8 +249,8 @@ export default function BookMeetingClient() {
             {/* Trust Indicators */}
             <div className="grid grid-cols-3 gap-4 pt-4">
               {[
-                { value: "200+", label: "Clients" },
-                { value: "70%", label: "Cost Saved" },
+                { value: "50+", label: "Clients" },
+                { value: "250+", label: "Projects" },
                 { value: "4.9/5", label: "Rating" },
               ].map(({ value, label }) => (
                 <div key={label} className="text-center p-4 bg-card border border-border rounded-lg">
@@ -266,7 +266,7 @@ export default function BookMeetingClient() {
             <div className="lg:sticky lg:top-24">
               <div className="bg-card border border-border rounded-xl p-2 shadow-lg">
                 <iframe
-                  src="https://calendly.com/mmubasharshahzad40/new-meeting?embed_domain=talentsource.com&embed_type=Inline"
+                  src="https://calendly.com/don-webdesign/webdesign-consultation?embed_domain=don-webdesign.com&embed_type=Inline"
                   className="rounded-lg"
                   style={{ minWidth: "100%", height: "600px", border: "none" }}
                   title="Book a meeting"
@@ -293,14 +293,14 @@ export default function BookMeetingClient() {
             <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-foreground">
               What Our Clients Say
             </h2>
-            <p className="text-muted-foreground">See why businesses trust TalentSource</p>
+            <p className="text-muted-foreground">See why brands trust don-webdesign</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 name: "Sarah Johnson",
                 role: "CEO, TechStart Inc",
-                text: "TalentSource transformed our operations. We scaled our team while reducing costs significantly.",
+                text: "don-webdesign transformed our website completely. The design work elevated our online presence.",
                 rating: 5,
               },
               {
@@ -312,7 +312,7 @@ export default function BookMeetingClient() {
               {
                 name: "Emma Davis",
                 role: "Director, MarketPro",
-                text: "Professional, reliable, and results-driven. Couldn't ask for more from a staffing partner.",
+                text: "Creative, professional, and detail-oriented. Couldn't ask for more from a design partner.",
                 rating: 5,
               },
             ].map((t, idx) => (

@@ -130,7 +130,7 @@ export const colorSchemes = {
     },
   },
   
-  // Blue Theme (VA Staffing - matching frontend)
+  // Blue Theme (Legacy)
   blue: {
     ...defaultDesignTokens,
     colors: {
@@ -226,3 +226,5 @@ export const generateUtilityClasses = () => {
     muted: 'bg-muted text-muted-foreground',
   };
 };
+
+

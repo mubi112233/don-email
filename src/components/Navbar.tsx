@@ -5,8 +5,10 @@ import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig, normalizeLocale, localizedPath, localeUrlPrefix } from "@/lib/site-config";
+import { cn } from "@/lib/utils";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -100,11 +102,12 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-lg"
-          : "bg-background/80 backdrop-blur-sm"
-      }`}
+          ? "bg-background/95 backdrop-blur-xl shadow-lg border-b border-border/50"
+          : "bg-background"
+      )}
     >
       <div className="container mx-auto px-4 sm:px-6 md:px-6 lg:px-10 xl:px-12">
         <div className="flex items-center justify-between h-16 sm:h-18 md:h-[72px] lg:h-20">
@@ -113,36 +116,36 @@ export const Navbar = () => {
             onClick={() => router.push(`/${localeUrlPrefix(siteLocale)}`)}
             className="flex items-center space-x-2 sm:space-x-3 hover:bg-white/10 rounded-lg px-2 py-1 transition-all duration-300"
           >
-            <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-9 md:h-9 lg:w-10 lg:h-10 bg-blue-500 rounded-lg flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110">
-              <span className="text-white font-bold text-base sm:text-lg md:text-lg lg:text-xl">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-9 md:h-9 lg:w-10 lg:h-10 bg-[hsl(45,100%,50%)] rounded-lg flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110">
+              <span className="text-[hsl(30,85%,10%)] font-bold text-base sm:text-lg md:text-lg lg:text-xl">
                 {siteConfig.brandMarkText}
               </span>
             </div>
-            <span className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold text-foreground hover:text-blue-500 transition-colors duration-300">
+            <span className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold text-foreground hover:text-[hsl(45,100%,50%)] transition-colors duration-300 whitespace-nowrap">
               {siteConfig.brandName}
             </span>
           </button>
 
-          <div className="hidden md:flex items-center space-x-2 md:space-x-3 lg:space-x-6 xl:space-x-8">
+          <div className="hidden md:flex items-center space-x-1 lg:space-x-2 xl:space-x-4">
             {navItems.map((item) => (
               <button
                 type="button"
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                className="relative text-muted-foreground hover:text-foreground transition-all duration-300 font-medium text-sm md:text-sm lg:text-base px-2 md:px-2.5 lg:px-3 py-2 rounded-lg hover:bg-accent group whitespace-nowrap"
+                className="relative text-foreground/90 hover:text-foreground transition-colors duration-300 font-medium text-sm lg:text-base px-2 lg:px-3 py-2 rounded-lg hover:bg-accent group whitespace-nowrap"
               >
                 {item.name}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-3/4 transition-all duration-300" />
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[hsl(45,100%,50%)] group-hover:w-4/5 transition-all duration-300" />
               </button>
             ))}
           </div>
 
-          <div className="hidden md:flex items-center space-x-2 md:space-x-2.5 lg:space-x-3 xl:space-x-4">
+          <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => switchLanguage(currentLang === "en" ? "de" : "en")}
-              className="px-2 py-1 text-xs md:text-xs lg:text-sm text-muted-foreground hover:bg-accent hover:text-foreground"
+              className="px-2 py-1 text-xs md:text-xs lg:text-sm text-foreground/90 hover:bg-accent hover:text-foreground transition-colors duration-300"
               aria-label="Change language"
             >
               {currentLang.toUpperCase()}
@@ -152,31 +155,25 @@ export const Navbar = () => {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="relative text-muted-foreground hover:bg-accent hover:text-foreground w-9 h-9 md:w-9 md:h-9 lg:w-10 lg:h-10 transition-all duration-300 hover:scale-110 overflow-hidden"
+              className="relative text-foreground/90 hover:bg-accent hover:text-foreground w-9 h-9 transition-all duration-300"
               aria-label="Toggle theme"
             >
               <ThemeIcon />
             </Button>
 
-            <button
-              type="button"
-              onClick={() => {
-                router.push(localizedPath(siteLocale, siteConfig.routes.contact));
-              }}
-              className="text-sm md:text-sm lg:text-base px-4 md:px-4 lg:px-6 py-2 md:py-2 lg:py-2 border border-border text-foreground rounded-lg hover:bg-accent hover:text-foreground transition-all duration-300 font-semibold whitespace-nowrap"
+            <Link
+              href={localizedPath(siteLocale, siteConfig.routes.contact)}
+              className="text-sm px-3 lg:px-4 py-2 border border-[hsl(45,100%,50%)]/50 rounded-full hover:bg-[hsl(45,100%,50%)]/10 hover:border-[hsl(45,100%,50%)] transition-all duration-300 font-semibold whitespace-nowrap text-foreground"
             >
               {currentLang === "de" ? "Kontakt" : "Contact"}
-            </button>
+            </Link>
 
-            <button
-              type="button"
-              onClick={() => {
-                router.push(localizedPath(siteLocale, siteConfig.routes.bookMeeting));
-              }}
-              className="text-sm md:text-sm lg:text-base px-4 md:px-4 lg:px-7 py-2 md:py-2 lg:py-2.5 bg-primary text-primary-foreground rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 font-semibold whitespace-nowrap"
+            <Link
+              href={localizedPath(siteLocale, siteConfig.routes.bookMeeting)}
+              className="text-sm px-3 lg:px-4 py-2 bg-[hsl(45,100%,50%)] text-[hsl(30,85%,10%)] rounded-full hover:bg-[hsl(45,100%,45%)] transition-all duration-300 shadow-lg shadow-[hsl(45,100%,50%)]/30 font-semibold whitespace-nowrap"
             >
-              {currentLang === "de" ? "Jetzt starten" : "Get Started"}
-            </button>
+              {currentLang === "de" ? "Starten" : "Get Started"}
+            </Link>
           </div>
 
           <div className="md:hidden flex items-center space-x-2">
@@ -185,7 +182,7 @@ export const Navbar = () => {
                 variant="ghost"
                 size="icon"
                 onClick={() => switchLanguage(currentLang === "en" ? "de" : "en")}
-                className="text-muted-foreground hover:bg-accent hover:text-foreground w-9 h-9 transition-all duration-300"
+                className="text-foreground/90 hover:bg-accent hover:text-foreground w-9 h-9 transition-all duration-300"
                 aria-label="Change language"
               >
                 <span className="text-sm font-medium">{currentLang.toUpperCase()}</span>
@@ -194,7 +191,7 @@ export const Navbar = () => {
                 variant="ghost"
                 size="icon"
                 onClick={toggleTheme}
-                className="text-muted-foreground hover:bg-accent hover:text-foreground w-9 h-9 transition-all duration-300"
+                className="text-foreground/90 hover:bg-accent hover:text-foreground w-9 h-9 transition-all duration-300"
                 aria-label="Toggle theme"
               >
                 <ThemeIcon />
@@ -204,7 +201,7 @@ export const Navbar = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-muted-foreground hover:bg-accent hover:text-foreground w-9 h-9 transition-all duration-300"
+              className="text-foreground/90 hover:bg-accent hover:text-foreground w-9 h-9 transition-all duration-300"
               aria-label="Toggle menu"
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -240,7 +237,7 @@ export const Navbar = () => {
                         router.push(currentLang === "de" ? "/de/contact" : "/en/contact");
                         setIsOpen(false);
                       }}
-                      className="w-full text-center text-base py-3 border border-border text-foreground rounded-lg font-semibold hover:bg-accent hover:text-foreground transition-colors"
+                      className="w-full text-center text-base py-3 border border-[hsl(45,100%,50%)]/50 text-foreground rounded-lg font-semibold hover:bg-[hsl(45,100%,50%)]/10 hover:border-[hsl(45,100%,50%)] transition-all duration-300"
                     >
                       {currentLang === "de" ? "Kontakt" : "Contact"}
                     </button>
@@ -250,7 +247,7 @@ export const Navbar = () => {
                         router.push(currentLang === "de" ? "/de/book-meeting" : "/en/book-meeting");
                         setIsOpen(false);
                       }}
-                      className="w-full text-center text-base py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+                      className="w-full text-center text-base py-3 bg-[hsl(45,100%,50%)] text-[hsl(30,85%,10%)] rounded-lg font-semibold hover:bg-[hsl(45,100%,45%)] hover:shadow-lg hover:shadow-[hsl(45,100%,50%)]/30 transition-all duration-300"
                     >
                       {currentLang === "de" ? "Jetzt starten" : "Get Started"}
                     </button>
@@ -264,3 +261,5 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+

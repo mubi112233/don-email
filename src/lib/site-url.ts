@@ -2,8 +2,12 @@
  * Canonical site origin for metadata, sitemap, and JSON-LD.
  * Set NEXT_PUBLIC_SITE_URL in production to match your live domain.
  */
+export const isProduction = process.env.NODE_ENV === "production";
+
+const DEFAULT_SITE_URL = isProduction ? "https://don-webdesign.com" : "http://localhost:3000";
+
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://don-recruitment.com"
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || DEFAULT_SITE_URL
 ) as string;
 
 export function absoluteUrl(path: string): string {
@@ -36,3 +40,5 @@ export function hreflangAlternates(pathAfterLocale: string): {
     },
   };
 }
+
+

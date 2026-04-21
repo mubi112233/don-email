@@ -19,7 +19,7 @@ export function FAQInteractive({ faqs, lang }: { faqs: FAQItem[]; lang: string }
   return (
     <section
       id="faq"
-      className="relative py-4 sm:py-6 md:py-8 lg:py-10 z-40 overflow-hidden bg-muted/30"
+      className="relative py-4 sm:py-6 md:py-8 lg:py-10 z-40 overflow-hidden bg-background text-foreground"
     >
       <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 relative z-10">
         <div className="max-w-4xl mx-auto">
@@ -31,7 +31,7 @@ export function FAQInteractive({ faqs, lang }: { faqs: FAQItem[]; lang: string }
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <motion.span
-              className="inline-block px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-primary-foreground text-xs sm:text-sm font-bold rounded-full mb-3 sm:mb-4 shadow-lg"
+              className="inline-block px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 bg-primary text-primary-foreground text-xs sm:text-sm font-bold rounded-full mb-3 sm:mb-4 shadow-lg"
               whileHover={{ scale: 1.05 }}
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
@@ -71,9 +71,9 @@ export function FAQInteractive({ faqs, lang }: { faqs: FAQItem[]; lang: string }
                 >
                   <AccordionItem
                     value={`item-${index}`}
-                    className="bg-background border border-border rounded-lg sm:rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300"
+                    className="bg-card border border-border rounded-lg sm:rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300"
                   >
-                    <AccordionTrigger className="text-left text-base sm:text-lg md:text-xl font-semibold hover:text-primary py-5 sm:py-6 hover:no-underline transition-colors [&[data-state=open]>span>span:first-child]:bg-primary [&[data-state=open]>span>span:first-child]:text-primary-foreground">
+                    <AccordionTrigger className="text-left text-base sm:text-lg md:text-xl font-semibold text-foreground hover:text-primary py-5 sm:py-6 hover:no-underline transition-colors [&[data-state=open]>span>span:first-child]:bg-primary [&[data-state=open]>span>span:first-child]:text-primary-foreground">
                       <span className="flex items-start gap-3">
                         <span className="flex-shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-primary/10 flex items-center justify-center text-primary text-sm font-bold mt-0.5 transition-colors">
                           {index + 1}
@@ -127,7 +127,7 @@ export function FAQInteractive({ faqs, lang }: { faqs: FAQItem[]; lang: string }
           </motion.div>
 
           <motion.div
-            className="mt-8 sm:mt-10 md:mt-12 p-6 sm:p-8 bg-background border-2 border-border rounded-xl sm:rounded-2xl text-center"
+            className="mt-8 sm:mt-10 md:mt-12 p-6 sm:p-8 bg-card border-2 border-primary/20 rounded-xl sm:rounded-2xl text-center"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -148,7 +148,7 @@ export function FAQInteractive({ faqs, lang }: { faqs: FAQItem[]; lang: string }
               </a>
               <a
                 href="#pricing"
-                className="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-border text-foreground font-semibold rounded-xl hover:border-primary hover:bg-primary/5 transition-all duration-300"
+                className="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-primary/30 text-foreground font-semibold rounded-xl hover:border-primary hover:bg-primary/10 transition-all duration-300"
               >
                 {copy.viewPricing}
               </a>
@@ -159,3 +159,5 @@ export function FAQInteractive({ faqs, lang }: { faqs: FAQItem[]; lang: string }
     </section>
   );
 }
+
+

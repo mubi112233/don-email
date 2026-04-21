@@ -14,19 +14,19 @@ export async function generateMetadata({
   const { lang: raw } = await params;
   const seg = publicLocalePathSegment(raw);
   const isDE = seg === "de";
-  const title = isDE ? "Kontakt — Recruiting Agentur" : "Contact — Recruitment Agency";
+  const title = isDE ? "Kontakt — Webdesign Agentur" : "Contact — Web Design Agency";
   const description = isDE
-    ? "Kontaktieren Sie DON Recruitment für eine Beratung zu Personalvermittlung, Executive Search und Talent Acquisition."
-    : "Contact DON Recruitment for a consultation about talent acquisition, executive search, and recruitment services.";
+    ? "Kontaktieren Sie don-webdesign für eine kostenlose Beratung zu Webdesign, Webentwicklung und Website-Projekten."
+    : "Contact don-webdesign for a free consultation about web design, web development, and website projects.";
   const { languages } = hreflangAlternates("contact");
   const canonical = absoluteUrl(`/${seg}/contact`);
 
   return {
-    title: { absolute: `${title} | DON Recruitment` },
+    title: { absolute: `${title} | don-webdesign` },
     description,
     keywords: isDE
-      ? ["kontakt DON Recruitment", "recruiting anfrage", "personalberatung", "executive search kontakt"]
-      : ["contact DON Recruitment", "recruitment inquiry", "talent acquisition consultation", "hiring agency contact"],
+      ? ["kontakt don-webdesign", "webdesign anfrage", "webentwicklung beratung", "website projekt"]
+      : ["contact don-webdesign", "web design inquiry", "web development consultation", "website agency contact"],
     alternates: {
       canonical,
       languages,
@@ -38,8 +38,8 @@ export async function generateMetadata({
       type: "website",
       locale: isDE ? "de_DE" : "en_US",
       alternateLocale: isDE ? "en_US" : "de_DE",
-      siteName: "DON Recruitment",
-      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "DON Recruitment" }],
+      siteName: "don-webdesign",
+      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "don-webdesign Web Design Agency" }],
     },
     twitter: {
       card: "summary_large_image",

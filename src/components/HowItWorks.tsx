@@ -15,14 +15,14 @@ const iconMap = {
 
 const sectionCopy = {
   en: {
-    badge: "Simple 4-Step Process",
-    heading: "How We Build Your Team",
-    description: "From your requirements to talent placement in just 7 days. Simple, transparent, and hassle-free recruitment.",
+    badge: "Web Design in 4 Steps",
+    heading: "How It Works",
+    description: "From discovery to launch in weeks—not months. Clear milestones and measurable results.",
   },
   ge: {
-    badge: "4-Schritte Prozess",
-    heading: "So bauen wir Ihr Team auf",
-    description: "Von Ihren Anforderungen zur Personalplatzierung in nur 7 Tagen. Einfache, transparente und problemlose Rekrutierung.",
+    badge: "Webdesign in 4 Schritten",
+    heading: "So funktioniert's",
+    description: "Von der Entdeckung bis zum Launch in Wochen – nicht Monaten. Klare Meilensteine und messbare Ergebnisse.",
   },
 };
 
@@ -49,10 +49,10 @@ export const HowItWorks = () => {
 
   if (loading) {
     return (
-      <section id="how-it-works" className="relative py-4 sm:py-6 md:py-8 lg:py-10 z-20">
+      <section id="how-it-works" className="relative py-4 sm:py-6 md:py-8 lg:py-10 z-20 bg-background">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center">
-            <Loader2 className="w-8 h-8 animate-spin mx-auto text-blue-600" />
+            <Loader2 className="w-8 h-8 animate-spin text-primary" />
           </div>
         </div>
       </section>
@@ -62,7 +62,7 @@ export const HowItWorks = () => {
   return (
     <motion.section
       id="how-it-works"
-      className="relative py-4 sm:py-6 md:py-8 lg:py-10 z-20"
+      className="relative py-4 sm:py-6 md:py-8 lg:py-10 z-20 bg-background"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.05 }}
@@ -76,13 +76,13 @@ export const HowItWorks = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <span className="inline-block px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-sm font-semibold rounded-full mb-4 shadow-lg">
+          <span className="inline-block px-4 py-2 bg-primary text-primary-foreground text-sm font-semibold rounded-full mb-4 shadow-lg">
             {copy.badge}
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-slate-900 dark:text-white">
-            {copy.heading.split(' ').slice(0, -2).join(' ')} <span className="bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent">{copy.heading.split(' ').slice(-2).join(' ')}</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-foreground">
+            How It <span className="text-primary">Works</span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
             {copy.description}
           </p>
         </motion.div>
@@ -101,39 +101,39 @@ export const HowItWorks = () => {
               >
                 <div className={`flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-10 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
                   <motion.div
-                    className="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-gold via-blue-400 to-gold flex items-center justify-center shadow-[0_20px_60px_-15px_hsl(215_80%_55%/0.6)] relative group"
-                    whileHover={{ scale: 1.1, rotate: 360 }}
+                    className="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full bg-primary flex items-center justify-center shadow-[0_20px_60px_-15px_hsl(var(--primary)/0.4)] relative group"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ duration: 0.6, ease: "easeInOut" }}
                   >
-                    <div className="absolute inset-0 rounded-full bg-blue-500/20 blur-xl group-hover:blur-2xl transition-all duration-500" />
-                    <IconComponent className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 text-black relative z-10" />
-                    <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-7 h-7 sm:w-8 sm:h-8 bg-foreground text-gold rounded-full flex items-center justify-center text-xs sm:text-sm font-bold border-2 border-gold">
+                    <div className="absolute inset-0 rounded-full bg-primary/30 blur-xl group-hover:blur-2xl transition-all duration-500" />
+                    <IconComponent className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 text-primary-foreground relative z-10" />
+                    <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-7 h-7 sm:w-8 sm:h-8 bg-background text-primary rounded-full flex items-center justify-center text-xs sm:text-sm font-bold border-2 border-primary">
                       {step.stepNumber || index + 1}
                     </div>
                   </motion.div>
 
                   <motion.div
-                    className={`relative flex-1 bg-white dark:bg-blue-900/30 border border-gray-200 dark:border-blue-600/30 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 hover:bg-gray-50 dark:hover:bg-blue-800/40 hover:border-gray-300 dark:hover:border-blue-500/50 hover:shadow-lg transition-all duration-500 group overflow-hidden ${index % 2 === 1 ? 'md:text-right' : ''}`}
+                    className={`relative flex-1 bg-card border border-border rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 hover:border-primary/40 hover:shadow-[0_20px_60px_-15px_hsl(var(--primary)/0.2)] transition-all duration-500 group overflow-hidden ${index % 2 === 1 ? 'md:text-right' : ''}`}
                     whileHover={{ y: -8, scale: 1.02 }}
                   >
-                    <p className="text-blue-600 dark:text-cyan-300 font-bold text-sm uppercase tracking-wider mb-3 inline-block px-3 py-1 bg-blue-100 dark:bg-cyan-500/20 rounded-full">
-                      {step.stepLabel || `Step ${index + 1}`}
+                    <p className="text-primary font-bold text-sm uppercase tracking-wider mb-3">
+                      {step.stepLabel || `STEP ${index + 1}`}
                     </p>
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-cyan-300 transition-colors duration-300">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-foreground group-hover:text-primary transition-colors duration-300">
                       {step.title}
                     </h3>
-                    <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base md:text-lg">
+                    <p className="text-muted-foreground leading-relaxed text-sm sm:text-base md:text-lg">
                       {step.description}
                     </p>
 
                     {/* Decorative corner */}
-                    <div className={`absolute ${index % 2 === 1 ? 'top-0 left-0 border-t-2 border-l-2 rounded-tl-xl sm:rounded-tl-2xl' : 'bottom-0 right-0 border-b-2 border-r-2 rounded-br-xl sm:rounded-br-2xl'} w-12 h-12 sm:w-16 sm:h-16 border-blue-400/0 dark:border-cyan-400/0 group-hover:border-blue-400/50 dark:group-hover:border-cyan-400/50 transition-all duration-500`} />
+                    <div className={`absolute ${index % 2 === 1 ? 'top-0 left-0 border-t-2 border-l-2 rounded-tl-xl sm:rounded-tl-2xl' : 'bottom-0 right-0 border-b-2 border-r-2 rounded-br-xl sm:rounded-br-2xl'} w-12 h-12 sm:w-16 sm:h-16 border-primary/0 group-hover:border-primary/50 transition-all duration-500`} />
                   </motion.div>
                 </div>
 
                 {index < steps.length - 1 && (
                   <motion.div
-                    className="absolute left-16 top-32 w-0.5 h-16 bg-gradient-to-b from-gold via-gold/50 to-transparent hidden md:block"
+                    className="absolute left-16 top-32 w-0.5 h-16 bg-gradient-to-b from-primary via-primary/50 to-transparent hidden md:block"
                     initial={{ scaleY: 0 }}
                     whileInView={{ scaleY: 1 }}
                     viewport={{ once: true }}
@@ -148,3 +148,5 @@ export const HowItWorks = () => {
     </motion.section>
   );
 };
+
+

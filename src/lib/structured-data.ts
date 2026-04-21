@@ -24,12 +24,12 @@ export function generateBlogStructuredData({
     "description": description,
     "author": {
       "@type": "Organization",
-      "name": "DON Recruitment",
+      "name": "don-webdesign",
       "url": SITE_URL
     },
     "publisher": {
       "@type": "Organization",
-      "name": "DON Recruitment",
+      "name": "don-webdesign",
       "logo": {
         "@type": "ImageObject",
         "url": absoluteUrl("/og-image.jpg")
@@ -73,7 +73,7 @@ export function generateServiceStructuredData({
     },
     "areaServed": areaServed,
     "hasOfferCatalog": hasOfferCatalog,
-    "serviceType": "VA Staffing Services"
+    "serviceType": "Web Design Services"
   }; 
 }
 
@@ -150,3 +150,5 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
     })),
   };
 }
+
+

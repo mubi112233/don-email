@@ -15,31 +15,31 @@ export async function generateMetadata({
 
   const isDe = seg === "de";
   const title = isDe
-    ? "Blog — Recruiting Tipps & HR Insights | DON Recruitment"
-    : "Blog — Recruitment Tips & HR Insights | DON Recruitment";
+    ? "Webdesign Blog — Tipps & Best Practices | don-webdesign"
+    : "Web Design Blog — Tips & Best Practices | don-webdesign";
   const description = isDe
-    ? "Einblicke, Tipps und Best Practices zu Recruiting, Talent Acquisition und HR-Strategie — auf Deutsch."
-    : "Insights, tips, and best practices for recruitment, talent acquisition, and HR strategy.";
+    ? "Einblicke, Tipps und Best Practices zu Webdesign, Webentwicklung und Conversion-Optimierung — auf Deutsch."
+    : "Insights, tips, and best practices for web design, web development, and conversion optimization.";
 
   return {
     title,
     description,
     keywords: isDe
       ? [
-          "Recruiting Blog",
-          "Personalvermittlung Tipps",
-          "HR deutsch",
-          "Talent Acquisition",
-          "DON Recruitment",
-          "Executive Search Blog",
+          "Webdesign Blog",
+          "Webentwicklung Tipps",
+          "Website Design deutsch",
+          "UX Design",
+          "don-webdesign",
+          "Webdesign Agentur Blog",
         ]
       : [
-          "recruitment blog",
-          "talent acquisition tips",
-          "hiring strategies",
-          "HR best practices",
-          "DON Recruitment",
-          "executive search insights",
+          "web design blog",
+          "web development tips",
+          "website design insights",
+          "UX design",
+          "don-webdesign",
+          "web agency blog",
         ],
     alternates: {
       canonical,
@@ -52,8 +52,8 @@ export async function generateMetadata({
       type: "website",
       locale: isDe ? "de_DE" : "en_US",
       alternateLocale: isDe ? "en_US" : "de_DE",
-      siteName: "DON Recruitment",
-      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "DON Recruitment" }],
+      siteName: "don-webdesign",
+      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "don-webdesign Design Blog" }],
     },
     twitter: {
       card: "summary_large_image",

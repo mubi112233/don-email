@@ -20,7 +20,7 @@ const cards = {
     {
       icon: Clock,
       title: "24h Replacement Guarantee",
-      description: "If something isn't the right fit, we'll replace your VA within 24 hours.",
+      description: "If something isn't the right fit, we'll revise your design within 24 hours.",
     },
     {
       icon: Lock,
@@ -42,7 +42,7 @@ const cards = {
     {
       icon: Clock,
       title: "24h Ersatzgarantie",
-      description: "Wenn etwas nicht passt, ersetzen wir Ihren VA innerhalb von 24 Stunden.",
+      description: "Wenn etwas nicht passt, überarbeiten wir Ihr Design innerhalb von 24 Stunden.",
     },
     {
       icon: Lock,
@@ -60,7 +60,7 @@ export const WhyChooseUsCards = () => {
 
   return (
     <motion.section
-      className={`relative ${SPACING.section} bg-[hsl(220_85%_20%)]`}
+      className={`relative ${SPACING.section} bg-[hsl(250,50%,12%)]`}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
@@ -76,9 +76,9 @@ export const WhyChooseUsCards = () => {
           transition={{ duration: 0.6 }}
         >
           {isGe ? (
-            <>Warum <span className="text-blue-400">uns wählen</span></>
+            <>Warum <span className="text-[hsl(270,80%,75%)]">uns wählen</span></>
           ) : (
-            <>Why <span className="text-blue-400">Choose Us</span></>
+            <>Why <span className="text-[hsl(270,80%,75%)]">Choose Us</span></>
           )}
         </motion.h2>
 
@@ -89,7 +89,7 @@ export const WhyChooseUsCards = () => {
             return (
               <motion.div
                 key={item.title}
-                className="relative bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-7 hover:border-blue-400/50 hover:shadow-[0_20px_60px_-15px_hsl(220_100%_50%/0.2)] transition-all duration-500 group overflow-hidden"
+                className="relative bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-7 hover:border-[hsl(270,80%,65%)]/50 hover:shadow-[0_20px_60px_-15px_hsl(270,80%,65%/0.2)] transition-all duration-500 group overflow-hidden"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -97,16 +97,16 @@ export const WhyChooseUsCards = () => {
                 whileHover={{ y: -4 }}
               >
                 {/* Hover gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[hsl(270,80%,65%)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
 
                 <div className="relative z-10">
                   {/* Icon box */}
-                  <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5 group-hover:bg-blue-500/20 transition-colors duration-300">
-                    <Icon className="w-6 h-6 text-blue-400" />
+                  <div className="w-12 h-12 rounded-xl bg-[hsl(270,80%,65%)]/10 flex items-center justify-center mb-5 group-hover:bg-[hsl(270,80%,65%)]/20 transition-colors duration-300">
+                    <Icon className="w-6 h-6 text-[hsl(270,80%,75%)]" />
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-base sm:text-lg font-bold text-white mb-3 leading-snug group-hover:text-blue-300 transition-colors duration-300">
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-3 leading-snug group-hover:text-[hsl(270,80%,75%)] transition-colors duration-300">
                     {item.title}
                   </h3>
 
@@ -126,3 +126,5 @@ export const WhyChooseUsCards = () => {
     </motion.section>
   );
 };
+
+

@@ -17,11 +17,11 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  brandName: "TalentSource",
-  brandMarkText: "T",
+  brandName: "don-webdesign",
+  brandMarkText: "D",
   defaultLocale: "en",
   apiBase: process.env.NEXT_PUBLIC_API_BASE || "https://api.don-va.com",
-  tenantId: process.env.NEXT_PUBLIC_TENANT_ID || "recrtment",
+  tenantId: process.env.NEXT_PUBLIC_TENANT_ID || "webdesign",
   routes: {
     bookMeeting: "/book-meeting",
     contact: "/contact",
@@ -62,3 +62,5 @@ export const getWhatsAppUrl = (number?: string): string | null => {
   const digits = number.replace(/\D/g, "");
   return digits ? `https://wa.me/${digits}` : null;
 };
+
+

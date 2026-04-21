@@ -91,7 +91,7 @@ export const Blog = () => {
       >
         <div className={`container mx-auto ${SPACING.container}`}>
           <div className="flex items-center justify-center py-20">
-            <Loader2 className="w-8 h-8 animate-spin text-blue-400" />
+            <Loader2 className="w-8 h-8 animate-spin text-[hsl(270,80%,75%)]" />
           </div>
         </div>
       </motion.section>
@@ -120,7 +120,7 @@ export const Blog = () => {
   return (
     <motion.section
       id="blog"
-      className={`relative ${SPACING.section} bg-muted/30 overflow-hidden`}
+      className={`relative ${SPACING.section} bg-background overflow-hidden`}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -146,7 +146,7 @@ export const Blog = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
           {posts.map((post: BlogPost, index: number) => (
             <motion.div
-              key={post.blogId || post.id}
+              key={`${post.blogId || post.id || 'post'}-${index}`}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -154,7 +154,7 @@ export const Blog = () => {
             >
               <Link
                 href={`/${currentLang}/blog/${slugify(post.title)}-${post.blogId || post.id}`}
-                className="group bg-background border border-border rounded-xl sm:rounded-2xl overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 w-full block h-full"
+                className="group bg-card border border-border rounded-xl sm:rounded-2xl overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 w-full block h-full"
               >
                 {/* Image */}
                 <div className="relative h-44 sm:h-52 md:h-48 lg:h-56 overflow-hidden">
@@ -186,11 +186,11 @@ export const Blog = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-2 sm:mb-3 text-foreground group-hover:text-primary transition-colors line-clamp-2 flex-grow">
+                  <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-3 sm:mb-4 text-foreground group-hover:text-primary transition-colors line-clamp-2">
                     {post.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-6 line-clamp-2 sm:line-clamp-3">
+                  <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 line-clamp-3 sm:line-clamp-4 leading-relaxed">
                     {post.excerpt}
                   </p>
 
@@ -213,3 +213,5 @@ export const Blog = () => {
     </motion.section>
   );
 };
+
+

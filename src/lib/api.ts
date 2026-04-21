@@ -10,7 +10,7 @@ const getApiBase = () =>
   process.env.NEXT_PUBLIC_API_BASE || "https://api.don-va.com";
 
 const getTenantId = () => {
-  const tenantId = process.env.NEXT_PUBLIC_TENANT_ID || 'recrtment';
+  const tenantId = process.env.NEXT_PUBLIC_TENANT_ID || 'webdesign';
   if (typeof window !== 'undefined') {
     console.log('[API] Using Tenant ID:', tenantId);
   }
@@ -371,3 +371,5 @@ export interface BlogResponse {
 
 export const fetchBlog = (lang: string = 'en') => 
   fetchApiDataClient<BlogResponse>(API_ENDPOINTS.BLOGS, normalizeLanguage(lang));
+
+

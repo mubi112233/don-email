@@ -23,7 +23,7 @@ export async function CaseStudies({ lang }: { lang: string }) {
     return (
       <section
         id="case-studies"
-        className="relative py-8 sm:py-10 md:py-12 lg:py-14 bg-muted/30"
+        className="relative py-8 sm:py-10 md:py-12 lg:py-14 bg-background"
       >
         <div className={`container mx-auto ${SPACING.container}`}>
           <div className="text-center py-20">
@@ -41,7 +41,7 @@ export async function CaseStudies({ lang }: { lang: string }) {
   return (
     <section
       id="case-studies"
-      className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-muted/30"
+      className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-background"
     >
       <div className="absolute top-0 left-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-primary/5 rounded-full blur-[100px] md:blur-[150px]" />
       <div className="absolute bottom-0 right-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-primary/5 rounded-full blur-[100px] md:blur-[150px]" />
@@ -61,11 +61,11 @@ export async function CaseStudies({ lang }: { lang: string }) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
-          {studies.map((study) => (
+          {studies.map((study, index) => (
             <Link
-              key={study.id}
+              key={`case-study-${study.id ?? index}-${index}`}
               href={`/${urlSeg}/case-study/${slugify(study.title)}-${study.id}`}
-              className="group bg-background border border-border rounded-xl sm:rounded-2xl overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 w-full block"
+              className="group bg-card border border-border rounded-xl sm:rounded-2xl overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 w-full block"
             >
               <div className="relative h-44 sm:h-52 md:h-48 lg:h-56 overflow-hidden">
                 <Image
@@ -133,3 +133,5 @@ export async function CaseStudies({ lang }: { lang: string }) {
     </section>
   );
 }
+
+

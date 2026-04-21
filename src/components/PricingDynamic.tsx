@@ -43,8 +43,8 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
     if (key === "pricing.sectionBadge") return isGerman ? "Preise" : "Pricing";
     if (key === "pricing.sectionTitle") return isGerman ? "Einfache, transparente Preise" : "Simple, transparent pricing";
     if (key === "pricing.sectionDescription") return isGerman ? "Wählen Sie den Plan, der zu Ihrem Unternehmen passt." : "Choose the plan that fits your business.";
-    if (key === "pricing.vaCountLabel") return isGerman ? "Wie viele VAs benötigen Sie?" : "How many VAs do you need?";
-    if (key === "pricing.vaCountHelper") return isGerman ? "Wählen Sie die richtige Anzahl virtueller Assistenten." : "Choose the right number of virtual assistants for your team.";
+    if (key === "pricing.vaCountLabel") return isGerman ? "Wie viele Design-Projekte?" : "How many design projects?";
+    if (key === "pricing.vaCountHelper") return isGerman ? "Wählen Sie die richtige Anzahl an Design-Projekten." : "Choose the right number of design projects for your team.";
     if (key === "pricing.hoursUnit") return isGerman ? "Stunden" : "hours";
     if (key === "pricing.cta") return isGerman ? "Jetzt starten" : "Get Started";
     if (key === "pricing.disclaimer") return isGerman ? "Preise können je nach Anforderungen variieren." : "Pricing may vary based on requirements.";
@@ -74,8 +74,8 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
       const suffix = options?.suffix ?? "";
       const percent = options?.percent ?? "";
       return isGerman
-        ? `Fügen Sie ${count} weitere VA${suffix} hinzu, um ${percent}% Rabatt zu erhalten`
-        : `Add ${count} more VA${suffix} to unlock ${percent}% discount`;
+        ? `Fügen Sie ${count} weiteres Projekt${suffix} hinzu, um ${percent}% Rabatt zu erhalten`
+        : `Add ${count} more project${suffix} to unlock ${percent}% discount`;
     }
     if (key === "pricing.planSetupFee") {
       const fee = options?.fee ?? "";
@@ -131,10 +131,10 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
   // Loading
   if (loading) {
     return (
-      <section id="pricing" className="relative py-8 sm:py-12 md:py-16 lg:py-20 bg-[hsl(220_85%_20%)] text-white z-10 overflow-hidden">
+      <section id="pricing" className="relative py-8 sm:py-12 md:py-16 lg:py-20 bg-background text-white z-10 overflow-hidden">
         <div className={`container mx-auto ${SPACING.container}`}>
           <div className="flex items-center justify-center py-20">
-            <Loader2 className="w-8 h-8 animate-spin text-blue-400" />
+            <Loader2 className="w-8 h-8 animate-spin text-primary" />
           </div>
         </div>
       </section>
@@ -144,13 +144,13 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
   // Error
   if (error) {
     return (
-      <section id="pricing" className="relative py-8 sm:py-12 md:py-16 lg:py-20 bg-[hsl(220_85%_20%)] text-white z-10 overflow-hidden">
+      <section id="pricing" className="relative py-8 sm:py-12 md:py-16 lg:py-20 bg-background text-white z-10 overflow-hidden">
         <div className={`container mx-auto ${SPACING.container}`}>
           <div className="text-center py-20">
             <p className="text-white/60 mb-4">{error}</p>
             <button 
               type="button"
-              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-white/30 bg-white/10 hover:bg-white/20 text-white h-10 px-4 py-2"
+              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-border bg-secondary hover:bg-secondary/80 text-secondary-foreground h-10 px-4 py-2"
               onClick={() => { setError(null); setLoading(true); }}
             >
               Retry
@@ -164,7 +164,7 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
   // No plans
   if (!loading && plans.length === 0) {
     return (
-      <section id="pricing" className="relative py-8 sm:py-12 md:py-16 lg:py-20 bg-[hsl(220_85%_20%)] text-white z-10 overflow-hidden">
+      <section id="pricing" className="relative py-8 sm:py-12 md:py-16 lg:py-20 bg-background text-white z-10 overflow-hidden">
         <div className={`container mx-auto ${SPACING.container}`}>
           <div className="text-center py-20">
             <p className="text-white/60">
@@ -183,15 +183,15 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
   return (
     <motion.section
       id="pricing"
-      className="relative py-8 sm:py-12 md:py-16 lg:py-20 bg-[hsl(220_85%_20%)] text-white z-10 overflow-hidden"
+      className="relative py-8 sm:py-12 md:py-16 lg:py-20 bg-background text-white z-10 overflow-hidden"
       initial={{ opacity: 0, y: 200 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 1.2, ease: [0.6, -0.05, 0.01, 0.99] }}
     >
       {/* Background blobs */}
-      <div className="absolute top-0 left-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-blue-500/10 rounded-full blur-[100px] md:blur-[150px]" />
-      <div className="absolute bottom-0 right-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-blue-500/10 rounded-full blur-[100px] md:blur-[150px]" />
+      <div className="absolute top-0 left-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-primary/10 rounded-full blur-[100px] md:blur-[150px]" />
+      <div className="absolute bottom-0 right-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-primary/10 rounded-full blur-[100px] md:blur-[150px]" />
 
       <div className={`container mx-auto ${SPACING.container} relative z-10`}>
         {/* Free Trial Banner */}
@@ -203,7 +203,7 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           <motion.div
-            className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 p-1 max-w-sm mx-auto md:max-w-none shadow-xl"
+            className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary via-primary/80 to-accent p-1 max-w-sm mx-auto md:max-w-none shadow-xl"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
           >
@@ -212,7 +212,7 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
               animate={{ x: ["-200%", "200%"] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", repeatDelay: 1 }}
             />
-            <div className="relative bg-background rounded-xl p-6 sm:p-8 md:p-10">
+            <div className="relative bg-card rounded-xl p-6 sm:p-8 md:p-10">
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex-1 text-center md:text-left">
                   <motion.div
@@ -226,9 +226,9 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
                       animate={{ scale: [1, 1.2, 1], rotate: [0, 5, -5, 0] }}
                       transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                     >
-                      <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
+                      <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                     </motion.div>
-                    <span className="text-blue-400 font-bold text-sm sm:text-base uppercase tracking-wide">
+                    <span className="text-primary font-bold text-sm sm:text-base uppercase tracking-wide">
                       {t("pricing.bannerBadge")}
                     </span>
                   </motion.div>
@@ -240,15 +240,15 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
                   </p>
                   <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-sm sm:text-base">
                     <div className="flex items-center gap-2">
-                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
+                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                       <span className="text-muted-foreground">{t("pricing.bannerPoints.noCommitment")}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
+                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                       <span className="text-muted-foreground">{t("pricing.bannerPoints.cancelAnytime")}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
+                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                       <span className="text-muted-foreground">{t("pricing.bannerPoints.fullAccess")}</span>
                     </div>
                   </div>
@@ -261,7 +261,7 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
                 >
                   <button
                     type="button"
-                    className="relative text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 h-auto font-bold shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 whitespace-nowrap bg-blue-500 text-foreground rounded-xl hover:bg-blue-500/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                    className="relative text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 h-auto font-bold shadow-2xl hover:shadow-primary/50 transition-all duration-300 hover:scale-105 whitespace-nowrap bg-primary text-white rounded-xl hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                     onClick={() => router.push(`/${lang || currentLang || 'en'}/book-meeting`)}
                   >
                     <span className="relative z-10 flex items-center gap-2">
@@ -285,7 +285,7 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.span
-            className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-500 text-foreground text-xs sm:text-sm font-bold rounded-full mb-3 sm:mb-4 shadow-md"
+            className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-primary text-white text-xs sm:text-sm font-bold rounded-full mb-3 sm:mb-4 shadow-md"
             whileHover={{ scale: 1.05 }}
           >
             {t("pricing.sectionBadge")}
@@ -298,7 +298,7 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
           </p>
         </motion.div>
 
-        {/* VA Count Selector */}
+        {/* Project Count Selector */}
         <motion.div
           className="max-w-xl mx-auto mb-8 sm:mb-10 md:mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -316,14 +316,14 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
           </div>
 
           <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg sm:rounded-xl pointer-events-none" />
-            <div className="absolute inset-0 rounded-lg sm:rounded-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none blur-xl bg-blue-500/20" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg sm:rounded-xl pointer-events-none" />
+            <div className="absolute inset-0 rounded-lg sm:rounded-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none blur-xl bg-primary/20" />
             <select
               value={vaCount}
               onChange={(e) => setVaCount(Number(e.target.value))}
-              className="relative w-full p-3 sm:p-4 md:p-5 bg-card/90 backdrop-blur-sm border-2 border-border/50 hover:border-blue-500/70 focus:border-blue-500 rounded-lg sm:rounded-xl text-center font-bold text-lg sm:text-xl lg:text-2xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 text-foreground appearance-none cursor-pointer shadow-md hover:shadow-lg hover:shadow-blue-500/10 active:scale-[0.98]"
+              className="relative w-full p-3 sm:p-4 md:p-5 bg-card/90 backdrop-blur-sm border-2 border-border/50 hover:border-primary/70 focus:border-primary rounded-lg sm:rounded-xl text-center font-bold text-lg sm:text-xl lg:text-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 text-foreground appearance-none cursor-pointer shadow-md hover:shadow-lg hover:shadow-primary/10 active:scale-[0.98]"
               style={{ backgroundImage: 'none' }}
-              aria-label="Select your VA plan"
+              aria-label="Select your design plan"
             >
               {Array.from({ length: MAX_VA_COUNT }, (_, i) => i + 1).map(num => (
                 <option key={num} value={num} className="text-foreground bg-card py-2 sm:py-3">
@@ -331,7 +331,7 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
                 </option>
               ))}
             </select>
-            <div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 pointer-events-none text-blue-400/70 group-hover:text-blue-400 transition-all duration-300 group-focus-within:rotate-180">
+            <div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 pointer-events-none text-primary/70 group-hover:text-primary transition-all duration-300 group-focus-within:rotate-180">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
@@ -346,7 +346,7 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-blue-500/10 text-foreground text-xs sm:text-sm font-semibold rounded-full border border-blue-500/30 shadow-sm">
+              <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/10 text-foreground text-xs sm:text-sm font-semibold rounded-full border border-primary/30 shadow-sm">
                 {t("pricing.startingFrom", {
                   price: avgPricePerVA,
                   hourly: Math.round(avgPricePerVA / (avgHoursPerWeek * 4)),
@@ -360,11 +360,11 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="mt-4 sm:mt-5 p-2.5 sm:p-3 bg-gradient-to-r from-blue-400/20 via-blue-500/30 to-blue-500/20 backdrop-blur-sm border-2 border-blue-500/50 rounded-lg sm:rounded-xl text-center shadow-lg"
+              className="mt-4 sm:mt-5 p-2.5 sm:p-3 bg-gradient-to-r from-primary/20 via-primary/30 to-primary/20 backdrop-blur-sm border-2 border-primary/50 rounded-lg sm:rounded-xl text-center shadow-lg"
               role="alert"
               aria-live="polite"
             >
-              <p className="text-blue-400 font-bold text-xs sm:text-sm md:text-base flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap">
+              <p className="text-primary font-bold text-xs sm:text-sm md:text-base flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap">
                 <span className="text-base sm:text-lg" aria-hidden="true">🎉</span>
                 <span className="whitespace-nowrap">
                   {t("pricing.bulkDiscount", { percent: Math.round(discount * 100) })}
@@ -381,7 +381,7 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="mt-4 sm:mt-5 p-2.5 sm:p-3 bg-muted/50 backdrop-blur-sm border border-border rounded-lg sm:rounded-xl text-center"
+              className="mt-4 sm:mt-5 p-2.5 sm:p-3 bg-card backdrop-blur-sm border border-border rounded-lg sm:rounded-xl text-center"
               role="status"
             >
               <p className="text-muted-foreground text-xs sm:text-sm flex items-center justify-center gap-1.5 flex-wrap">
@@ -427,7 +427,7 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
                 {/* Animated gradient border for highlighted plan */}
                 {plan.highlighted && (
                   <motion.div
-                    className="absolute -inset-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-400 rounded-2xl"
+                    className="absolute -inset-0.5 bg-gradient-to-r from-primary via-primary/80 to-primary rounded-2xl"
                     animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                     style={{ backgroundSize: "200% 200%" }}
@@ -436,8 +436,8 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
 
                 <div className={`relative rounded-2xl p-6 sm:p-8 md:p-10 transition-all duration-500 group h-full ${
                   plan.highlighted
-                    ? 'bg-gradient-to-br from-blue-500 via-blue-600 to-blue-500 text-white shadow-[0_25px_70px_-15px_hsl(220_100%_50%/0.5)]'
-                    : 'bg-white/5 border-2 border-white/10 hover:border-blue-400/80 hover:shadow-[0_25px_70px_-15px_hsl(220_100%_50%/0.4)]'
+                    ? 'bg-gradient-to-br from-primary via-primary/80 to-primary text-white shadow-[0_25px_70px_-15px_rgba(var(--primary),0.5)]'
+                    : 'bg-white/5 border-2 border-white/10 hover:border-primary/80 hover:shadow-[0_25px_70px_-15px_rgba(var(--primary),0.4)]'
                 }`}>
 
                   {/* Top accent line */}
@@ -445,7 +445,7 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
                     className={`absolute top-0 left-0 right-0 h-1 rounded-t-2xl ${
                       plan.highlighted
                         ? 'bg-white/20'
-                        : 'bg-gradient-to-r from-transparent via-blue-400 to-transparent'
+                        : 'bg-gradient-to-r from-transparent via-primary to-transparent'
                     }`}
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
@@ -455,7 +455,7 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
                   {/* Badge */}
                   {localizedBadge && (
                     <motion.div
-                      className="absolute -top-4 right-6 bg-gradient-to-r from-white to-white/95 text-blue-600 px-4 py-1.5 rounded-full text-xs font-bold shadow-xl flex items-center gap-1.5 border border-blue-400/20"
+                      className="absolute -top-4 right-6 bg-gradient-to-r from-white to-white/95 text-primary px-4 py-1.5 rounded-full text-xs font-bold shadow-xl flex items-center gap-1.5 border border-primary/20"
                       initial={{ y: -10, opacity: 0 }}
                       whileInView={{ y: 0, opacity: 1 }}
                       transition={{ duration: 0.5, delay: 0.5 }}
@@ -481,7 +481,7 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
                         {localizedHours}
                       </p>
                       <span className={`px-2 py-0.5 text-xs rounded-full ${
-                        plan.highlighted ? 'bg-white/20 text-white' : 'bg-blue-500/20 text-blue-300'
+                        plan.highlighted ? 'bg-white/20 text-white' : 'bg-primary/20 text-primary-foreground'
                       }`}>
                         {parseInt(plan.hours)} {t('pricing.hoursUnit', { defaultValue: 'hours' })}
                       </span>
@@ -493,7 +493,7 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
                     <div className="flex items-baseline gap-1">
                       <motion.span
                         className={`text-5xl sm:text-6xl font-bold tracking-tight ${
-                          plan.highlighted ? 'text-white' : 'text-blue-400'
+                          plan.highlighted ? 'text-white' : 'text-primary'
                         }`}
                         initial={{ scale: 0.5, opacity: 0 }}
                         whileInView={{ scale: 1, opacity: 1 }}
@@ -510,7 +510,7 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
                         {t("pricing.planSetupFee", { fee: plan.setupFee })}
                       </p>
                     ) : (
-                      <p className={`text-xs mt-2 font-semibold flex items-center gap-1 ${plan.highlighted ? 'text-white' : 'text-blue-400'}`}>
+                      <p className={`text-xs mt-2 font-semibold flex items-center gap-1 ${plan.highlighted ? 'text-white' : 'text-primary'}`}>
                         <Check className="w-3.5 h-3.5" />
                         {t("pricing.planNoSetupFee")}
                       </p>
@@ -528,9 +528,9 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
                         transition={{ delay: 0.5 + fIndex * 0.1 }}
                       >
                         <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 transition-all duration-300 group-hover:scale-110 ${
-                          plan.highlighted ? 'bg-white/20' : 'bg-blue-500/10 group-hover:bg-blue-500/20'
+                          plan.highlighted ? 'bg-white/20' : 'bg-primary/10 group-hover:bg-primary/20'
                         }`}>
-                          <Check className={`w-3 h-3 ${plan.highlighted ? 'text-white' : 'text-blue-400'}`} />
+                          <Check className={`w-3 h-3 ${plan.highlighted ? 'text-white' : 'text-primary'}`} />
                         </div>
                         <span className={`text-sm leading-relaxed ${plan.highlighted ? 'text-white/85' : 'text-white/70'}`}>
                           {feature}
@@ -542,10 +542,10 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
                   {/* CTA Button */}
                   <button
                     type="button"
-                    className={`w-full px-6 sm:px-8 py-3 sm:py-4 font-bold text-base sm:text-lg rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
+                    className={`w-full px-6 sm:px-8 py-3 sm:py-4 font-bold text-base sm:text-lg rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
                       plan.highlighted
-                        ? 'bg-white text-[hsl(220_85%_20%)] hover:bg-white/90'
-                        : 'border-2 border-white/20 hover:border-blue-400 bg-white/5 hover:bg-white/10 text-white'
+                        ? 'bg-white text-primary hover:bg-white/90'
+                        : 'border-2 border-white/20 hover:border-primary bg-white/5 hover:bg-white/10 text-white'
                     }`}
                     onClick={() => router.push(`/${lang || currentLang || 'en'}/book-meeting`)}
                   >
@@ -574,3 +574,4 @@ export const PricingDynamic = ({ lang }: { lang: string }) => {
 };
 
 export default PricingDynamic;
+

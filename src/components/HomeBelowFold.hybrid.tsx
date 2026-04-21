@@ -30,3 +30,5 @@ export async function HomeBelowFold({ lang }: { lang: string }) {
     </>
   );
 }
+
+

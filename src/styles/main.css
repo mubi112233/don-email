@@ -1,4 +1,4 @@
-/* Main CSS File for DON SEO Next.js Application */
+/* Main CSS File for don-webdesign Next.js Application */
 
 /* CSS Custom Properties for Theme */
 :root.main-css-theme {
@@ -8,51 +8,47 @@
   --card-foreground: 0 0% 0%;
   --popover: 0 0% 100%;
   --popover-foreground: 0 0% 0%;
-  --primary: 220 100% 50%;
+  --primary: 40 100% 50%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 220 15% 96%;
-  --secondary-foreground: 0 0% 0%;
-  --muted: 220 13% 97%;
-  --muted-foreground: 220 10% 40%;
-  --accent: 220 100% 50%;
-  --accent-foreground: 0 0% 100%;
-  --destructive: 0 84.2% 60.2%;
+  --secondary: 48 100% 97%;
+  --secondary-foreground: 24 30% 15%;
+  --muted: 48 40% 96%;
+  --muted-foreground: 24 20% 40%;
+  --accent: 45 100% 52%;
+  --accent-foreground: 24 30% 15%;
+  --destructive: 8 84% 60%;
   --destructive-foreground: 0 0% 100%;
-  --border: 220 13% 86%;
-  --input: 220 13% 86%;
-  --ring: 220 100% 50%;
+  --border: 40 20% 85%;
+  --input: 40 20% 85%;
+  --ring: 40 100% 50%;
   --radius: 0.5rem;
-  --blue: 220 100% 50%;
-  --blue-dark: 220 100% 40%;
-  --gold: 220 100% 50%; /* Legacy alias */
-  --gold-dark: 220 100% 40%; /* Legacy alias */
-  --chart-1: 12 76% 61%;
-  --chart-2: 173 58% 39%;
-  --chart-3: 197 37% 24%;
-  --chart-4: 43 74% 66%;
-  --chart-5: 27 87% 67%;
+  --gold: 45 100% 50%;
+  --gold-dark: 40 95% 45%;
+  --gold-light: 50 100% 60%;
 }
 
 .main-css-theme.dark {
-  --background: 220 85% 6%;
+  --background: 30 76% 18%;
   --foreground: 0 0% 98%;
-  --card: 220 85% 10%;
+  --card: 30 72% 20%;
   --card-foreground: 0 0% 98%;
-  --popover: 220 85% 10%;
+  --popover: 30 72% 20%;
   --popover-foreground: 0 0% 98%;
-  --primary: 220 100% 65%;
-  --primary-foreground: 220 85% 6%;
-  --secondary: 220 30% 18%;
-  --secondary-foreground: 0 0% 95%;
-  --muted: 220 30% 18%;
-  --muted-foreground: 220 15% 75%;
-  --accent: 220 100% 65%;
-  --accent-foreground: 220 85% 6%;
-  --destructive: 350 84% 55%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 220 25% 28%;
-  --input: 220 25% 28%;
-  --ring: 220 100% 65%;
+  --primary: 45 100% 55%;
+  --primary-foreground: 30 85% 10%;
+  --secondary: 30 50% 24%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 30 50% 24%;
+  --muted-foreground: 45 60% 85%;
+  --accent: 45 100% 55%;
+  --accent-foreground: 30 85% 10%;
+  --destructive: 8 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 30 35% 34%;
+  --input: 30 35% 34%;
+  --ring: 45 100% 55%;
+  --gold: 45 100% 60%;
+  --gold-dark: 40 100% 55%;
 }
 
 /* Base Styles */
@@ -81,39 +77,39 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--blue));
+  background: hsl(var(--gold));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--blue-dark));
+  background: hsl(var(--gold-dark));
 }
 
 /* Gold Shadow Utilities */
 .shadow-gold {
-  box-shadow: 0 4px 20px -4px hsl(var(--blue) / 0.3);
+  box-shadow: 0 4px 20px -4px hsl(var(--gold) / 0.3);
 }
 
 .shadow-gold-lg {
-  box-shadow: 0 10px 40px -8px hsl(var(--blue) / 0.4);
+  box-shadow: 0 10px 40px -8px hsl(var(--gold) / 0.4);
 }
 
 .shadow-gold-xl {
-  box-shadow: 0 20px 60px -12px hsl(var(--blue) / 0.5);
+  box-shadow: 0 20px 60px -12px hsl(var(--gold) / 0.5);
 }
 
 /* Gold Background Utilities */
 .bg-gold-gradient {
-  background: linear-gradient(135deg, hsl(var(--blue)), hsl(var(--blue-dark)));
+  background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)));
 }
 
 .bg-gold-gradient-subtle {
-  background: linear-gradient(135deg, hsl(var(--blue) / 0.1), hsl(var(--blue) / 0.05));
+  background: linear-gradient(135deg, hsl(var(--gold) / 0.1), hsl(var(--gold) / 0.05));
 }
 
 /* Text Gradient Utilities */
 .text-gold-gradient {
-  background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--blue)));
+  background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--gold)));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -122,10 +118,10 @@ html {
 /* Animation Utilities */
 @keyframes pulse-gold {
   0%, 100% {
-    box-shadow: 0 0 0 0 hsl(var(--blue) / 0.7);
+    box-shadow: 0 0 0 0 hsl(var(--gold) / 0.7);
   }
   50% {
-    box-shadow: 0 0 0 10px hsl(var(--blue) / 0);
+    box-shadow: 0 0 0 10px hsl(var(--gold) / 0);
   }
 }
 
@@ -166,12 +162,12 @@ html {
 
 .hover-lift:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 40px -8px hsl(var(--blue) / 0.3);
+  box-shadow: 0 10px 40px -8px hsl(var(--gold) / 0.3);
 }
 
 /* Button Enhancements */
 .btn-gold {
-  background: linear-gradient(135deg, hsl(var(--blue)), hsl(var(--blue-dark)));
+  background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark)));
   color: #000;
   font-weight: 600;
   border: none;
@@ -197,16 +193,16 @@ html {
 
 .btn-gold-outline {
   background: transparent;
-  color: hsl(var(--blue));
-  border: 2px solid hsl(var(--blue));
+  color: hsl(var(--gold));
+  border: 2px solid hsl(var(--gold));
   font-weight: 600;
   transition: all 0.3s ease;
 }
 
 .btn-gold-outline:hover {
-  background: hsl(var(--blue));
+  background: hsl(var(--gold));
   color: #000;
-  box-shadow: 0 4px 20px -4px hsl(var(--blue) / 0.3);
+  box-shadow: 0 4px 20px -4px hsl(var(--gold) / 0.3);
 }
 
 /* Navbar Specific Styles */
@@ -227,7 +223,7 @@ html {
   left: 50%;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, hsl(var(--blue)), hsl(var(--blue-dark)));
+  background: linear-gradient(90deg, hsl(var(--gold)), hsl(var(--gold-dark)));
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
@@ -261,13 +257,13 @@ html {
 
 /* Focus States */
 .focus-gold:focus {
-  outline: 2px solid hsl(var(--blue));
+  outline: 2px solid hsl(var(--gold));
   outline-offset: 2px;
 }
 
 /* Selection Styles */
 ::selection {
-  background: hsl(var(--blue) / 0.3);
+  background: hsl(var(--gold) / 0.3);
   color: hsl(var(--foreground));
 }
 

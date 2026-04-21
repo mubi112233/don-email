@@ -5,30 +5,32 @@ import { usePathname } from "next/navigation";
 import { SPACING } from "@/lib/constants";
 
 const tools = [
-  { name: "Slack", category: "Communication" },
-  { name: "Zoom", category: "Communication" },
-  { name: "Asana", category: "Project Management" },
-  { name: "Trello", category: "Project Management" },
-  { name: "Notion", category: "Project Management" },
-  { name: "Monday.com", category: "Project Management" },
-  { name: "ClickUp", category: "Project Management" },
-  { name: "Google Workspace", category: "Productivity" },
-  { name: "Microsoft 365", category: "Productivity" },
-  { name: "HubSpot", category: "CRM" },
-  { name: "Salesforce", category: "CRM" },
-  { name: "Zendesk", category: "Support" },
-  { name: "Intercom", category: "Support" },
-  { name: "LinkedIn", category: "Recruitment" },
-  { name: "Greenhouse", category: "Recruitment" },
+  { name: "Adobe Creative Suite", category: "Design Software" },
+  { name: "Figma", category: "UI/UX Design" },
+  { name: "Sketch", category: "UI/UX Design" },
+  { name: "Adobe Illustrator", category: "Vector Graphics" },
+  { name: "Adobe Photoshop", category: "Photo Editing" },
+  { name: "Adobe InDesign", category: "Print Design" },
+  { name: "Canva", category: "Design Platform" },
+  { name: "Blender", category: "3D Design" },
+  { name: "After Effects", category: "Motion Graphics" },
+  { name: "Premiere Pro", category: "Video Editing" },
+  { name: "Webflow", category: "Web Design" },
+  { name: "Framer", category: "Prototyping" },
 ];
 
 const categoryLabels: Record<string, { en: string; ge: string }> = {
-  Communication:        { en: "Communication",       ge: "Kommunikation" },
-  "Project Management": { en: "Project Management",  ge: "Projektmanagement" },
-  Productivity:         { en: "Productivity",         ge: "Produktivität" },
-  CRM:                  { en: "CRM",                  ge: "CRM" },
-  Support:              { en: "Support",              ge: "Support" },
-  Recruitment:          { en: "Recruitment",          ge: "Recruitment" },
+  "Design Software":    { en: "Design Software",     ge: "Design-Software" },
+  "UI/UX Design":       { en: "UI/UX Design",       ge: "UI/UX Design" },
+  "Vector Graphics":    { en: "Vector Graphics",    ge: "Vektorgrafik" },
+  "Photo Editing":      { en: "Photo Editing",      ge: "Bildbearbeitung" },
+  "Print Design":       { en: "Print Design",       ge: "Print-Design" },
+  "Design Platform":    { en: "Design Platform",    ge: "Design-Plattform" },
+  "3D Design":          { en: "3D Design",          ge: "3D-Design" },
+  "Motion Graphics":    { en: "Motion Graphics",    ge: "Motion Graphics" },
+  "Video Editing":      { en: "Video Editing",      ge: "Video-Bearbeitung" },
+  "Web Design":         { en: "Web Design",         ge: "Webdesign" },
+  "Prototyping":        { en: "Prototyping",         ge: "Prototyping" },
 };
 
 export const ToolsIntegration = () => {
@@ -40,7 +42,7 @@ export const ToolsIntegration = () => {
 
   return (
     <motion.section
-      className="relative py-8 sm:py-10 md:py-12 lg:py-14 bg-muted/30"
+      className="relative py-8 sm:py-10 md:py-12 lg:py-14 bg-background"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
@@ -57,15 +59,15 @@ export const ToolsIntegration = () => {
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-foreground">
             {isGe ? (
-              <>Funktioniert mit Ihren <span className="text-primary">vorhandenen Tools</span></>
+              <>Expertise in führenden <span className="text-primary">Design-Tools</span></>
             ) : (
-              <>Works With Your <span className="text-primary">Existing Tools</span></>
+              <>Expertise in Leading <span className="text-primary">Design Tools</span></>
             )}
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl">
             {isGe
-              ? "Unsere VAs sind in den meisten gängigen Business-Tools geschult und passen sich Ihrem Workflow an."
-              : "Our VAs are trained in most popular business tools and adapt to your existing workflow seamlessly."}
+              ? "Unser Team beherrscht alle gängigen Design-Software und liefert in jedem Format, das Sie benötigen."
+              : "Our team masters all popular design software and delivers in any format you need."}
           </p>
         </motion.div>
 
@@ -81,7 +83,7 @@ export const ToolsIntegration = () => {
             {tools.map((tool, index) => (
               <motion.div
                 key={tool.name}
-                className="bg-background border border-border rounded-lg p-3 sm:p-4 text-center hover:border-primary/50 hover:shadow-lg transition-all duration-300 group"
+                className="bg-card border border-border rounded-lg p-3 sm:p-4 text-center hover:border-primary/50 hover:shadow-lg transition-all duration-300 group"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -99,7 +101,7 @@ export const ToolsIntegration = () => {
 
           {/* Callout */}
           <motion.div
-            className="bg-background border border-border rounded-lg sm:rounded-xl p-5 sm:p-6 md:p-8 text-center"
+            className="bg-card border border-border rounded-lg sm:rounded-xl p-5 sm:p-6 md:p-8 text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -107,14 +109,14 @@ export const ToolsIntegration = () => {
           >
             <p className="text-base sm:text-lg text-foreground mb-3 sm:mb-4">
               <span className="font-bold text-primary">
-                {isGe ? "Benötigen Sie ein bestimmtes Tool?" : "Need a specific tool?"}
+                {isGe ? "Benötigen Sie ein spezielles Format?" : "Need a specific file format?"}
               </span>{" "}
               {isGe ? "Einfach fragen." : "Just ask."}
             </p>
             <p className="text-sm sm:text-base text-muted-foreground">
               {isGe
-                ? "Wir schulen unsere VAs in jedem Tool, das Sie benötigen – ohne zusätzliche Kosten."
-                : "We train our VAs on any tool you need — at no extra cost."}
+                ? "Wir liefern in jedem Format – von druckfertigen PDFs bis zu web-optimierten Assets."
+                : "We deliver in any format — from print-ready PDFs to web-optimized assets."}
             </p>
           </motion.div>
         </div>
@@ -122,3 +124,5 @@ export const ToolsIntegration = () => {
     </motion.section>
   );
 };
+
+

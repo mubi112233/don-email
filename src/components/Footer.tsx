@@ -21,10 +21,10 @@ export const Footer: React.FC = () => {
         { label: "Contact Us", href: "/en/contact" },
       ],
       serviceLinks: [
-        { label: "Virtual Assistants", href: "/en/#services" },
-        { label: "Recruitment Services", href: "/en/#services" },
-        { label: "Team Scaling", href: "/en/#services" },
-        { label: "Quality Control", href: "/en/#services" },
+        { label: "Logo & Branding", href: "/en/#services" },
+        { label: "Brand Identity", href: "/en/#services" },
+        { label: "Web Design", href: "/en/#services" },
+        { label: "Print Design", href: "/en/#services" },
         { label: "Pricing Plans", href: "/en/#pricing" },
       ],
       resourceLinks: [
@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
         { label: "FAQ", href: "/en/#faq" },
         { label: "Testimonials", href: "/en/#testimonials" },
       ],
-      tagline: "Professional virtual assistant staffing to scale your team and reduce operational costs.",
+      tagline: "Premium web design agency creating modern, high-converting websites. Save 70% on development with native quality results.",
       rights: "All rights reserved.",
     },
     ge: {
@@ -47,10 +47,10 @@ export const Footer: React.FC = () => {
         { label: "Kontakt", href: "/de/contact" },
       ],
       serviceLinks: [
-        { label: "Virtuelle Assistenten", href: "/de/#services" },
-        { label: "Recruitment-Services", href: "/de/#services" },
-        { label: "Team-Skalierung", href: "/de/#services" },
-        { label: "Qualitätskontrolle", href: "/de/#services" },
+        { label: "Logo & Branding", href: "/de/#services" },
+        { label: "Corporate Design", href: "/de/#services" },
+        { label: "Webdesign", href: "/de/#services" },
+        { label: "Print Design", href: "/de/#services" },
         { label: "Preispläne", href: "/de/#pricing" },
       ],
       resourceLinks: [
@@ -60,7 +60,7 @@ export const Footer: React.FC = () => {
         { label: "Häufige Fragen", href: "/de/#faq" },
         { label: "Kundenstimmen", href: "/de/#testimonials" },
       ],
-      tagline: "Professionelle virtuelle Assistenten zur Skalierung Ihres Teams und Reduzierung der Betriebskosten.",
+      tagline: "Premium Webdesign Agentur für moderne, konvertierende Websites. Sparen Sie 70% bei der Entwicklung mit nativer Qualität.",
       rights: "Alle Rechte vorbehalten.",
     },
   };
@@ -68,14 +68,14 @@ export const Footer: React.FC = () => {
   const c = links[lang];
 
   return (
-    <footer className="w-full bg-muted/50 border-t border-border mt-8">
+    <footer className="w-full bg-[hsl(250,50%,12%)] border-t border-white/10 mt-8">
       <div className={`container mx-auto ${SPACING.container} py-12 sm:py-16`}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href={`/${lang}`} className="flex items-center gap-2 mb-4 group">
-              <div className="w-9 h-9 bg-blue-500 rounded-lg flex items-center justify-center">
+              <div className="w-9 h-9 bg-[hsl(270,80%,65%)] rounded-lg flex items-center justify-center">
                 <span className="text-primary-foreground font-black text-lg">{siteConfig.brandMarkText}</span>
               </div>
               <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">{siteConfig.brandName}</span>
@@ -134,7 +134,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} DON Recruitment. {c.rights}</p>
+          <p>© {new Date().getFullYear()} don-webdesign. {c.rights}</p>
           <div className="flex items-center gap-4">
             <Link href={localizedPath(lang, siteConfig.routes.blog)} className="hover:text-primary transition-colors">Blog</Link>
             <Link href={localizedPath(lang, siteConfig.routes.contact)} className="hover:text-primary transition-colors">{isGe ? "Kontakt" : "Contact"}</Link>
@@ -147,3 +147,5 @@ export const Footer: React.FC = () => {
 };
 
 export default Footer;
+
+

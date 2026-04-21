@@ -2,13 +2,13 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "DON Recruitment - Professional Talent Acquisition",
-    short_name: "DON Recruitment",
-    description: "Professional recruitment services connecting businesses with top talent. Executive search, permanent placement, and talent acquisition.",
+    name: "don-webdesign - Premium Web Design Services",
+    short_name: "don-webdesign",
+    description: "Save 70% on web development with premium web design services. Modern websites that convert. Native quality, guaranteed satisfaction.",
     start_url: "/",
     display: "standalone",
-    background_color: "#061733",
-    theme_color: "#3b82f6",
+    background_color: "#3D2817",
+    theme_color: "#FFBC42",
     icons: [
       {
         src: "/favicon.ico",
@@ -29,6 +29,8 @@ export default function manifest(): MetadataRoute.Manifest {
     orientation: "portrait",
     scope: "/",
     lang: "en",
-    categories: ["business", "productivity"],
+    categories: ["design", "business", "productivity", "web"],
   };
 }
+
+

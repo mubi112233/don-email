@@ -34,47 +34,38 @@ type FormValues = {
   phone: string;
   companyName: string;
   contactName: string;
-  positionType: string;
-  positionTypeOther?: string;
-  numberOfHires: string;
+  projectType: string;
+  projectTypeOther?: string;
+  budgetRange: string;
   industry: string;
-  location: string;
-  employmentType: string;
   timeline: string;
-  salaryRange: string;
-  requirements: string;
+  designRequirements: string;
   otherInfo: string;
 };
 
 const translations: Record<string, Record<string, string>> = {
   en: {
     badge: "Get In Touch",
-    title: "Let's Find Your Perfect Candidates",
-    subtitle: "Tell us about your hiring needs and we'll connect you with top talent that matches your requirements. Get qualified candidates within 5-7 business days.",
+    title: "Let's Bring Your Vision to Life",
+    subtitle: "Tell us about your design project and we'll create stunning visuals that elevate your brand. Get a free consultation within 24 hours.",
     email: "Email Address",
     phone: "Phone Number",
     companyName: "Company Name",
     contactName: "Your Name",
-    positionTypeLabel: "Position Type",
-    positionTypePlaceholder: "Select position type",
-    positionTypeOtherLabel: "Describe the position",
-    positionTypeOtherPlaceholder: "What role are you hiring for?",
-    numberOfHiresLabel: "Number of Hires Needed",
-    numberOfHiresPlaceholder: "e.g. 3",
+    projectTypeLabel: "Project Type",
+    projectTypePlaceholder: "Select project type",
+    projectTypeOtherLabel: "Describe your project",
+    projectTypeOtherPlaceholder: "What design work do you need?",
+    budgetRangeLabel: "Budget Range (EUR)",
+    budgetRangePlaceholder: "e.g. 5000 - 10000",
     industryLabel: "Industry/Sector",
-    locationLabel: "Job Location",
-    locationPlaceholder: "City, Country or Remote",
-    employmentTypeLabel: "Employment Type",
-    employmentTypePlaceholder: "Select employment type",
-    timelineLabel: "Hiring Timeline",
+    timelineLabel: "Project Timeline",
     timelinePlaceholder: "Select timeline",
-    salaryRangeLabel: "Salary Range (Annual/EUR)",
-    salaryRangePlaceholder: "e.g. 45000 - 60000",
-    requirementsLabel: "Candidate Requirements",
-    requirementsPlaceholder: "Skills, experience, qualifications, languages needed...",
+    designRequirementsLabel: "Design Requirements",
+    designRequirementsPlaceholder: "Describe your design needs, brand style, target audience...",
     otherInfoLabel: "Additional Information",
-    otherInfoPlaceholder: "Anything else we should know about your hiring needs...",
-    submit: "Submit Hiring Request",
+    otherInfoPlaceholder: "Anything else we should know about your project...",
+    submit: "Request Free Consultation",
     submitSending: "Sending...",
     emailRequired: "Email is required",
     emailInvalid: "Enter a valid email",
@@ -82,49 +73,43 @@ const translations: Record<string, Record<string, string>> = {
     phoneInvalid: "Enter a valid phone number",
     companyNameRequired: "Company name is required",
     contactNameRequired: "Your name is required",
-    positionTypeRequired: "Please select position type",
+    projectTypeRequired: "Please select project type",
     industryRequired: "Please select industry",
-    sideTitle: "Why Choose DON Recruitment?",
-    stat1Value: "200+",
-    stat1Label: "Successful Placements",
-    stat2Value: "5 Days",
-    stat2Label: "Avg. Time to Hire",
+    sideTitle: "Why Choose don-webdesign?",
+    stat1Value: "250+",
+    stat1Label: "Projects Delivered",
+    stat2Value: "2 Weeks",
+    stat2Label: "Avg. Turnaround",
     stat3Value: "4.9/5",
     stat3Label: "Client Satisfaction",
-    feature1: "Pre-screened, qualified candidates only",
-    feature2: "Personal recruiter assigned to your case",
-    feature3: "Replacement guarantee within 90 days",
-    feature4: "DACH region recruitment specialists",
+    feature1: "Award-winning creative designers",
+    feature2: "Unlimited revisions until perfect",
+    feature3: "Full ownership of all design files",
+    feature4: "DACH region design specialists",
     responseTime: "We respond within 2 hours during business hours",
   },
   ge: {
     badge: "Kontakt aufnehmen",
-    title: "Lassen Sie uns Ihre perfekten Kandidaten finden",
-    subtitle: "Erzählen Sie uns von Ihren Einstellungsanforderungen und wir verbinden Sie mit erstklassigen Talenten. Erhalten Sie qualifizierte Kandidaten innerhalb von 5-7 Werktagen.",
+    title: "Lassen Sie uns Ihre Vision zum Leben erwecken",
+    subtitle: "Erzählen Sie uns von Ihrem Design-Projekt und wir erstellen atemberaubende Visuals, die Ihre Marke aufwerten. Kostenlose Beratung innerhalb von 24 Stunden.",
     email: "E-Mail-Adresse",
     phone: "Telefonnummer",
     companyName: "Firmenname",
     contactName: "Ihr Name",
-    positionTypeLabel: "Positionstyp",
-    positionTypePlaceholder: "Positionstyp wählen",
-    positionTypeOtherLabel: "Position beschreiben",
-    positionTypeOtherPlaceholder: "Für welche Rolle suchen Sie?",
-    numberOfHiresLabel: "Anzahl der Einstellungen",
-    numberOfHiresPlaceholder: "z.B. 3",
+    projectTypeLabel: "Projekttyp",
+    projectTypePlaceholder: "Projekttyp wählen",
+    projectTypeOtherLabel: "Projekt beschreiben",
+    projectTypeOtherPlaceholder: "Welche Design-Arbeit benötigen Sie?",
+    budgetRangeLabel: "Budget-Bereich (EUR)",
+    budgetRangePlaceholder: "z.B. 5000 - 10000",
     industryLabel: "Branche/Sektor",
-    locationLabel: "Arbeitsort",
-    locationPlaceholder: "Stadt, Land oder Remote",
-    employmentTypeLabel: "Anstellungsart",
-    employmentTypePlaceholder: "Anstellungsart wählen",
-    timelineLabel: "Einstellungszeitraum",
+    timelineLabel: "Projektzeitraum",
     timelinePlaceholder: "Zeitraum wählen",
-    salaryRangeLabel: "Gehaltsspanne (Jährlich/EUR)",
-    salaryRangePlaceholder: "z.B. 45000 - 60000",
-    requirementsLabel: "Kandidatenanforderungen",
-    requirementsPlaceholder: "Fähigkeiten, Erfahrung, Qualifikationen, Sprachen...",
+    designRequirementsLabel: "Design-Anforderungen",
+    designRequirementsPlaceholder: "Beschreiben Sie Ihre Design-Bedürfnisse, Markenstil, Zielgruppe...",
     otherInfoLabel: "Zusätzliche Informationen",
-    otherInfoPlaceholder: "Was sollten wir noch über Ihre Einstellungsanforderungen wissen...",
-    submit: "Einstellungsanfrage senden",
+    otherInfoPlaceholder: "Was sollten wir noch über Ihr Projekt wissen...",
+    submit: "Kostenlose Beratung anfragen",
     submitSending: "Wird gesendet...",
     emailRequired: "E-Mail ist erforderlich",
     emailInvalid: "Gültige E-Mail eingeben",
@@ -132,33 +117,33 @@ const translations: Record<string, Record<string, string>> = {
     phoneInvalid: "Gültige Telefonnummer eingeben",
     companyNameRequired: "Firmenname ist erforderlich",
     contactNameRequired: "Ihr Name ist erforderlich",
-    positionTypeRequired: "Bitte wählen Sie den Positionstyp",
+    projectTypeRequired: "Bitte wählen Sie den Projekttyp",
     industryRequired: "Bitte wählen Sie die Branche",
-    sideTitle: "Warum DON Recruitment wählen?",
-    stat1Value: "200+",
-    stat1Label: "Erfolgreiche Vermittlungen",
-    stat2Value: "5 Tage",
-    stat2Label: "Ø Einstellungszeit",
+    sideTitle: "Warum don-webdesign wählen?",
+    stat1Value: "250+",
+    stat1Label: "Projekte geliefert",
+    stat2Value: "2 Wochen",
+    stat2Label: "Ø Lieferzeit",
     stat3Value: "4.9/5",
     stat3Label: "Kundenzufriedenheit",
-    feature1: "Nur vorbereitete, qualifizierte Kandidaten",
-    feature2: "Persönlicher Recruiter für Ihren Fall",
-    feature3: "Ersatzgarantie innerhalb von 90 Tagen",
+    feature1: "Preisgekrönte Kreativdesigner",
+    feature2: "Unbegrenzte Überarbeitungen bis perfekt",
+    feature3: "Volle Eigentumsrechte an allen Design-Dateien",
     feature4: "Spezialisten für DACH-Region",
     responseTime: "Wir antworten innerhalb von 2 Stunden während der Geschäftszeiten",
   },
 };
 
-const positionTypeOptions = [
-  { value: "executive", label: "Executive / C-Level" },
-  { value: "management", label: "Management" },
-  { value: "technical", label: "Technical / IT" },
-  { value: "sales", label: "Sales / Business Development" },
-  { value: "marketing", label: "Marketing" },
-  { value: "finance", label: "Finance / Accounting" },
-  { value: "hr", label: "Human Resources" },
-  { value: "operations", label: "Operations" },
-  { value: "admin", label: "Administration" },
+const projectTypeOptions = [
+  { value: "branding", label: "Branding / Logo Design" },
+  { value: "identity", label: "Complete Brand Identity" },
+  { value: "webdesign", label: "Website Design" },
+  { value: "print", label: "Print Design / Marketing Materials" },
+  { value: "packaging", label: "Packaging Design" },
+  { value: "social", label: "Social Media Graphics" },
+  { value: "uiux", label: "UI/UX Design" },
+  { value: "motion", label: "Motion Graphics / Video" },
+  { value: "illustration", label: "Custom Illustration" },
   { value: "other", label: "Other" },
 ];
 
@@ -175,12 +160,13 @@ const industryOptions = [
   { value: "other", label: "Other" },
 ];
 
-const employmentTypeOptions = [
-  { value: "fulltime", label: "Full-Time" },
-  { value: "parttime", label: "Part-Time" },
-  { value: "contract", label: "Contract" },
-  { value: "freelance", label: "Freelance" },
-  { value: "internship", label: "Internship" },
+const budgetRangeOptions = [
+  { value: "under2500", label: "Under €2,500" },
+  { value: "2500to5000", label: "€2,500 - €5,000" },
+  { value: "5000to10000", label: "€5,000 - €10,000" },
+  { value: "10000to25000", label: "€10,000 - €25,000" },
+  { value: "25000plus", label: "€25,000+" },
+  { value: "flexible", label: "Flexible / Discuss" },
 ];
 
 const timelineOptions = [
@@ -224,14 +210,14 @@ export default function ContactClient({ lang }: { lang: string }) {
   } = useForm<FormValues>({
     defaultValues: {
       email: "", phone: "", companyName: "", contactName: "",
-      positionType: "", positionTypeOther: "", numberOfHires: "",
-      industry: "", location: "", employmentType: "", timeline: "",
-      salaryRange: "", requirements: "", otherInfo: "",
+      projectType: "", projectTypeOther: "", budgetRange: "",
+      industry: "", timeline: "",
+      designRequirements: "", otherInfo: "",
     },
     mode: "onBlur",
   });
 
-  const positionTypeValue = useWatch({ control, name: "positionType" });
+  const projectTypeValue = useWatch({ control, name: "projectType" });
 
   const emailPattern = useMemo(() => /[^\s@]+@[^\s@]+\.[^\s@]+/, []);
   const phonePattern = useMemo(() => /^[0-9+\-()\s]{7,20}$/i, []);
@@ -239,22 +225,19 @@ export default function ContactClient({ lang }: { lang: string }) {
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     const formData = new FormData();
     formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "8aff1902-6795-4608-ad79-be6702aa7f3a");
-    formData.append("to", "patryk@dononlineagency.com");
-    formData.append("subject", "New Hiring Request - DON Recruitment");
+    formData.append("to", "hello@don-webdesign.com");
+    formData.append("subject", "New Design Project Inquiry - don-webdesign");
     formData.append("companyName", data.companyName);
     formData.append("contactName", data.contactName);
     formData.append("email", data.email);
     formData.append("phone", data.phone);
-    formData.append("positionType", data.positionType);
-    if (data.positionType === "other" && data.positionTypeOther?.trim())
-      formData.append("positionTypeOther", data.positionTypeOther.trim());
-    formData.append("numberOfHires", data.numberOfHires);
+    formData.append("projectType", data.projectType);
+    if (data.projectType === "other" && data.projectTypeOther?.trim())
+      formData.append("projectTypeOther", data.projectTypeOther.trim());
+    formData.append("budgetRange", data.budgetRange);
     formData.append("industry", data.industry);
-    formData.append("location", data.location);
-    formData.append("employmentType", data.employmentType);
     formData.append("timeline", data.timeline);
-    formData.append("salaryRange", data.salaryRange);
-    if (data.requirements.trim()) formData.append("requirements", data.requirements.trim());
+    if (data.designRequirements.trim()) formData.append("designRequirements", data.designRequirements.trim());
     if (data.otherInfo.trim()) formData.append("otherInfo", data.otherInfo.trim());
 
     try {
@@ -347,7 +330,7 @@ export default function ContactClient({ lang }: { lang: string }) {
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 text-blue-400 fill-blue-400" />)}
               </div>
               <p className="text-sm text-muted-foreground italic leading-relaxed">
-                &ldquo;DON Recruitment found us the perfect CTO within 10 days. Their candidate quality exceeded our expectations.&rdquo;
+                &ldquo;don-webdesign transformed our brand identity completely. The team's creativity and attention to detail exceeded all our expectations.&rdquo;
               </p>
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500/30 to-blue-500/10 flex items-center justify-center">
@@ -441,54 +424,56 @@ export default function ContactClient({ lang }: { lang: string }) {
                   </div>
                 </FormSection>
 
-                {/* Hiring Needs */}
-                <FormSection icon={Briefcase} title="Hiring Requirements">
+                {/* Project Details */}
+                <FormSection icon={Briefcase} title="Project Details">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <Label className="text-sm">{c.positionTypeLabel} <span className="text-blue-400">*</span></Label>
-                      <Select onValueChange={(v) => setValue("positionType", v, { shouldValidate: true })}>
+                      <Label className="text-sm">{c.projectTypeLabel} <span className="text-blue-400">*</span></Label>
+                      <Select onValueChange={(v) => setValue("projectType", v, { shouldValidate: true })}>
                         <SelectTrigger className="border-border/60 focus:border-blue-400/60">
-                          <SelectValue placeholder={c.positionTypePlaceholder} />
+                          <SelectValue placeholder={c.projectTypePlaceholder} />
                         </SelectTrigger>
                         <SelectContent>
-                          {positionTypeOptions.map((opt) => (
+                          {projectTypeOptions.map((opt) => (
                             <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
                           ))}
                         </SelectContent>
                       </Select>
-                      <input type="hidden" {...register("positionType", { required: c.positionTypeRequired })} />
-                      <FieldError message={errors.positionType?.message} />
+                      <input type="hidden" {...register("projectType", { required: c.projectTypeRequired })} />
+                      <FieldError message={errors.projectType?.message} />
                       <AnimatePresence>
-                        {positionTypeValue === "other" && (
+                        {projectTypeValue === "other" && (
                           <motion.div
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
                             className="space-y-1.5 mt-3"
                           >
-                            <Label htmlFor="positionTypeOther" className="text-sm">{c.positionTypeOtherLabel}</Label>
+                            <Label htmlFor="projectTypeOther" className="text-sm">{c.projectTypeOtherLabel}</Label>
                             <Textarea
-                              id="positionTypeOther"
+                              id="projectTypeOther"
                               rows={2}
-                              placeholder={c.positionTypeOtherPlaceholder}
+                              placeholder={c.projectTypeOtherPlaceholder}
                               className="border-border/60 focus:border-blue-400/60 resize-none"
-                              {...register("positionTypeOther")}
+                              {...register("projectTypeOther")}
                             />
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
                     <div className="space-y-1.5">
-                      <Label htmlFor="numberOfHires" className="text-sm">{c.numberOfHiresLabel}</Label>
-                      <Input
-                        id="numberOfHires"
-                        type="number"
-                        min={1}
-                        max={100}
-                        placeholder={c.numberOfHiresPlaceholder}
-                        className="border-border/60 focus:border-blue-400/60"
-                        {...register("numberOfHires")}
-                      />
+                      <Label className="text-sm">{c.budgetRangeLabel}</Label>
+                      <Select onValueChange={(v) => setValue("budgetRange", v)}>
+                        <SelectTrigger className="border-border/60 focus:border-blue-400/60">
+                          <SelectValue placeholder={c.budgetRangePlaceholder} />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {budgetRangeOptions.map((opt) => (
+                            <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <input type="hidden" {...register("budgetRange")} />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -496,7 +481,7 @@ export default function ContactClient({ lang }: { lang: string }) {
                       <Label className="text-sm">{c.industryLabel} <span className="text-blue-400">*</span></Label>
                       <Select onValueChange={(v) => setValue("industry", v, { shouldValidate: true })}>
                         <SelectTrigger className="border-border/60 focus:border-blue-400/60">
-                          <SelectValue placeholder="Select industry" />
+                          <SelectValue placeholder={c.industryLabel} />
                         </SelectTrigger>
                         <SelectContent>
                           {industryOptions.map((opt) => (
@@ -506,32 +491,6 @@ export default function ContactClient({ lang }: { lang: string }) {
                       </Select>
                       <input type="hidden" {...register("industry", { required: c.industryRequired })} />
                       <FieldError message={errors.industry?.message} />
-                    </div>
-                    <div className="space-y-1.5">
-                      <Label htmlFor="location" className="text-sm">{c.locationLabel}</Label>
-                      <Input
-                        id="location"
-                        type="text"
-                        placeholder={c.locationPlaceholder}
-                        className="border-border/60 focus:border-blue-400/60"
-                        {...register("location")}
-                      />
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-1.5">
-                      <Label className="text-sm">{c.employmentTypeLabel}</Label>
-                      <Select onValueChange={(v) => setValue("employmentType", v)}>
-                        <SelectTrigger className="border-border/60 focus:border-blue-400/60">
-                          <SelectValue placeholder={c.employmentTypePlaceholder} />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {employmentTypeOptions.map((opt) => (
-                            <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                      <input type="hidden" {...register("employmentType")} />
                     </div>
                     <div className="space-y-1.5">
                       <Label className="text-sm">{c.timelineLabel}</Label>
@@ -550,27 +509,17 @@ export default function ContactClient({ lang }: { lang: string }) {
                   </div>
                 </FormSection>
 
-                {/* Job Details */}
-                <FormSection icon={Users} title="Job Details">
+                {/* Design Requirements */}
+                <FormSection icon={Users} title="Design Requirements">
                   <div className="grid grid-cols-1 gap-4">
                     <div className="space-y-1.5">
-                      <Label htmlFor="salaryRange" className="text-sm">{c.salaryRangeLabel}</Label>
-                      <Input
-                        id="salaryRange"
-                        type="text"
-                        placeholder={c.salaryRangePlaceholder}
-                        className="border-border/60 focus:border-blue-400/60"
-                        {...register("salaryRange")}
-                      />
-                    </div>
-                    <div className="space-y-1.5">
-                      <Label htmlFor="requirements" className="text-sm">{c.requirementsLabel}</Label>
+                      <Label htmlFor="designRequirements" className="text-sm">{c.designRequirementsLabel}</Label>
                       <Textarea
-                        id="requirements"
-                        rows={4}
-                        placeholder={c.requirementsPlaceholder}
+                        id="designRequirements"
+                        rows={6}
+                        placeholder={c.designRequirementsPlaceholder}
                         className="border-border/60 focus:border-blue-400/60 resize-none"
-                        {...register("requirements")}
+                        {...register("designRequirements")}
                       />
                     </div>
                   </div>

@@ -38,9 +38,9 @@ export interface ColorScheme {
 
 // Define your color schemes here
 export const colorSchemes: Record<string, ColorScheme> = {
-  // Blue VA Staffing Theme (Current)
+  // Blue Theme (Legacy)
   blue: {
-    name: "Blue VA Staffing",
+    name: "Blue Theme",
     colors: {
       primary: "220 100% 50%",        // Bright blue
       primaryDark: "220 100% 40%",     // Darker blue
@@ -204,3 +204,5 @@ const themeConfig = {
 };
 
 export default themeConfig;
+
+

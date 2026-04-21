@@ -8,29 +8,29 @@ export const copy = {
   en: {
     // How It Works
     howItWorks: {
-      badge: "How It Works",
-      heading: "Get started in <span class=\"text-gold\">4 simple steps</span>",
-      description: "From consultation to deployment — our process is designed to deliver top talent fast.",
+      badge: "Our Process",
+      heading: "From Concept to <span class=\"text-gold\">Creation</span>",
+      description: "Our streamlined 4-step process ensures every design project exceeds your expectations.",
       steps: {
         step1: {
           step: "Step 1",
-          title: "Initial Consultation",
-          description: "We discuss your needs, workflow, and requirements to understand your ideal VA profile."
+          title: "Discovery & Strategy",
+          description: "We dive deep into your brand, goals, and target audience to develop a winning creative strategy."
         },
         step2: {
           step: "Step 2",
-          title: "Talent Sourcing & Vetting",
-          description: "We source, screen, and test candidates to find the perfect match for your needs."
+          title: "Concept Development",
+          description: "Our designers create multiple creative concepts for you to choose from and refine."
         },
         step3: {
           step: "Step 3",
-          title: "Onboarding & Training",
-          description: "We onboard your VA with your tools, processes, and expectations for seamless integration."
+          title: "Design & Refinement",
+          description: "We bring your chosen concept to life with meticulous attention to detail and iterative feedback."
         },
         step4: {
           step: "Step 4",
-          title: "Management & Growth",
-          description: "Continuous management, quality control, and support to ensure long-term success."
+          title: "Delivery & Support",
+          description: "You receive all final files in multiple formats with ongoing support for future needs."
         }
       }
     },
@@ -39,26 +39,26 @@ export const copy = {
     whyChooseUs: {
       badge: "Why Choose Us",
       heading: "What makes us <span class=\"text-gold\">different</span>",
-      description: "Data-driven strategies, technical excellence, transparent reporting, and measurable ROI.",
+      description: "Award-winning creativity, strategic thinking, and pixel-perfect execution for every project.",
     },
 
     // Testimonials
     testimonials: {
-      heading: "Trusted by <span class=\"text-gold\">Growing Businesses</span>",
-      subheading: "Real results from real companies growing with TalentSource.",
+      heading: "Trusted by <span class=\"text-gold\">Leading Brands</span>",
+      subheading: "Creative transformations that drive business growth.",
       caseStudy: {
         badge: "Success Story",
-        title: "Case Study: <span class=\"text-gold\">70% Cost Reduction</span>",
-        description: "See how a mid-sized e-commerce company scaled their operations with 10 VAs and reduced their operational costs by 60%.",
+        title: "Case Study: <span class=\"text-gold\">Brand Transformation</span>",
+        description: "See how we rebranded a tech startup, increasing their brand recognition by 200% and customer engagement by 85%.",
         cta: "View Full Case Study",
       },
     },
 
     // Blog
     blog: {
-      badge: "Insights",
+      badge: "Design Journal",
       heading: "Latest <span class=\"text-gold\">Insights</span>",
-      description: "Practical guides and strategies for scaling your team and optimizing your operations.",
+      description: "Design trends, branding tips, and creative inspiration for forward-thinking brands.",
       by: "By",
       readMore: "Read more",
       read: "Read",
@@ -66,15 +66,15 @@ export const copy = {
 
     // Case Studies
     caseStudies: {
-      badge: "Success Stories",
-      heading: "Real <span class=\"text-gold\">Success Stories</span>",
-      description: "Proven results from companies scaling their teams with TalentSource.",
+      badge: "Portfolio",
+      heading: "Creative <span class=\"text-gold\">Success Stories</span>",
+      description: "Transformative design projects that elevated brands and drove measurable business results.",
       labels: {
-        saved: "Saved",
-        teamSize: "Team Size",
+        saved: "Brand Growth",
+        teamSize: "Deliverables",
         timeline: "Timeline",
         viewFull: "View Full Case Study",
-        viewStudy: "View Study",
+        viewStudy: "View Project",
       },
     },
 
@@ -82,119 +82,120 @@ export const copy = {
     faq: {
       badge: "FAQ",
       title: "Frequently Asked Questions",
-      description: "Answers to the most common questions about our service, quality control, and security.",
-      qualityCardTitle: "Native Quality Control",
-      qualityCardText: "Dedicated supervisors review outputs and coach continuously to maintain standards.",
-      toolsCardTitle: "Works with Your Tools",
-      toolsCardText: "We plug into your existing workflows and platforms without disrupting your operations.",
+      description: "Answers to common questions about our design process, timelines, and deliverables.",
+      qualityCardTitle: "Design Quality Assurance",
+      qualityCardText: "Every design goes through rigorous quality checks and refinements to ensure excellence.",
+      toolsCardTitle: "Flexible File Formats",
+      toolsCardText: "We deliver files in all formats you need - from print-ready PDFs to web-optimized assets.",
       stillHaveQuestionsTitle: "Still have questions?",
-      stillHaveQuestionsText: "We're here to help you choose the right setup for your needs.",
-      contactSupport: "Contact Support",
+      stillHaveQuestionsText: "Our design team is ready to discuss your project needs.",
+      contactSupport: "Contact Our Team",
       viewPricing: "View Pricing",
     },
 
     // Pricing
     pricing: {
       sectionBadge: "Pricing",
-      sectionTitle: "Simple, transparent pricing",
-      sectionDescription: "Choose a plan that fits your needs. Scale up or down anytime.",
-      vaCountLabel: "How many VAs do you need?",
-      vaCountHelper: "Choose the right number of virtual assistants for your team",
-      startingFrom: "Starting from €{price}/mo · ~€{hourly}/hr",
-      bulkDiscount: "{percent}% bulk discount applied!",
+      sectionTitle: "Design Packages",
+      sectionDescription: "Choose a design package that fits your needs. Flexible options for every project.",
+      vaCountLabel: "How many design projects?",
+      vaCountHelper: "Select the number of concurrent projects you need",
+      startingFrom: "Starting from €{price}/project",
+      bulkDiscount: "{percent}% multi-project discount applied!",
       bulkSavings: "You save €{amount} total",
-      bulkHint: "Add {count} more plan{suffix} to unlock {percent}% bulk discount",
-      bannerBadge: "Limited Time",
-      bannerTitle: "Book a Free Meeting",
-      bannerSubtitle: "Schedule your free consultation and get started today",
+      bulkHint: "Add {count} more project{suffix} to unlock {percent}% discount",
+      bannerBadge: "Free Consultation",
+      bannerTitle: "Book Your Free Design Consultation",
+      bannerSubtitle: "Discuss your vision with our creative team and get a custom quote",
       bannerPoints: {
-        noCommitment: "No commitment",
+        noCommitment: "No obligation",
         cancelAnytime: "Cancel anytime",
-        fullAccess: "Full access"
+        fullAccess: "Full creative brief"
       },
       plans: {
         starter: {
-          name: "Starter",
-          hours: "10h / week",
+          name: "Logo & Branding",
+          hours: "Starter Package",
           features: [
-            "Dedicated Virtual Assistant",
-            "Native Quality Control",
-            "24h Replacement Guarantee",
-            "Slack/Email Support",
-            "14 Days Money-Back Warranty"
+            "3 Logo Concepts",
+            "Color Palette & Typography",
+            "Brand Style Guide",
+            "Business Card Design",
+            "3 Revision Rounds"
           ]
         },
         professional: {
-          name: "Professional",
-          hours: "20h / week",
+          name: "Complete Brand Identity",
+          hours: "Full Brand Package",
           features: [
-            "Everything in Starter",
-            "No Setup Fee",
-            "Priority Support",
-            "Bi-weekly Progress Reports",
-            "Flexible Hour Rollover"
+            "Everything in Logo Package",
+            "Brand Strategy Session",
+            "Social Media Kit",
+            "Stationery Design Suite",
+            "Unlimited Revisions"
           ]
         },
         enterprise: {
-          name: "Enterprise",
-          hours: "40h / week",
+          name: "Full Design Suite",
+          hours: "Enterprise Package",
           badge: "Best Value",
           features: [
-            "Everything in Professional",
-            "No Setup Fee",
-            "Dedicated Account Manager",
-            "Weekly Strategy Calls",
-            "Custom Workflow Integration"
+            "Complete Brand Identity",
+            "Website Design (5 pages)",
+            "Marketing Collateral",
+            "Packaging Design",
+            "Priority Support & Updates"
           ]
         }
       },
       button: "Get Started",
-      perMonth: "/mo",
-      hoursUnit: "hours",
-      planSetupFee: "+€{fee} setup fee",
-      planNoSetupFee: "No setup fee",
-      disclaimer: "All prices are per plan. Bulk discounts apply automatically. Setup fees are one-time charges."
+      perMonth: "",
+      hoursUnit: "deliverables",
+      planSetupFee: "+€{fee} consultation fee",
+      planNoSetupFee: "Free consultation included",
+      disclaimer: "All packages include source files. Additional revisions available at €75/hour."
     },
 
     // Final CTA
     finalCTA: {
-      badge: "Ready to Scale?",
-      title: "Start with <span class=\"text-gold\">DON SEO</span> Today",
-      description: "Book a free consultation and see how we can improve your rankings in 30 days.",
+      badge: "Ready to Transform Your Brand?",
+      title: "Let's Create Something <span class=\"text-gold\">Amazing</span> Together",
+      description: "Book your free design consultation and discover how we can elevate your brand.",
     },
 
     // Value Proposition (if used)
     valueProposition: {
       heading: "Why <span class=\"text-gold\">Choose Us</span>",
+      description: "Award-winning creativity, strategic thinking, and pixel-perfect execution for every project.",
     },
   },
 
   ge: {
     // How It Works
     howItWorks: {
-      badge: "Wie es funktioniert",
-      heading: "Starten Sie in <span class=\"text-gold\">4 einfachen Schritten</span>",
-      description: "Von der Beratung bis zur Einsatzbereitschaft – unser Prozess liefert schnell Top-Talente.",
+      badge: "Unser Prozess",
+      heading: "Von der Konzept <span class=\"text-gold\">zur Kreation</span>",
+      description: "Unser optimierter 4-Schritte-Prozess sorgt dafür, dass jedes Design-Projekt Ihre Erwartungen übertrifft.",
       steps: {
         step1: {
           step: "Schritt 1",
-          title: "Erstberatung",
-          description: "Wir besprechen Ihre Bedürfnisse, Workflows und Anforderungen, um Ihr ideales VA-Profil zu verstehen."
+          title: "Entdeckung & Strategie",
+          description: "Wir tauchen tief in Ihre Marke, Ziele und Zielgruppe ein, um eine erfolgreiche Kreativstrategie zu entwickeln."
         },
         step2: {
           step: "Schritt 2",
-          title: "Talent-Sourcing & Prüfung",
-          description: "Wir rekrutieren, screenen und testen Kandidaten, um die perfekte Übereinstimmung für Ihre Bedürfnisse zu finden."
+          title: "Konzeptentwicklung",
+          description: "Unsere Designer erstellen mehrere kreative Konzepte zur Auswahl und Verfeinerung."
         },
         step3: {
           step: "Schritt 3",
-          title: "Onboarding & Schulung",
-          description: "Wir integrieren Ihren VA mit Ihren Tools, Prozessen und Erwartungen für eine nahtlose Einarbeitung."
+          title: "Design & Verfeinerung",
+          description: "Wir bringen Ihr gewähltes Konzept mit Liebe zum Detail und iterativem Feedback zum Leben."
         },
         step4: {
           step: "Schritt 4",
-          title: "Management & Wachstum",
-          description: "Kontinuierliches Management, Qualitätskontrolle und Support für langfristigen Erfolg."
+          title: "Lieferung & Support",
+          description: "Sie erhalten alle Enddateien in mehreren Formaten mit kontinuierlichem Support für zukünftige Bedürfnisse."
         }
       }
     },
@@ -203,26 +204,26 @@ export const copy = {
     whyChooseUs: {
       badge: "Warum wir",
       heading: "Was uns <span class=\"text-gold\">auszeichnet</span>",
-      description: "Datengesteuerte Strategien, technische Exzellenz, transparentes Reporting und messbarer ROI.",
+      description: "Preisgekrönte Kreativität, strategisches Denken und pixelgenaue Ausführung für jedes Projekt.",
     },
 
     // Testimonials
     testimonials: {
-      heading: "Vertrauen von <span class=\"text-gold\">wachsenden Unternehmen</span>",
-      subheading: "Echte Ergebnisse von Unternehmen, die mit TalentSource wachsen.",
+      heading: "Vertrauen von <span class=\"text-gold\">führenden Marken</span>",
+      subheading: "Kreative Transformationen, die Geschäftswachstum fördern.",
       caseStudy: {
         badge: "Erfolgsgeschichte",
-        title: "Fallstudie: <span class=\"text-gold\">70% Kostensenkung</span>",
-        description: "Erfahren Sie, wie ein mittelständisches E-Commerce-Unternehmen mit 10 VAs skalierte und die Betriebskosten um 60% senkte.",
+        title: "Fallstudie: <span class=\"text-gold\">Markentransformation</span>",
+        description: "Erfahren Sie, wie wir ein Tech-Startup neu positionierten und die Markenbekanntheit um 200% sowie die Kundenbindung um 85% steigerten.",
         cta: "Vollständige Fallstudie ansehen",
       },
     },
 
     // Blog
     blog: {
-      badge: "Einblicke",
+      badge: "Design Journal",
       heading: "Aktuelle <span class=\"text-gold\">Einblicke</span>",
-      description: "Praktische Leitfäden und Strategien zur Skalierung Ihres Teams und Optimierung Ihrer Abläufe.",
+      description: "Design-Trends, Branding-Tipps und kreative Inspiration für zukunftsorientierte Marken.",
       by: "Von",
       readMore: "Weiterlesen",
       read: "Lesen",
@@ -230,15 +231,15 @@ export const copy = {
 
     // Case Studies
     caseStudies: {
-      badge: "Erfolgsgeschichten",
-      heading: "Echte <span class=\"text-gold\">Erfolgsgeschichten</span>",
-      description: "Bewährte Ergebnisse von Unternehmen, die ihre Teams mit TalentSource skalieren.",
+      badge: "Portfolio",
+      heading: "Kreative <span class=\"text-gold\">Erfolgsgeschichten</span>",
+      description: "Transformative Design-Projekte, die Marken aufgewertet und messbare Geschäftsergebnisse erzielt haben.",
       labels: {
-        saved: "Gespart",
-        teamSize: "Teamgröße",
+        saved: "Markenwachstum",
+        teamSize: "Deliverables",
         timeline: "Zeitrahmen",
         viewFull: "Vollständige Fallstudie ansehen",
-        viewStudy: "Studie ansehen",
+        viewStudy: "Projekt ansehen",
       },
     },
 
@@ -246,90 +247,91 @@ export const copy = {
     faq: {
       badge: "FAQ",
       title: "Häufig gestellte Fragen",
-      description: "Antworten auf die häufigsten Fragen zu unserem Service, Qualitätskontrolle und Sicherheit.",
-      qualityCardTitle: "Native Qualitätskontrolle",
-      qualityCardText: "Dedizierte Supervisoren prüfen Ergebnisse und coachen kontinuierlich, um Standards zu halten.",
-      toolsCardTitle: "Funktioniert mit Ihren Tools",
-      toolsCardText: "Wir integrieren uns in Ihre bestehenden Workflows und Plattformen ohne Unterbrechung.",
+      description: "Antworten auf häufige Fragen zu unserem Design-Prozess, Zeitplänen und Deliverables.",
+      qualityCardTitle: "Design-Qualitätssicherung",
+      qualityCardText: "Jedes Design durchläuft strenge Qualitätskontrollen und Verfeinerungen, um Exzellenz zu gewährleisten.",
+      toolsCardTitle: "Flexible Dateiformate",
+      toolsCardText: "Wir liefern Dateien in allen Formaten, die Sie brauchen – von druckfertigen PDFs bis zu web-optimierten Assets.",
       stillHaveQuestionsTitle: "Noch Fragen?",
-      stillHaveQuestionsText: "Wir helfen Ihnen gern, das passende Setup zu wählen.",
-      contactSupport: "Support kontaktieren",
+      stillHaveQuestionsText: "Unser Design-Team steht bereit, um Ihre Projektwünsche zu besprechen.",
+      contactSupport: "Team kontaktieren",
       viewPricing: "Preise ansehen",
     },
 
     // Pricing
     pricing: {
       sectionBadge: "Preise",
-      sectionTitle: "Einfache, transparente Preise",
-      sectionDescription: "Wählen Sie den perfekten Plan für Ihr Unternehmen. Skalieren Sie jederzeit hoch oder runter.",
-      vaCountLabel: "Wie viele VAs brauchen Sie?",
-      vaCountHelper: "Wählen Sie die richtige Anzahl virtueller Assistenten für Ihr Team",
-      startingFrom: "Ab €{price}/Stunde",
-      bulkDiscount: "{percent}% Rabatt - {suffix} mehr!",
+      sectionTitle: "Design-Pakete",
+      sectionDescription: "Wählen Sie das Design-Paket, das zu Ihren Bedürfnissen passt. Flexible Optionen für jedes Projekt.",
+      vaCountLabel: "Wie viele Design-Projekte?",
+      vaCountHelper: "Wählen Sie die Anzahl der gleichzeitigen Projekte, die Sie benötigen",
+      startingFrom: "Ab €{price}/Projekt",
+      bulkDiscount: "{percent}% Rabatt bei mehreren Projekten!",
       bulkSavings: "Gesamtersparnis: €{amount}",
-      bulkHint: "Fügen Sie {count} weitere {suffix} hinzu, um {percent}% Rabatt zu erhalten",
-      bannerBadge: "Zeitlich begrenzt",
-      bannerTitle: "Meeting buchen",
-      bannerSubtitle: "Vereinbaren Sie Ihre kostenlose Beratung und starten Sie noch heute",
+      bulkHint: "Fügen Sie {count} weitere Projekt{suffix} hinzu, um {percent}% Rabatt zu erhalten",
+      bannerBadge: "Kostenlose Beratung",
+      bannerTitle: "Kostenloses Design-Gespräch vereinbaren",
+      bannerSubtitle: "Besprechen Sie Ihre Vision mit unserem Kreativteam und erhalten Sie ein individuelles Angebot",
       bannerPoints: {
         noCommitment: "Keine Verpflichtung",
         cancelAnytime: "Jederzeit kündbar", 
-        fullAccess: "Voller Zugriff"
+        fullAccess: "Volles Kreativ-Briefing"
       },
       plans: {
         starter: {
-          name: "Starter",
-          hours: "10h / week",
+          name: "Logo & Branding",
+          hours: "Starter-Paket",
           features: [
-            "Dedizierter virtueller Assistent",
-            "Qualitätskontrolle durch Muttersprachler",
-            "24h Ersatzgarantie", 
-            "Slack/Email Support",
-            "14 Tage Geld-zurück-Garantie"
+            "3 Logo-Konzepte",
+            "Farbschema & Typografie",
+            "Marken-Styleguide",
+            "Visitenkarten-Design",
+            "3 Überarbeitungsrunden"
           ]
         },
         professional: {
-          name: "Professional", 
-          hours: "20h / Woche",
+          name: "Komplette Markenidentität", 
+          hours: "Full Brand-Paket",
           features: [
-            "Alles aus Starter",
-            "Keine Einrichtungsgebühr",
-            "Prioritätsupport",
-            "Zweiwöchentliche Fortschrittsberichte",
-            "Flexible Stundenübertragung"
+            "Alles aus Logo-Paket",
+            "Markenstrategie-Session",
+            "Social Media Kit",
+            "Briefpapier-Design Suite",
+            "Unbegrenzte Überarbeitungen"
           ]
         },
         enterprise: {
-          name: "Enterprise",
-          hours: "40h / Woche", 
+          name: "Full Design Suite",
+          hours: "Enterprise-Paket", 
           badge: "Bester Wert",
           features: [
-            "Alles aus Professional",
-            "Keine Einrichtungsgebühr",
-            "Dedizierter Account Manager", 
-            "Wöchentliche Strategie-Calls",
-            "Individuelle Workflow-Integration"
+            "Komplette Markenidentität",
+            "Website-Design (5 Seiten)",
+            "Marketing-Kollateral",
+            "Verpackungsdesign",
+            "Prioritätsupport & Updates"
           ]
         }
       },
       button: "Jetzt starten",
-      perMonth: "/Mo.",
-      hoursUnit: "Stunden",
-      planSetupFee: "+€{fee} Einrichtungsgebühr",
-      planNoSetupFee: "Keine Einrichtungsgebühr",
-      disclaimer: "Alle Preise gelten pro Plan. Mengenrabatte werden automatisch angewendet. Einrichtungsgebühren sind einmalige Zahlungen."
+      perMonth: "",
+      hoursUnit: "Deliverables",
+      planSetupFee: "+€{fee} Beratungsgebühr",
+      planNoSetupFee: "Kostenlose Beratung inklusive",
+      disclaimer: "Alle Pakete beinhalten Quelldateien. Zusätzliche Überarbeitungen verfügbar ab €75/Stunde."
     },
 
     // Final CTA
     finalCTA: {
-      badge: "Bereit zu skalieren?",
-      title: "Starten Sie noch heute mit <span class=\"text-gold\">TalentSource</span>",
-      description: "Buchen Sie eine kostenlose Beratung und erleben Sie, wie wir Ihr Team in 30 Tagen aufstocken können."
+      badge: "Bereit, Ihre Marke zu transformieren?",
+      title: "Lassen Sie uns etwas <span class=\"text-gold\">Großartiges</span> zusammen schaffen",
+      description: "Buchen Sie Ihr kostenloses Design-Gespräch und entdecken Sie, wie wir Ihre Marke aufwerten können."
     },
 
     // Value Proposition (if used)
     valueProposition: {
       heading: "Warum <span class=\"text-gold\">wir</span>?",
+      description: "Preisgekrönte Kreativität, strategisches Denken und pixelgenaue Ausführung für jedes Projekt.",
     },
   },
 } as const;
@@ -341,3 +343,5 @@ export const getCopy = <K extends keyof typeof copy.en>(lang: string, key: K) =>
   const normalizedLang = lang.toLowerCase().startsWith('ge') || lang.toLowerCase().startsWith('de') ? 'ge' : 'en';
   return copy[normalizedLang as 'en' | 'ge'][key];
 };
+
+

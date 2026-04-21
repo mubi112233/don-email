@@ -18,8 +18,14 @@ async function getHeroMeta(lang: string) {
 
     // Handle array response (multiple heroes)
     if (Array.isArray(data.hero)) {
+      // Prefer hero with metaTitle/metaDescription for SEO, then fall back to newest
+      const withMeta = data.hero.find((h: any) => h.metaTitle || h.metaDescription);
+      if (withMeta) {
+        console.log(`[getHeroMeta] Found hero with SEO meta:`, withMeta._id);
+        return withMeta;
+      }
       // Sort by _id (newest first - MongoDB ObjectId contains timestamp)
-      const sorted = data.hero.sort((a, b) => {
+      const sorted = data.hero.sort((a: any, b: any) => {
         const idA = a._id || '';
         const idB = b._id || '';
         return idB.localeCompare(idA);
@@ -42,43 +48,44 @@ export async function generateMetadata({
   const { lang: rawLang } = await params;
   const lang = rawLang === 'de' || rawLang === 'ge' ? 'ge' : 'en';
   const hero = await getHeroMeta(lang);
+  console.log("[generateMetadata] hero data:", JSON.stringify({ metaTitle: hero?.metaTitle, metaDescription: hero?.metaDescription, metaKeywords: hero?.metaKeywords, title: hero?.title, _id: hero?._id }));
 
   const title =
     hero?.metaTitle ||
     (lang === "ge"
-      ? "DON Recruitment – Professionelle Personalvermittlung & Executive Search | Recruiting Agentur"
-      : "DON Recruitment – Professional Talent Acquisition | Hire Top Talent");
+      ? "don-webdesign – Premium Webdesign Agentur | Websites & Entwicklung"
+      : "don-webdesign – Premium Web Design Agency | Save 70% on Development");
   const description =
     hero?.metaDescription ||
     (lang === "ge"
-      ? "Professionelle Personalvermittlung und Executive Search für Unternehmen. Spezialisiert auf die Vermittlung von Top-Talenten in der DACH-Region."
-      : "Professional recruitment services connecting businesses with top talent. Specialized in executive search, permanent placement, and talent acquisition.");
+      ? "Sparen Sie 70% bei der Webentwicklung mit premium Webdesign Services. Moderne Websites, die konvertieren. Native Qualität, garantierte Zufriedenheit."
+      : "Save 70% on web development with premium web design services. Modern websites that convert. Native quality, guaranteed satisfaction.");
   const keywordsFromHero = hero?.metaKeywords
     ? hero.metaKeywords.split(",").map((k: string) => k.trim())
     : null;
   const defaultDeKeywords = [
-    "Recruiting Agentur",
-    "Personalvermittlung",
-    "Executive Search",
-    "Headhunting",
-    "Talent Acquisition",
-    "Personalberatung",
-    "DON Recruitment",
-    "Fachkräfte Vermittlung",
-    "Direktansprache",
-    "Top Kandidaten",
+    "Webdesign Agentur",
+    "Webentwicklung",
+    "Premium Websites",
+    "Website Design",
+    "Moderne Webdesign",
+    "Responsive Design",
+    "E-Commerce Website",
+    "Custom Web Entwicklung",
+    "UI/UX Design",
+    "Website Redesign",
   ];
   const defaultEnKeywords = [
-    "recruitment services",
-    "talent acquisition",
-    "executive search",
-    "staffing solutions",
-    "headhunting",
-    "DACH recruitment",
-    "DON Recruitment",
-    "professional placement",
-    "direct approach",
-    "top talent hiring",
+    "web design agency",
+    "web development",
+    "premium websites",
+    "website design services",
+    "modern web design",
+    "responsive design",
+    "ecommerce website",
+    "custom web development",
+    "UI/UX design",
+    "website redesign",
   ];
   const keywords = keywordsFromHero ?? (lang === "ge" ? defaultDeKeywords : defaultEnKeywords);
   const pathSeg = publicLocalePathSegment(lang);
@@ -98,7 +105,7 @@ export async function generateMetadata({
       description,
       url: canonical,
       type: "website",
-      siteName: "DON Recruitment",
+      siteName: "don-webdesign",
       locale: lang === "ge" ? "de_DE" : "en_US",
       alternateLocale: lang === "ge" ? "en_US" : "de_DE",
       images: [
@@ -106,7 +113,7 @@ export async function generateMetadata({
           url: "/og-image.jpg",
           width: 1200,
           height: 630,
-          alt: lang === "ge" ? "DON Recruitment — Professionelle Personalvermittlung" : "DON Recruitment — Professional Talent Acquisition",
+          alt: lang === "ge" ? "don-webdesign — Premium Webdesign Agentur" : "don-webdesign — Premium Web Design Services",
         },
       ],
     },
@@ -132,14 +139,15 @@ const pageJsonLd = (baseUrl: string) => ({
   en: {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "DON Recruitment — Professional Talent Acquisition",
-    provider: { "@type": "Organization", name: "DON Recruitment" },
+    name: "don-webdesign — Premium Web Design Services",
+    provider: { "@type": "Organization", name: "don-webdesign" },
     description:
-      "Professional recruitment services connecting businesses with top talent. Specialized in executive search, permanent placement, and talent acquisition across the DACH region.",
+      "Save 70% on web development with premium web design services. Modern websites that convert. Native quality, guaranteed satisfaction.",
     areaServed: [
       { "@type": "Country", name: "Germany" },
       { "@type": "Country", name: "Austria" },
       { "@type": "Country", name: "Switzerland" },
+      { "@type": "Place", name: "Worldwide" },
     ],
     availableLanguage: ["English", "German"],
     url: `${baseUrl}/en`,
@@ -148,14 +156,15 @@ const pageJsonLd = (baseUrl: string) => ({
   ge: {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "DON Recruitment — Professionelle Personalvermittlung",
-    provider: { "@type": "Organization", name: "DON Recruitment" },
+    name: "don-webdesign — Premium Webdesign Services",
+    provider: { "@type": "Organization", name: "don-webdesign" },
     description:
-      "Professionelle Personalvermittlung und Executive Search für Unternehmen in der DACH-Region. Spezialisiert auf die Vermittlung von Top-Talenten.",
+      "Sparen Sie 70% bei der Webentwicklung mit premium Webdesign Services. Moderne Websites, die konvertieren. Native Qualität, garantierte Zufriedenheit.",
     areaServed: [
       { "@type": "Country", name: "Germany" },
       { "@type": "Country", name: "Austria" },
       { "@type": "Country", name: "Switzerland" },
+      { "@type": "Place", name: "Worldwide" },
     ],
     availableLanguage: ["Deutsch", "Englisch"],
     url: `${baseUrl}/de`,

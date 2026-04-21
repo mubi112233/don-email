@@ -20,11 +20,31 @@ interface BlogPost {
 
 async function getBlogPost(lang: string, slug: string): Promise<BlogPost | null> {
   try {
-    const postId = Number(slug.split("-").pop());
-    if (isNaN(postId)) return null;
     const data = await fetchApiData<any>(API_ENDPOINTS.BLOGS, normalizeLanguage(lang));
     const posts: BlogPost[] = Array.isArray(data?.posts) ? data.posts : Array.isArray(data?.blogs) ? data.blogs : [];
-    return posts.find((p) => p.blogId === postId) ?? null;
+    if (!posts.length) return null;
+
+    // Try to extract numeric ID from end of slug (format: slugified-title-123)
+    const postId = Number(slug.split("-").pop());
+    if (!isNaN(postId)) {
+      const byId = posts.find((p) => p.blogId === postId || p.id === postId);
+      if (byId) return byId;
+    }
+
+    // Fallback: match by slugified title
+    const slugify = (title: string) =>
+      title
+        .toLowerCase()
+        .replace(/[^\w\s-]/g, "")
+        .replace(/\s+/g, "-")
+        .replace(/-+/g, "-")
+        .trim();
+
+    return posts.find((p) => {
+      const titleSlug = slugify(p.title);
+      // Match if slug starts with title slug (handles both title-id and just title formats)
+      return slug.startsWith(titleSlug) || titleSlug === slug;
+    }) ?? null;
   } catch {
     return null;
   }
@@ -40,7 +60,7 @@ export async function generateMetadata({
 
   if (!post) return {};
 
-  const title = `${post.title} | DON Recruitment`;
+  const title = `${post.title} | don-webdesign`;
   const description = post.excerpt?.substring(0, 160) || "";
   const seg = publicLocalePathSegment(lang);
   const pathAfterLocale = `blog/${slug}`;
@@ -58,7 +78,7 @@ export async function generateMetadata({
       type: "article",
       locale: seg === "de" ? "de_DE" : "en_US",
       alternateLocale: seg === "de" ? "en_US" : "de_DE",
-      siteName: "DON Recruitment",
+      siteName: "don-webdesign",
       images: post.image ? [{ url: post.image, width: 1200, height: 630, alt: post.title }] : [],
     },
     twitter: {

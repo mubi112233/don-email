@@ -23,7 +23,7 @@ const plans: PricingPlan[] = [
     price: 369,
     setupFee: 149,
     features: [
-      "Dedicated Virtual Assistant",
+      "Dedicated Design Specialist",
       "Native Quality Control", 
       "24h Replacement Guarantee",
       "Slack/Email Support",
@@ -76,24 +76,24 @@ export async function Pricing({ lang }: { lang: string }) {
   return (
     <section 
       id="pricing"
-      className={`relative ${SPACING.section} bg-[hsl(220_85%_20%)] text-white z-10 overflow-hidden`}
+      className={`relative ${SPACING.section} bg-background text-white z-10 overflow-hidden`}
     >
       {/* Animated background gradients */}
-      <div className="absolute top-0 left-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-blue-500/10 rounded-full blur-[100px] md:blur-[150px]" />
-      <div className="absolute bottom-0 right-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-blue-500/10 rounded-full blur-[100px] md:blur-[150px]" />
+      <div className="absolute top-0 left-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-primary/10 rounded-full blur-[100px] md:blur-[150px]" />
+      <div className="absolute bottom-0 right-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-primary/10 rounded-full blur-[100px] md:blur-[150px]" />
       <div className={`container mx-auto ${SPACING.container} relative z-10`}>
         {/* Free Trial Banner */}
         <div className="mb-8 sm:mb-10 md:mb-12 max-w-5xl mx-auto">
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 p-1 max-w-sm mx-auto md:max-w-none shadow-xl">
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary via-primary/80 to-accent p-1 max-w-sm mx-auto md:max-w-none shadow-xl">
             {/* Animated shimmer */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
             
-            <div className="relative bg-[hsl(220_85%_20%)] rounded-xl p-6 sm:p-8 md:p-10">
+            <div className="relative bg-card rounded-xl p-6 sm:p-8 md:p-10">
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex-1 text-center md:text-left">
                   <div className="flex items-center justify-center md:justify-start gap-2 mb-3">
-                    <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
-                    <span className="text-blue-400 font-bold text-sm sm:text-base uppercase tracking-wide">{copy.bannerBadge}</span>
+                    <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                    <span className="text-primary font-bold text-sm sm:text-base uppercase tracking-wide">{copy.bannerBadge}</span>
                   </div>
                   
                   <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 text-white">
@@ -105,15 +105,15 @@ export async function Pricing({ lang }: { lang: string }) {
                   
                   <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-sm sm:text-base">
                     <div className="flex items-center gap-2">
-                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
+                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                       <span className="text-white/60">{copy.bannerPoints.noCommitment}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
+                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                       <span className="text-white/60">{copy.bannerPoints.cancelAnytime}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
+                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                       <span className="text-white/60">{copy.bannerPoints.fullAccess}</span>
                     </div>
                   </div>
@@ -137,7 +137,7 @@ export async function Pricing({ lang }: { lang: string }) {
         </div>
 
         <div className="mb-8 sm:mb-10 md:mb-12 lg:mb-16 text-left">
-          <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-500 text-white text-xs sm:text-sm font-bold rounded-full mb-3 sm:mb-4 shadow-md">
+          <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-[hsl(270,80%,65%)] text-white text-xs sm:text-sm font-bold rounded-full mb-3 sm:mb-4 shadow-md">
             {copy.sectionBadge}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 text-white leading-tight">
@@ -150,7 +150,7 @@ export async function Pricing({ lang }: { lang: string }) {
 
         {/* Price indicator */}
         <div className="max-w-xl mx-auto mb-8 sm:mb-10 md:mb-12 text-center">
-          <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-blue-500/10 text-white text-xs sm:text-sm font-semibold rounded-full border border-blue-500/30 shadow-sm">
+          <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/10 text-white text-xs sm:text-sm font-semibold rounded-full border border-primary/30 shadow-sm">
             {copy.startingFrom.replace('{price}', avgPricePerPlan.toString()).replace('{hourly}', Math.round(avgPricePerPlan / (avgHoursPerWeek * 4)).toString())}
           </span>
         </div>
@@ -169,25 +169,25 @@ export async function Pricing({ lang }: { lang: string }) {
               {/* Animated gradient border for highlighted plan */}
               {plan.highlighted && (
                 <div
-                  className="absolute -inset-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 rounded-2xl"
+                  className="absolute -inset-0.5 bg-gradient-to-r from-primary via-primary/80 to-accent rounded-2xl"
                   style={{ backgroundSize: "200% 200%" }}
                 />
               )}
               
               <div className={`relative rounded-2xl p-6 sm:p-8 md:p-10 transition-all duration-500 group h-full ${
                 plan.highlighted 
-                  ? 'bg-gradient-to-br from-blue-500 via-blue-600 to-blue-500 text-white shadow-[0_25px_70px_-15px_hsl(220_100%_50%/0.5)]' 
-                  : 'bg-white/5 border-2 border-white/10 hover:border-blue-400/80 hover:shadow-[0_25px_70px_-15px_hsl(220_100%_50%/0.4)]'
+                  ? 'bg-gradient-to-br from-primary via-primary/80 to-primary text-white shadow-[0_25px_70px_-15px_rgba(var(--primary),0.5)]' 
+                  : 'bg-white/5 border-2 border-white/10 hover:border-primary/80 hover:shadow-[0_25px_70px_-15px_rgba(var(--primary),0.4)]'
               }`}>
                 {/* Top accent line with animation */}
                 <div 
                   className={`absolute top-0 left-0 right-0 h-1 rounded-t-2xl ${
-                    plan.highlighted ? 'bg-white/20' : 'bg-gradient-to-r from-transparent via-blue-400 to-transparent'
+                    plan.highlighted ? 'bg-white/20' : 'bg-gradient-to-r from-transparent via-primary to-transparent'
                   }`}
                 />
                 
                 {(plan as any).badge && (
-                  <div className="absolute -top-4 right-6 bg-gradient-to-r from-white to-white/95 text-blue-600 px-4 py-1.5 rounded-full text-xs font-bold shadow-xl flex items-center gap-1.5 border border-blue-400/20">
+                  <div className="absolute -top-4 right-6 bg-gradient-to-r from-white to-white/95 text-primary px-4 py-1.5 rounded-full text-xs font-bold shadow-xl flex items-center gap-1.5 border border-primary/20">
                     <Star className="w-3.5 h-3.5 fill-current" />
                     {(plan as any).badge}
                   </div>
@@ -207,7 +207,7 @@ export async function Pricing({ lang }: { lang: string }) {
                       {localizedHours}
                     </p>
                     <span className={`px-2 py-0.5 text-xs rounded-full ${
-                      plan.highlighted ? 'bg-white/20 text-white' : 'bg-blue-500/20 text-blue-300'
+                      plan.highlighted ? 'bg-white/20 text-white' : 'bg-[hsl(270,80%,65%)]/20 text-[hsl(270,80%,85%)]'
                     }`}>
                       {parseInt(plan.hours)} {copy.hoursUnit}
                     </span>
@@ -218,7 +218,7 @@ export async function Pricing({ lang }: { lang: string }) {
                 <div className="mb-6 pb-6 border-b border-current/10 relative z-10">
                   <div className="flex items-baseline gap-1">
                     <span className={`text-5xl sm:text-6xl font-bold tracking-tight ${
-                      plan.highlighted ? 'text-white' : 'text-blue-400'
+                      plan.highlighted ? 'text-white' : 'text-primary'
                     }`}>
                       €{plan.price}
                     </span>
@@ -236,7 +236,7 @@ export async function Pricing({ lang }: { lang: string }) {
                     </p>
                   ) : (
                     <p className={`text-xs mt-2 font-semibold flex items-center gap-1 ${
-                      plan.highlighted ? 'text-white' : 'text-blue-400'
+                      plan.highlighted ? 'text-white' : 'text-primary'
                     }`}>
                       <Check className="w-3.5 h-3.5" />
                       {copy.planNoSetupFee}
@@ -252,10 +252,10 @@ export async function Pricing({ lang }: { lang: string }) {
                       className="flex items-start gap-2.5"
                     >
                       <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 transition-all duration-300 group-hover:scale-110 ${
-                        plan.highlighted ? 'bg-white/20' : 'bg-blue-500/10 group-hover:bg-blue-500/20'
+                        plan.highlighted ? 'bg-white/20' : 'bg-primary/10 group-hover:bg-primary/20'
                       }`}>
                         <Check className={`w-3 h-3 ${
-                          plan.highlighted ? 'text-white' : 'text-blue-400'
+                          plan.highlighted ? 'text-white' : 'text-primary'
                         }`} />
                       </div>
                       <span className={`text-sm leading-relaxed ${
@@ -272,8 +272,8 @@ export async function Pricing({ lang }: { lang: string }) {
                   href={localizedPath(lang as "en" | "ge", siteConfig.routes.bookMeeting)}
                   className={`w-full relative z-10 font-bold text-base py-6 sm:py-7 rounded-xl transition-all duration-300 group/btn overflow-hidden min-h-[44px] inline-flex items-center justify-center ${
                     plan.highlighted 
-                      ? 'bg-white text-[hsl(220_85%_20%)] hover:bg-white/95 shadow-lg hover:shadow-xl hover:scale-105' 
-                      : 'border-2 border-white/20 text-white hover:bg-white hover:text-[hsl(220_85%_20%)] hover:scale-105'
+                      ? 'bg-white text-secondary-foreground hover:bg-white/95 shadow-lg hover:shadow-xl hover:scale-105' 
+                      : 'border-2 border-white/20 text-white hover:bg-white hover:text-secondary-foreground hover:scale-105'
                   }`}
                   aria-label={`Get started with ${localizedName} plan - ${localizedHours} at €${plan.price} ${copy.perMonth}`}
                 >
@@ -293,3 +293,5 @@ export async function Pricing({ lang }: { lang: string }) {
     </section>
   );
 }
+
+

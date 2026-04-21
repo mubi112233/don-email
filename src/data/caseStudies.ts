@@ -24,44 +24,46 @@ export interface CaseStudy {
 export const caseStudies: CaseStudy[] = [
   {
     id: 1,
-    title: "E-commerce Automation Success",
-    description: "How we helped an online retailer increase organic traffic by 340% through technical SEO and content optimization.",
+    title: "Tech Startup Brand Transformation",
+    description: "Complete rebrand for a Berlin-based fintech startup, including logo, visual identity, and marketing collateral.",
     image: "/api/placeholder/600/400",
-    category: "E-commerce",
-    tags: ["Automation", "Cost Reduction", "Efficiency"],
-    content: "Detailed case study content about e-commerce automation success...",
+    category: "Branding",
+    tags: ["Branding", "Visual Identity", "Startup"],
+    content: "Detailed case study content about brand transformation...",
     results: [
-      { metric: "Cost Reduction", value: "40%" },
-      { metric: "Time Saved", value: "25 hours/week" },
-      { metric: "ROI", value: "320%" }
+      { metric: "Brand Recognition", value: "+200%" },
+      { metric: "Customer Engagement", value: "+85%" },
+      { metric: "Investor Interest", value: "3x" }
     ]
   },
   {
     id: 2,
-    title: "Real Estate SEO Growth Campaign",
-    description: "Transforming a real estate agency's online visibility with targeted local SEO strategies.",
+    title: "E-commerce Packaging Redesign",
+    description: "Eye-catching packaging design for a sustainable fashion brand that increased shelf appeal and customer retention.",
     image: "/api/placeholder/600/400",
-    category: "Real Estate",
-    tags: ["Real Estate", "Workflow", "Support"],
-    content: "Detailed case study content about real estate SEO implementation...",
+    category: "Packaging",
+    tags: ["Packaging", "Sustainability", "Retail"],
+    content: "Detailed case study content about packaging redesign...",
     results: [
-      { metric: "Lead Conversion", value: "+35%" },
-      { metric: "Response Time", value: "-80%" },
-      { metric: "Client Satisfaction", value: "4.9/5" }
+      { metric: "Sales Increase", value: "+45%" },
+      { metric: "Social Shares", value: "+120%" },
+      { metric: "Customer Retention", value: "+30%" }
     ]
   },
   {
     id: 3,
-    title: "SaaS Startup Organic Growth",
-    description: "Helping a tech startup achieve 10x organic traffic growth through strategic SEO.",
+    title: "Corporate Website Redesign",
+    description: "Modern web design for a Munich consulting firm, improving user experience and lead generation.",
     image: "/api/placeholder/600/400",
-    category: "Startup",
-    tags: ["Scaling", "Startup", "Growth"],
-    content: "Detailed case study content about SaaS SEO growth...",
+    category: "Web Design",
+    tags: ["Web Design", "UX/UI", "B2B"],
+    content: "Detailed case study content about website redesign...",
     results: [
-      { metric: "Growth Rate", value: "150%" },
-      { metric: "Cost Efficiency", value: "60%" },
-      { metric: "Team Productivity", value: "+45%" }
+      { metric: "Lead Generation", value: "+60%" },
+      { metric: "Page Views", value: "+150%" },
+      { metric: "Client Inquiries", value: "+90%" }
     ]
   }
 ];
+
+

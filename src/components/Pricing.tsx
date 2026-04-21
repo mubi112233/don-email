@@ -32,7 +32,7 @@ const plans: PricingPlan[] = [
     price: 369,
     setupFee: 149,
     features: [
-      "Dedicated Virtual Assistant",
+      "Dedicated Design Specialist",
       "Native Quality Control", 
       "24h Replacement Guarantee",
       "Slack/Email Support",
@@ -107,7 +107,7 @@ export const Pricing = () => {
   return (
     <motion.section 
       id="pricing"
-      className="relative py-4 sm:py-6 md:py-8 lg:py-10 text-foreground z-10 overflow-hidden bg-muted/30"
+      className="relative py-4 sm:py-6 md:py-8 lg:py-10 text-white z-10 overflow-hidden bg-background"
       initial={{ opacity: 0, y: 200 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -141,7 +141,7 @@ export const Pricing = () => {
               }}
             />
             
-            <div className="relative bg-background rounded-xl p-6 sm:p-8 md:p-10">
+            <div className="relative bg-card rounded-xl p-6 sm:p-8 md:p-10">
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex-1 text-center md:text-left">
                   <motion.div 
@@ -162,30 +162,30 @@ export const Pricing = () => {
                         ease: "easeInOut"
                       }}
                     >
-                      <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
+                      <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                     </motion.div>
-                    <span className="text-blue-400 font-bold text-sm sm:text-base uppercase tracking-wide">{copy.bannerBadge}</span>
+                    <span className="text-primary font-bold text-sm sm:text-base uppercase tracking-wide">{copy.bannerBadge}</span>
                   </motion.div>
                   
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 text-blue-400">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 text-primary">
                     {copy.bannerTitle}
                   </h3>
-                  <p className="text-base sm:text-lg text-blue-400/60 mb-4">
+                  <p className="text-base sm:text-lg text-primary/60 mb-4">
                     {copy.bannerSubtitle}
                   </p>
                   
                   <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-sm sm:text-base">
                     <div className="flex items-center gap-2">
                       <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                      <span className="text-blue-400/60">{copy.bannerPoints.noCommitment}</span>
+                      <span className="text-primary/60">{copy.bannerPoints.noCommitment}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                      <span className="text-blue-400/60">{copy.bannerPoints.cancelAnytime}</span>
+                      <span className="text-primary/60">{copy.bannerPoints.cancelAnytime}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                      <span className="text-blue-400/60">{copy.bannerPoints.fullAccess}</span>
+                      <span className="text-primary/60">{copy.bannerPoints.fullAccess}</span>
                     </div>
                   </div>
                 </div>
@@ -222,16 +222,16 @@ export const Pricing = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.span 
-            className="inline-block px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-primary-foreground text-xs sm:text-sm font-bold rounded-full mb-2 sm:mb-3 md:mb-4 shadow-lg"
+            className="inline-block px-2.5 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 bg-gradient-to-r from-primary to-accent text-primary-foreground text-xs sm:text-sm font-bold rounded-full mb-2 sm:mb-3 md:mb-4 shadow-lg"
             whileHover={{ scale: 1.05 }}
           >
-            {copy.sectionBadge || "Transparent Pricing for Virtual Assistants"}
+            {copy.sectionBadge || "Transparent Pricing for Creative Design Packages"}
           </motion.span>
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-3 md:mb-4 text-foreground leading-tight">
-            Simple, transparent pricing for recruiting and managing Virtual Assistants
+            Simple, transparent pricing for creative design packages
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            Choose a plan that fits your recruitment needs. Scale up or down anytime.
+            Choose a package that fits your design needs. From logos to complete brand identities.
           </p>
         </motion.div>
 
@@ -254,10 +254,10 @@ export const Pricing = () => {
           
           <div className="relative group">
             {/* Hover gradient effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg sm:rounded-xl pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg sm:rounded-xl pointer-events-none" />
             
             {/* Glow effect on focus */}
-            <div className="absolute inset-0 rounded-lg sm:rounded-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none blur-xl bg-blue-500/20" />
+            <div className="absolute inset-0 rounded-lg sm:rounded-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none blur-xl bg-primary/20" />
             
             <select 
               value={vaCount}
@@ -266,7 +266,7 @@ export const Pricing = () => {
               style={{
                 backgroundImage: 'none'
               }}
-              aria-label="Select your VA plan"
+              aria-label="Select your design plan"
               aria-describedby="plan-count-description"
             >
               {Array.from({ length: MAX_VA_COUNT }, (_, i) => i + 1).map(num => (
@@ -275,7 +275,7 @@ export const Pricing = () => {
                   value={num} 
                   className="text-foreground bg-card py-2 sm:py-3"
                 >
-                  {num} {num === 1 ? 'VA' : 'VAs'}
+                  {num} {num === 1 ? 'Project' : 'Projects'}
                 </option>
               ))}
             </select>
@@ -329,7 +329,7 @@ export const Pricing = () => {
             <motion.div 
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="mt-4 sm:mt-5 p-2.5 sm:p-3 bg-muted/50 backdrop-blur-sm border border-border rounded-lg sm:rounded-xl text-center"
+              className="mt-4 sm:mt-5 p-2.5 sm:p-3 bg-card backdrop-blur-sm border border-border rounded-lg sm:rounded-xl text-center"
               role="status"
             >
               <p className="text-muted-foreground text-xs sm:text-sm flex items-center justify-center gap-1.5 flex-wrap">
@@ -362,7 +362,7 @@ export const Pricing = () => {
               {/* Animated gradient border for highlighted plan */}
               {plan.highlighted && (
                 <motion.div
-                  className="absolute -inset-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 rounded-2xl"
+                  className="absolute -inset-0.5 bg-gradient-to-r from-primary via-primary/80 to-accent rounded-2xl"
                   animate={{
                     backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
                   }}
@@ -524,3 +524,4 @@ export const Pricing = () => {
     </motion.section>
   );
 };
+

@@ -25,36 +25,41 @@ export const viewport: Viewport = {
   initialScale: 1,
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+    { media: "(prefers-color-scheme: dark)", color: "#1a1433" },
   ],
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  verification: {
-    google: "vX_t407Cag7AMUBJknopyYEdRElcHuZL_cjKFrBHXH8",
-  },
   title: {
-    default: "DON Recruitment - Professional Talent Acquisition | Hire Top Talent",
-    template: "%s | DON Recruitment",
+    default: "don-webdesign - Premium Web Design Services | Save 70% on Development",
+    template: "%s | don-webdesign",
   },
   description:
-    "Professional recruitment services connecting businesses with top talent. Specialized in executive search, permanent placement, and talent acquisition across industries.",
+    "Save 70% on web development with premium web design services. Modern websites that convert. Native quality, guaranteed satisfaction. Book your free consultation today.",
   keywords: [
-    "recruitment services",
-    "talent acquisition",
-    "executive search",
-    "staffing solutions",
-    "hiring agency",
-    "DON Recruitment",
-    "Recruiting Agentur",
-    "Personalvermittlung",
-    "top talent hiring",
-    "professional placement",
+    "web design agency",
+    "web development",
+    "premium websites",
+    "website design services",
+    "modern web design",
+    "responsive design",
+    "ecommerce website",
+    "custom web development",
+    "UI/UX design",
+    "website redesign",
+    "webdesign agentur",
+    "website erstellen",
+    "professionelle websites",
+    "wordpress design",
+    "nextjs development",
+    "react websites",
+    "conversion optimization",
+    "don-webdesign",
   ],
-  authors: [{ name: "DON Recruitment", url: SITE_URL }],
-  creator: "DON Recruitment",
-  publisher: "DON Recruitment",
+  authors: [{ name: "don-webdesign", url: SITE_URL }],
+  creator: "don-webdesign",
+  publisher: "don-webdesign",
   formatDetection: {
     email: false,
     address: false,
@@ -73,20 +78,20 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "DON Recruitment",
-    title: "DON Recruitment - Professional Talent Acquisition | Hire Top Talent",
+    siteName: "don-webdesign",
+    title: "don-webdesign - Premium Web Design Services | Save 70% on Development",
     description:
-      "Professional recruitment services connecting businesses with top talent. Specialized in executive search, permanent placement, and talent acquisition.",
+      "Save 70% on web development with premium web design services. Modern websites that convert. Native quality, guaranteed satisfaction.",
     url: absoluteUrl("/en"),
     locale: "en_US",
     alternateLocale: ["de_DE"],
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "DON Recruitment — Professional Talent Acquisition" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "don-webdesign — Premium Web Design Services" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "DON Recruitment - Professional Talent Acquisition | Hire Top Talent",
+    title: "don-webdesign - Premium Web Design Services | Save 70% on Development",
     description:
-      "Professional recruitment services connecting businesses with top talent. Specialized in executive search, permanent placement, and talent acquisition.",
+      "Save 70% on web development with premium web design services. Modern websites that convert. Native quality, guaranteed satisfaction.",
     images: [absoluteUrl("/og-image.jpg")],
   },
   alternates: {
@@ -102,11 +107,11 @@ export const metadata: Metadata = {
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "DON Recruitment",
+  name: "don-webdesign",
   url: SITE_URL,
   logo: absoluteUrl("/favicon.ico"),
   description:
-    "Professional recruitment services connecting businesses with top talent. Specialized in executive search, permanent placement, and talent acquisition.",
+    "Premium web design agency specializing in modern websites, web development, UI/UX design, and digital solutions for businesses worldwide.",
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "customer service",
@@ -118,79 +123,97 @@ const organizationJsonLd = {
     { "@type": "Country", name: "Switzerland" },
     { "@type": "Place", name: "Worldwide" },
   ],
-  sameAs: ["https://linkedin.com/company/don-recruitment", "https://twitter.com/don_recruitment"],
+  sameAs: ["https://linkedin.com/company/don-webdesign", "https://twitter.com/don-webdesign", "https://instagram.com/don-webdesign"],
 };
 
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "DON Recruitment",
+  name: "don-webdesign",
   url: SITE_URL,
   inLanguage: ["en-US", "de-DE"],
-  publisher: { "@type": "Organization", name: "DON Recruitment" },
+  publisher: { "@type": "Organization", name: "don-webdesign" },
 };
 
-// Service schema for recruitment services
+// Service schema for web design services
 const serviceJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
-  serviceType: "Recruitment Services",
+  serviceType: "Web Design Services",
   provider: {
     "@type": "Organization",
-    name: "DON Recruitment",
+    name: "don-webdesign",
     url: SITE_URL,
   },
   areaServed: [
     { "@type": "Country", name: "Germany" },
     { "@type": "Country", name: "Austria" },
     { "@type": "Country", name: "Switzerland" },
+    { "@type": "Place", name: "Worldwide" },
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Recruitment Services",
+    name: "Web Design Services",
     itemListElement: [
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Executive Search",
-          description: "High-level executive and leadership recruitment",
+          name: "Custom Website Design",
+          description: "Modern, responsive websites tailored to your brand",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Permanent Placement",
-          description: "Direct hire recruitment for permanent positions",
+          name: "E-Commerce Development",
+          description: "High-converting online stores with seamless checkout",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Talent Acquisition",
-          description: "Comprehensive talent sourcing and acquisition services",
+          name: "UI/UX Design",
+          description: "User-centered interface design for web and mobile",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Website Redesign",
+          description: "Transform your existing site into a conversion machine",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Website Maintenance",
+          description: "Ongoing support and optimization for peak performance",
         },
       },
     ],
   },
 };
 
-// LocalBusiness schema
+// LocalBusiness schema for Web Design Agency
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "DON Recruitment",
+  "@type": "WebDesignAgency",
+  name: "don-webdesign",
   url: SITE_URL,
   logo: absoluteUrl("/favicon.ico"),
   image: absoluteUrl("/og-image.jpg"),
-  description: "Professional recruitment services connecting businesses with top talent",
+  description: "Premium web design agency specializing in modern websites, UI/UX design, and digital solutions for businesses",
   sameAs: [
-    "https://linkedin.com/company/don-recruitment",
-    "https://twitter.com/don_recruitment",
+    "https://linkedin.com/company/don-webdesign",
+    "https://twitter.com/don-webdesign",
+    "https://instagram.com/don-webdesign",
   ],
-  priceRange: "€€€",
+  priceRange: "€€",
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -262,7 +285,7 @@ export default async function RootLayout({
         <a href="#main-content" className="skip-to-content">
           Skip to main content
         </a>
-        <DesignSystemProvider defaultTheme="blue">
+        <DesignSystemProvider defaultTheme="gold">
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -277,3 +300,5 @@ export default async function RootLayout({
     </html>
   );
 }
+
+
