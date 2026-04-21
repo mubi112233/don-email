@@ -8,6 +8,7 @@ import { absoluteUrl, hreflangAlternates, publicLocalePathSegment } from "@/lib/
 
 interface BlogPost {
   blogId: number;
+  id?: number;
   title: string;
   excerpt: string;
   content: string;
