@@ -4,11 +4,15 @@
  */
 export const isProduction = process.env.NODE_ENV === "production";
 
-const DEFAULT_SITE_URL = isProduction ? "https://don-webdesign.com" : "http://localhost:3000";
+// Force correct production domain - update this if domain changes
+const PRODUCTION_SITE_URL = "https://www.don-webdesign.com";
+const DEFAULT_SITE_URL = isProduction ? PRODUCTION_SITE_URL : "http://localhost:3000";
 
-export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || DEFAULT_SITE_URL
-) as string;
+// Get env var but validate it doesn't contain old/wrong domains
+const envUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
+const isValidEnvUrl = envUrl && !envUrl.includes("don-va.com");
+
+export const SITE_URL = (isValidEnvUrl ? envUrl : DEFAULT_SITE_URL) as string;
 
 export function absoluteUrl(path: string): string {
   const p = path.startsWith("/") ? path : `/${path}`;
