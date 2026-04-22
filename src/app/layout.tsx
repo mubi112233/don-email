@@ -244,26 +244,15 @@ export default async function RootLayout({
         {/* Security */}
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         
-        {/* Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LNDGNQ7Z74" />
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y41TLVJ50H" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-LNDGNQ7Z74');
-            `,
-          }}
-        />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C78GJVDGR6" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-C78GJVDGR6');
+              gtag('config', 'G-Y41TLVJ50H');
             `,
           }}
         />
