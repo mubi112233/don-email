@@ -160,19 +160,19 @@ export default function BlogPostClient({
           transition={{ delay: 0.5, duration: 0.6 }}
           className="prose prose-base sm:prose-lg max-w-none mb-10 sm:mb-14
               prose-headings:font-bold
-              prose-h2:text-amber-500 prose-h2:text-2xl sm:prose-h2:text-3xl lg:prose-h2:text-4xl prose-h2:mb-6 prose-h2:mt-14 prose-h2:pb-3 prose-h2:border-b-2 prose-h2:border-gradient-to-r prose-h2:from-amber-500 prose-h2:to-yellow-600
-              prose-h3:text-yellow-500 prose-h3:text-xl sm:prose-h3:text-2xl lg:prose-h3:text-3xl prose-h3:mb-4 prose-h3:mt-10
-              prose-h4:text-yellow-400 prose-h4:text-lg sm:prose-h4:text-xl prose-h4:mb-3 prose-h4:mt-8
+              prose-h2:text-blue-500 prose-h2:text-2xl sm:prose-h2:text-3xl lg:prose-h2:text-4xl prose-h2:mb-6 prose-h2:mt-14 prose-h2:pb-3 prose-h2:border-b-2 prose-h2:border-gradient-to-r prose-h2:from-blue-500 prose-h2:to-blue-600
+              prose-h3:text-blue-500 prose-h3:text-xl sm:prose-h3:text-2xl lg:prose-h3:text-3xl prose-h3:mb-4 prose-h3:mt-10
+              prose-h4:text-blue-400 prose-h4:text-lg sm:prose-h4:text-xl prose-h4:mb-3 prose-h4:mt-8
               prose-p:text-foreground/90 prose-p:leading-relaxed prose-p:mb-5 prose-p:text-base sm:prose-p:text-lg lg:prose-p:text-[1.05rem]
-              prose-strong:text-amber-500 prose-strong:font-semibold prose-strong:text-base sm:prose-strong:text-lg
+              prose-strong:text-blue-500 prose-strong:font-semibold prose-strong:text-base sm:prose-strong:text-lg
               prose-ul:my-6 prose-ul:space-y-3
               prose-ol:my-6 prose-ol:space-y-3
               prose-li:text-foreground/85 prose-li:text-base sm:prose-li:text-lg lg:prose-li:text-[1.05rem] prose-li:leading-relaxed prose-li:pl-2
               [&_ul]:list-none [&_ul]:pl-0
-              [&_ul>li]:relative [&_ul>li]:pl-8 [&_ul>li]:before:content_['▸'] [&_ul>li]:before:absolute [&_ul>li]:before:left-0 [&_ul>li]:before:text-amber-500 [&_ul>li]:before:font-bold [&_ul>li]:before:text-xl
+              [&_ul>li]:relative [&_ul>li]:pl-8 [&_ul>li]:before:content_['▸'] [&_ul>li]:before:absolute [&_ul>li]:before:left-0 [&_ul>li]:before:text-blue-500 [&_ul>li]:before:font-bold [&_ul>li]:before:text-xl
               [&_ol]:list-none [&_ol]:pl-0 [&_ol]:counter-reset-[item]
-              [&_ol>li]:relative [&_ol>li]:pl-8 [&_ol>li]:counter-increment-[item] [&_ol>li]:before:content-[counter(item)] [&_ol>li]:before:absolute [&_ol>li]:before:left-0 [&_ol>li]:before:text-amber-500 [&_ol>li]:before:font-bold [&_ol>li]:before:text-lg [&_ol>li]:before:bg-amber-500/10 [&_ol>li]:before:w-6 [&_ol>li]:before:h-6 [&_ol>li]:before:rounded-full [&_ol>li]:before:flex [&_ol>li]:before:items-center [&_ol>li]:before:justify-center
-              [&_li>strong]:text-amber-500
+              [&_ol>li]:relative [&_ol>li]:pl-8 [&_ol>li]:counter-increment-[item] [&_ol>li]:before:content-[counter(item)] [&_ol>li]:before:absolute [&_ol>li]:before:left-0 [&_ol>li]:before:text-blue-500 [&_ol>li]:before:font-bold [&_ol>li]:before:text-lg [&_ol>li]:before:bg-blue-500/10 [&_ol>li]:before:w-6 [&_ol>li]:before:h-6 [&_ol>li]:before:rounded-full [&_ol>li]:before:flex [&_ol>li]:before:items-center [&_ol>li]:before:justify-center
+              [&_li>strong]:text-blue-500
               [&_br]:my-2"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />

@@ -32,34 +32,34 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "don-webdesign - Premium Web Design Services | Save 70% on Development",
-    template: "%s | don-webdesign",
+    default: "don-email - Professional Email Management Services | Save 80% Time",
+    template: "%s | don-email",
   },
   description:
-    "Save 70% on web development with premium web design services. Modern websites that convert. Native quality, guaranteed satisfaction. Book your free consultation today.",
+    "Transform email chaos into organized productivity. Professional inbox management, automation, and daily optimization. Save 15+ hours per week. Book your free email audit today.",
   keywords: [
-    "web design agency",
-    "web development",
-    "premium websites",
-    "website design services",
-    "modern web design",
-    "responsive design",
-    "ecommerce website",
-    "custom web development",
-    "UI/UX design",
-    "website redesign",
-    "webdesign agentur",
-    "website erstellen",
-    "professionelle websites",
-    "wordpress design",
-    "nextjs development",
-    "react websites",
-    "conversion optimization",
-    "don-webdesign",
+    "email management",
+    "inbox zero",
+    "email automation",
+    "email organization",
+    "email virtual assistant",
+    "inbox management",
+    "email productivity",
+    "email outsourcing",
+    "email workflow",
+    "email filtering",
+    "email services",
+    "email agentur",
+    "email management deutschland",
+    "professionelle email verwaltung",
+    "email automatisierung",
+    "email optimierung",
+    "inbox zero service",
+    "don-email",
   ],
-  authors: [{ name: "don-webdesign", url: SITE_URL }],
-  creator: "don-webdesign",
-  publisher: "don-webdesign",
+  authors: [{ name: "don-email", url: SITE_URL }],
+  creator: "don-email",
+  publisher: "don-email",
   formatDetection: {
     email: false,
     address: false,
@@ -81,20 +81,20 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "don-webdesign",
-    title: "don-webdesign - Premium Web Design Services | Save 70% on Development",
+    siteName: "don-email",
+    title: "don-email - Professional Email Management | Save 80% Time",
     description:
-      "Save 70% on web development with premium web design services. Modern websites that convert. Native quality, guaranteed satisfaction.",
+      "Professional email management that transforms your chaos into organized productivity. Save 15+ hours per week with intelligent automation.",
     url: absoluteUrl("/en"),
     locale: "en_US",
     alternateLocale: ["de_DE"],
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "don-webdesign — Premium Web Design Services" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "don-email — Professional Email Management" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "don-webdesign - Premium Web Design Services | Save 70% on Development",
+    title: "don-email - Professional Email Management | Save 80% Time",
     description:
-      "Save 70% on web development with premium web design services. Modern websites that convert. Native quality, guaranteed satisfaction.",
+      "Professional email management that transforms your chaos into organized productivity. Save 15+ hours per week with intelligent automation.",
     images: [absoluteUrl("/og-image.jpg")],
   },
   alternates: {
@@ -110,11 +110,11 @@ export const metadata: Metadata = {
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "don-webdesign",
+  name: "don-email",
   url: SITE_URL,
   logo: absoluteUrl("/favicon.ico"),
   description:
-    "Premium web design agency specializing in modern websites, web development, UI/UX design, and digital solutions for businesses worldwide.",
+    "Professional email management agency specializing in inbox organization, email automation, and productivity solutions for businesses worldwide.",
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "customer service",
@@ -126,26 +126,26 @@ const organizationJsonLd = {
     { "@type": "Country", name: "Switzerland" },
     { "@type": "Place", name: "Worldwide" },
   ],
-  sameAs: ["https://linkedin.com/company/don-webdesign", "https://twitter.com/don-webdesign", "https://instagram.com/don-webdesign"],
+  sameAs: ["https://linkedin.com/company/don-email", "https://twitter.com/don-email", "https://instagram.com/don-email"],
 };
 
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "don-webdesign",
+  name: "don-email",
   url: SITE_URL,
   inLanguage: ["en-US", "de-DE"],
-  publisher: { "@type": "Organization", name: "don-webdesign" },
+  publisher: { "@type": "Organization", name: "don-email" },
 };
 
 // Service schema for web design services
 const serviceJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
-  serviceType: "Web Design Services",
+  serviceType: "Email Management Services",
   provider: {
     "@type": "Organization",
-    name: "don-webdesign",
+    name: "don-email",
     url: SITE_URL,
   },
   areaServed: [
@@ -156,14 +156,14 @@ const serviceJsonLd = {
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Web Design Services",
+    name: "Email Management Services",
     itemListElement: [
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Custom Website Design",
-          description: "Modern, responsive websites tailored to your brand",
+          name: "Inbox Organization",
+          description: "Professional inbox management tailored to your workflow",
         },
       },
       {
@@ -205,16 +205,16 @@ const serviceJsonLd = {
 // LocalBusiness schema for Web Design Agency
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
-  "@type": "WebDesignAgency",
-  name: "don-webdesign",
+  "@type": "emailAgency",
+  name: "don-email",
   url: SITE_URL,
   logo: absoluteUrl("/favicon.ico"),
   image: absoluteUrl("/og-image.jpg"),
-  description: "Premium web design agency specializing in modern websites, UI/UX design, and digital solutions for businesses",
+  description: "Professional email management agency specializing in inbox organization, email automation, and productivity solutions for businesses",
   sameAs: [
-    "https://linkedin.com/company/don-webdesign",
-    "https://twitter.com/don-webdesign",
-    "https://instagram.com/don-webdesign",
+    "https://linkedin.com/company/don-email",
+    "https://twitter.com/don-email",
+    "https://instagram.com/don-email",
   ],
   priceRange: "€€",
   openingHoursSpecification: [

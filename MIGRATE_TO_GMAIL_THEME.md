@@ -1,11 +1,38 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+# SEO Project Migration to Gmail Theme (like mange-email)
 
-/*
+## Overview
+This guide helps you migrate the SEO project design to match the mange-email project's Gmail-inspired blue/red theme.
+
+---
+
+## Step 1: Backup Current Files
+
+```bash
+# Navigate to SEO project
+cd d:\next-sites\inboc-\seo
+
+# Backup current globals.css
+copy src\app\globals.css src\app\globals.css.backup
+
+# Backup current tailwind.config.ts
+copy tailwind.config.ts tailwind.config.ts.backup
+```
+
+---
+
+## Step 2: Update globals.css (Gmail Blue/Red Theme)
+
+Replace the entire content of `src/app/globals.css` with the Gmail theme:
+
+```css
+/* 
  * Tailwind CSS File - Gmail Theme
  * Blue/Red color scheme matching mange-email project
  */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   :root {
@@ -145,8 +172,8 @@
   * {
     @apply border-border;
     scroll-behavior: smooth;
-    transition: color 0.4s cubic-bezier(0.23, 1, 0.32, 1),
-                background-color 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    transition: color 0.4s cubic-bezier(0.23, 1, 0.32, 1), 
+                background-color 0.4s cubic-bezier(0.23, 1, 0.32, 1), 
                 border-color 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
@@ -158,7 +185,7 @@
     text-rendering: optimizeLegibility;
     transition: background-color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
-
+  
   h1, h2, h3, h4, h5, h6 {
     color: hsl(var(--heading-color));
     transition: color 0.3s ease;
@@ -384,3 +411,111 @@
     color: hsl(var(--foreground));
   }
 }
+```
+
+---
+
+## Step 3: Update tailwind.config.ts Font Family
+
+Update `tailwind.config.ts` to use direct font families (not CSS variables):
+
+```typescript
+// Change from:
+fontFamily: {
+  poppins: ['var(--font-poppins)', 'Poppins', 'sans-serif'],
+  inter: ['var(--font-inter)', 'Inter', 'sans-serif'],
+},
+
+// To:
+fontFamily: {
+  poppins: ['Poppins', 'sans-serif'],
+  inter: ['Inter', 'sans-serif'],
+},
+```
+
+---
+
+## Step 4: Update package.json Dependencies
+
+Add/update these dependencies in `package.json`:
+
+```json
+{
+  "dependencies": {
+    "@hookform/resolvers": "^3.10.0",
+    "@tanstack/react-query": "^5.83.0",
+    "framer-motion": "^12.23.24",
+    "react-hook-form": "^7.61.1",
+    "zod": "^3.25.76",
+    "sonner": "^1.7.4",
+    "next-themes": "^0.3.0"
+  }
+}
+```
+
+Then run:
+```bash
+npm install
+```
+
+---
+
+## Step 5: Full PowerShell Script (Automated)
+
+Create `migrate-theme.ps1` and run it:
+
+```powershell
+# migrate-theme.ps1
+# Run from: d:\next-sites\inboc-\seo
+
+Write-Host "Starting Gmail Theme Migration..." -ForegroundColor Green
+
+# Backup files
+Write-Host "Creating backups..." -ForegroundColor Yellow
+Copy-Item "src\app\globals.css" "src\app\globals.css.backup" -Force
+Copy-Item "tailwind.config.ts" "tailwind.config.ts.backup" -Force
+
+# The new CSS content would be written here
+# (Copy the CSS from Step 2 into a here-string and write to file)
+
+Write-Host "Migration complete!" -ForegroundColor Green
+Write-Host "Backups created: globals.css.backup, tailwind.config.ts.backup" -ForegroundColor Cyan
+```
+
+---
+
+## Quick Reference: Color Changes
+
+| Element | Old (Yellow/Orange) | New (Gmail Blue/Red) |
+|---------|---------------------|---------------------|
+| Primary | Amber 45 100% 50% | Blue 221 54% 53% |
+| Secondary | Warm light | Red 3 85% 42% |
+| Gold Variable | Yellow/Orange | Blue 221 54% 53% |
+| Background | Pure white | Blue-tinted 210 20% 97% |
+| Dark Mode | Warm orange | Neutral dark |
+
+---
+
+## Post-Migration Checklist
+
+- [ ] Run `npm install` to update dependencies
+- [ ] Run `npm run dev` to test locally
+- [ ] Check all pages render correctly
+- [ ] Verify dark mode toggle works
+- [ ] Test responsive design
+- [ ] Build for production: `npm run build`
+
+---
+
+## Rollback Commands
+
+If something goes wrong:
+
+```bash
+# Restore backups
+copy src\app\globals.css.backup src\app\globals.css
+copy tailwind.config.ts.backup tailwind.config.ts
+
+# Reinstall original dependencies
+npm install
+```

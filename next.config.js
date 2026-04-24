@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'api.don-webdesign.com',
+        hostname: 'api.don-email.com',
         port: '',
         pathname: '/**',
       },

@@ -15,12 +15,12 @@ const iconMap = {
 
 const sectionCopy = {
   en: {
-    badge: "Web Design in 4 Steps",
+    badge: "Email Management in 4 Steps",
     heading: "How It Works",
     description: "From discovery to launch in weeks—not months. Clear milestones and measurable results.",
   },
   ge: {
-    badge: "Webdesign in 4 Schritten",
+    badge: "E-Mail-Management in 4 Schritten",
     heading: "So funktioniert's",
     description: "Von der Entdeckung bis zum Launch in Wochen – nicht Monaten. Klare Meilensteine und messbare Ergebnisse.",
   },

@@ -24,44 +24,44 @@ export interface CaseStudy {
 export const caseStudies: CaseStudy[] = [
   {
     id: 1,
-    title: "Tech Startup Brand Transformation",
-    description: "Complete rebrand for a Berlin-based fintech startup, including logo, visual identity, and marketing collateral.",
+    title: "Fortune 500 Executive Inbox Transformation",
+    description: "Complete inbox overhaul for a C-suite executive drowning in 500+ daily emails, achieving inbox zero in 5 days.",
     image: "/api/placeholder/600/400",
-    category: "Branding",
-    tags: ["Branding", "Visual Identity", "Startup"],
-    content: "Detailed case study content about brand transformation...",
+    category: "Executive Management",
+    tags: ["Inbox Zero", "Executive", "Automation"],
+    content: "Detailed case study content about executive email transformation...",
     results: [
-      { metric: "Brand Recognition", value: "+200%" },
-      { metric: "Customer Engagement", value: "+85%" },
-      { metric: "Investor Interest", value: "3x" }
+      { metric: "Time Saved", value: "75%" },
+      { metric: "Response Time", value: "-80%" },
+      { metric: "Inbox Zero Days", value: "Daily" }
     ]
   },
   {
     id: 2,
-    title: "E-commerce Packaging Redesign",
-    description: "Eye-catching packaging design for a sustainable fashion brand that increased shelf appeal and customer retention.",
+    title: "Marketing Team Email Campaign Success",
+    description: "Email workflow automation for a Berlin marketing agency, streamlining client communications and campaign management.",
     image: "/api/placeholder/600/400",
-    category: "Packaging",
-    tags: ["Packaging", "Sustainability", "Retail"],
-    content: "Detailed case study content about packaging redesign...",
+    category: "Team Management",
+    tags: ["Campaigns", "Automation", "Team"],
+    content: "Detailed case study content about marketing team email optimization...",
     results: [
-      { metric: "Sales Increase", value: "+45%" },
-      { metric: "Social Shares", value: "+120%" },
-      { metric: "Customer Retention", value: "+30%" }
+      { metric: "Campaign Efficiency", value: "+200%" },
+      { metric: "Client Response", value: "+150%" },
+      { metric: "Team Hours Saved", value: "20h/wk" }
     ]
   },
   {
     id: 3,
-    title: "Corporate Website Redesign",
-    description: "Modern web design for a Munich consulting firm, improving user experience and lead generation.",
+    title: "Startup Founder Email Productivity",
+    description: "Inbox management system for a busy Munich tech founder, organizing investor communications and priority emails.",
     image: "/api/placeholder/600/400",
-    category: "Web Design",
-    tags: ["Web Design", "UX/UI", "B2B"],
-    content: "Detailed case study content about website redesign...",
+    category: "Founder Support",
+    tags: ["Founder", "Investor Relations", "Prioritization"],
+    content: "Detailed case study content about founder email productivity...",
     results: [
-      { metric: "Lead Generation", value: "+60%" },
-      { metric: "Page Views", value: "+150%" },
-      { metric: "Client Inquiries", value: "+90%" }
+      { metric: "Important Emails Missed", value: "0" },
+      { metric: "Investor Response", value: "<2h" },
+      { metric: "Daily Email Time", value: "-65%" }
     ]
   }
 ];

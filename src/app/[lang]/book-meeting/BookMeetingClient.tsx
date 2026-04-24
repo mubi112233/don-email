@@ -65,15 +65,15 @@ export default function BookMeetingClient() {
                 whileHover={{ rotate: 5, scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
-                <span className="text-black font-black text-xl sm:text-2xl">D</span>
+                <span className="text-white font-black text-xl sm:text-2xl">E</span>
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </motion.div>
               <div className="flex flex-col">
                 <span className="text-xl sm:text-2xl font-black bg-gradient-to-r from-foreground via-foreground to-foreground/90 bg-clip-text text-transparent group-hover:from-blue-400 group-hover:to-blue-600 transition-all duration-300">
-                  don-webdesign
+                  don-email
                 </span>
                 <span className="text-[10px] sm:text-xs text-blue-400/80 font-semibold -mt-1 tracking-wide">
-                  Web Design Agency
+                  Email Management
                 </span>
               </div>
             </motion.div>
@@ -230,9 +230,9 @@ export default function BookMeetingClient() {
               <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4">We&apos;ll Discuss</h3>
               <ul className="space-y-3">
                 {[
-                  "Your current brand & design challenges",
-                  "How great design can elevate your brand",
-                  "Custom creative solutions for your business",
+                  "Your current inbox & email challenges",
+                  "How proper management can transform your productivity",
+                  "Custom email solutions for your workflow",
                   "Pricing & team structure options",
                   "Next steps to get started",
                 ].map((item) => (
@@ -266,7 +266,7 @@ export default function BookMeetingClient() {
             <div className="lg:sticky lg:top-24">
               <div className="bg-card border border-border rounded-xl p-2 shadow-lg">
                 <iframe
-                  src="https://calendly.com/don-webdesign/webdesign-consultation?embed_domain=don-webdesign.com&embed_type=Inline"
+                  src="https://calendly.com/don-email/email-consultation?embed_domain=don-email.com&embed_type=Inline"
                   className="rounded-lg"
                   style={{ minWidth: "100%", height: "600px", border: "none" }}
                   title="Book a meeting"
@@ -293,14 +293,14 @@ export default function BookMeetingClient() {
             <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-foreground">
               What Our Clients Say
             </h2>
-            <p className="text-muted-foreground">See why brands trust don-webdesign</p>
+            <p className="text-muted-foreground">See why brands trust don-email</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 name: "Sarah Johnson",
                 role: "CEO, TechStart Inc",
-                text: "don-webdesign transformed our website completely. The design work elevated our online presence.",
+                text: "don-email transformed our inbox completely. We went from 500+ unread emails to inbox zero every day.",
                 rating: 5,
               },
               {
@@ -312,7 +312,7 @@ export default function BookMeetingClient() {
               {
                 name: "Emma Davis",
                 role: "Director, MarketPro",
-                text: "Creative, professional, and detail-oriented. Couldn't ask for more from a design partner.",
+                text: "Professional, efficient, and detail-oriented. Couldn't ask for more from an email management partner.",
                 rating: 5,
               },
             ].map((t, idx) => (

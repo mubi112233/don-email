@@ -51,26 +51,26 @@ export const WhyChooseUs = () => {
   const fallbackData: WhyChooseUsData = useMemo(() => isGe ? {
     badge: "Warum wir",
     heading: "Was uns <span class=\"text-[hsl(45,100%,60%)]\">auszeichnet</span>",
-    description: "Premium Webdesign, modernes UX/UI, schnelle Entwicklung und volle Zufriedenheitsgarantie.",
+    description: "Professionelles E-Mail-Management, intelligente Automatisierung und 80% Zeitersparnis garantiert.",
     items: [
-      { icon: "Target", title: "Modernes Webdesign", description: "Moderne, responsive Websites die perfekt auf allen Geräten funktionieren und konvertieren." },
-      { icon: "Shield", title: "Qualitätsgarantie", description: "Unbegrenzte Überarbeitungen bis Sie 100% zufrieden sind. Ihre Zufriedenheit ist unsere Priorität." },
-      { icon: "Zap", title: "Schnelle Entwicklung", description: "Erste Entwürfe innerhalb von 5-7 Tagen. Unser optimierter Prozess stellt sicher, dass Sie schnell online gehen." },
-      { icon: "HeartHandshake", title: "Persönlicher Support", description: "Unser Webdesign-Team ist immer verfügbar, um Ihre Vision zu verstehen und Anliegen zu klären." },
-      { icon: "TrendingUp", title: "Conversion-Optimierung", description: "Wir optimieren Ihre Website für maximale Conversion und Umsatzsteigerung." },
-      { icon: "Award", title: "Bewährte Erfolgsbilanz", description: "Von 200+ Unternehmen vertraut mit einer Kundenzufriedenheitsrate von 98%." },
+      { icon: "Mail", title: "Inbox-Expertise", description: "Wir beherrschen alle gängigen E-Mail-Plattformen und organisieren Ihren Posteingang professionell." },
+      { icon: "Shield", title: "Sicherheitsgarantie", description: "End-to-End-Verschlüsselung, 2FA und GDPR-Konformität. Ihre Daten bleiben geschützt." },
+      { icon: "Zap", title: "Schneller Start", description: "Setup innerhalb von 24-72 Stunden. Unser optimierter Prozess sorgt für sofortige Entlastung." },
+      { icon: "HeartHandshake", title: "Persönlicher Support", description: "Unser E-Mail-Management-Team ist immer verfügbar, um Ihre Anliegen zu klären." },
+      { icon: "TrendingUp", title: "80% Zeitersparnis", description: "Wir reduzieren Ihre E-Mail-Bearbeitungszeit von Stunden auf Minuten pro Tag." },
+      { icon: "Award", title: "Bewährte Erfolgsbilanz", description: "Von 500+ Profis vertraut mit einer Kundenzufriedenheitsrate von 98%." },
     ]
   } : {
     badge: "Why Choose Us",
     heading: "What Makes Us <span class=\"text-[hsl(45,100%,60%)]\">Different</span>",
-    description: "Premium web design, modern UX/UI, fast development, and full satisfaction guarantee.",
+    description: "Professional email management, intelligent automation, and 80% time savings guaranteed.",
     items: [
-      { icon: "Target", title: "Modern Web Design", description: "Modern, responsive websites that work perfectly on all devices and drive conversions." },
-      { icon: "Shield", title: "Quality Guarantee", description: "Unlimited revisions until you're 100% satisfied. Your satisfaction is our top priority." },
-      { icon: "Zap", title: "Fast Development", description: "First drafts within 5-7 days. Our streamlined process ensures you launch quickly." },
-      { icon: "HeartHandshake", title: "Personal Support", description: "Our web design team is always available to understand your vision and address any concerns." },
-      { icon: "TrendingUp", title: "Conversion Optimization", description: "We optimize your website for maximum conversion and revenue growth." },
-      { icon: "Award", title: "Proven Track Record", description: "Trusted by 200+ businesses with a 98% client satisfaction rate." },
+      { icon: "Mail", title: "Inbox Expertise", description: "We master all major email platforms and organize your inbox professionally." },
+      { icon: "Shield", title: "Security Guarantee", description: "End-to-end encryption, 2FA, and GDPR compliance. Your data stays protected." },
+      { icon: "Zap", title: "Fast Start", description: "Setup within 24-72 hours. Our streamlined process ensures immediate relief." },
+      { icon: "HeartHandshake", title: "Personal Support", description: "Our email management team is always available to address your concerns." },
+      { icon: "TrendingUp", title: "80% Time Savings", description: "We reduce your email processing time from hours to minutes per day." },
+      { icon: "Award", title: "Proven Track Record", description: "Trusted by 500+ professionals with a 98% client satisfaction rate." },
     ]
   }, [isGe]);
 

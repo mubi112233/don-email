@@ -116,7 +116,7 @@ export const Testimonials = () => {
             {copy.heading?.replace(/<[^>]*>/g, '') || "Trusted by Growing Businesses"}
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            {copy.subheading || "See how businesses like yours have transformed their online presence with our premium web design services."}
+            {copy.subheading || "See how professionals like you have transformed their productivity with our professional email management services."}
           </p>
         </motion.div>
 

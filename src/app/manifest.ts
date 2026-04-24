@@ -2,13 +2,13 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "don-webdesign - Premium Web Design Services",
-    short_name: "don-webdesign",
-    description: "Save 70% on web development with premium web design services. Modern websites that convert. Native quality, guaranteed satisfaction.",
+    name: "don-email - Professional Email Management",
+    short_name: "don-email",
+    description: "Save 15+ hours per week with professional email management. Inbox zero daily, 80% time savings, guaranteed satisfaction.",
     start_url: "/",
     display: "standalone",
-    background_color: "#3D2817",
-    theme_color: "#FFBC42",
+    background_color: "#1a1a2e",
+    theme_color: "#3e65cf",
     icons: [
       {
         src: "/favicon.ico",
@@ -29,7 +29,7 @@ export default function manifest(): MetadataRoute.Manifest {
     orientation: "portrait",
     scope: "/",
     lang: "en",
-    categories: ["design", "business", "productivity", "web"],
+    categories: ["email", "business", "productivity", "communication"],
   };
 }
 

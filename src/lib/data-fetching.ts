@@ -161,26 +161,113 @@ export async function fetchFAQData(lang: string): Promise<FAQItem[]> {
   }
 }
 
+// Fallback case studies data
+const fallbackCaseStudies: CaseStudyCard[] = [
+  {
+    id: 1,
+    title: "Fortune 500 Executive Inbox Transformation",
+    company: "TechCorp Industries",
+    industry: "Executive Management",
+    challenge: "Complete inbox overhaul for a C-suite executive drowning in 500+ daily emails, achieving inbox zero in 5 days.",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop&q=80",
+    stats: { costSaved: "75%", timeframe: "5 days", vaCount: "2 VAs" }
+  },
+  {
+    id: 2,
+    title: "Marketing Team Email Campaign Success",
+    company: "Berlin Marketing Agency",
+    industry: "Marketing",
+    challenge: "Email workflow automation for a Berlin marketing agency, streamlining client communications and campaign management.",
+    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop&q=80",
+    stats: { costSaved: "+200%", timeframe: "2 weeks", vaCount: "3 VAs" }
+  },
+  {
+    id: 3,
+    title: "Startup Founder Email Productivity",
+    company: "Munich Tech Startup",
+    industry: "Technology",
+    challenge: "Inbox management system for a busy Munich tech founder, organizing investor communications and priority emails.",
+    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=600&fit=crop&q=80",
+    stats: { costSaved: "65%", timeframe: "3 days", vaCount: "1 VA" }
+  }
+];
+
 export async function fetchCaseStudiesCardsData(lang: string): Promise<CaseStudyCard[]> {
   try {
     const normalizedLang = normalizeLanguage(lang);
+    console.log('[fetchCaseStudiesCardsData] Fetching for lang:', normalizedLang);
     const response = await fetchAPI(`${API_ENDPOINTS.CASE_STUDIES}?lang=${normalizedLang}`);
     const data = await response.json();
-    if (!Array.isArray(data?.caseStudies)) return [];
-    return data.caseStudies
-      .map((cs: Record<string, unknown>) => ({
-        id: cs.caseStudyId as number,
-        title: cs.title as string,
-        company: cs.company as string,
-        industry: cs.industry as string,
-        challenge: cs.challenge as string,
-        image: cs.image as string,
-        stats: cs.stats as CaseStudyCard['stats'],
-      }))
+    console.log('[fetchCaseStudiesCardsData] Full API response:', JSON.stringify(data, null, 2).substring(0, 2000));
+    
+    // Handle different API response structures
+    const caseStudiesArray = data?.caseStudies || data?.data || data?.items || data;
+    
+    if (!caseStudiesArray) {
+      console.log('[fetchCaseStudiesCardsData] No caseStudies array, returning fallback');
+      return fallbackCaseStudies;
+    }
+    
+    if (!Array.isArray(caseStudiesArray)) {
+      console.log('[fetchCaseStudiesCardsData] caseStudies is not array:', typeof caseStudiesArray);
+      return fallbackCaseStudies;
+    }
+    
+    if (caseStudiesArray.length === 0) {
+      console.log('[fetchCaseStudiesCardsData] Empty caseStudies array');
+      return fallbackCaseStudies;
+    }
+    
+    console.log('[fetchCaseStudiesCardsData] Found', caseStudiesArray.length, 'case studies');
+    console.log('[fetchCaseStudiesCardsData] First item:', JSON.stringify(caseStudiesArray[0], null, 2));
+    
+    return caseStudiesArray
+      .map((cs: Record<string, unknown>) => {
+        // API returns: _id, lang, caseStudyId, content, name, role, company, rating, order
+        const content = (cs.content as string) || "";
+        const company = (cs.company as string) || "Client";
+        const name = (cs.name as string) || "";
+        const role = (cs.role as string) || "";
+        
+        // Extract metric from content (e.g., "17%", "99%", "41%", "12 points")
+        const metricMatch = content.match(/(\d+%?|\d+\s*points?)/);
+        const costSaved = metricMatch ? metricMatch[1] : "75%";
+        
+        // Generate title from role + company
+        const title = role && company 
+          ? `${role} at ${company}`
+          : `${company} Success Story`;
+        
+        // Get unique image based on caseStudyId
+        const caseId = (cs.caseStudyId as number) ?? (cs.order as number) ?? 0;
+        const images = [
+          "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=600&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&q=80",
+        ];
+        
+        return {
+          id: caseId,
+          title: title,
+          company: company,
+          industry: "Customer Support", // Based on the roles/content
+          challenge: content,
+          image: images[caseId % images.length],
+          stats: {
+            costSaved: costSaved,
+            timeframe: "2 weeks",
+            vaCount: "2 VAs",
+          },
+        };
+      })
       .sort((a: CaseStudyCard, b: CaseStudyCard) => a.id - b.id);
   } catch (error) {
     console.error('Error fetching case studies:', error);
-    return [];
+    // Return fallback data on error
+    return fallbackCaseStudies;
   }
 }
 

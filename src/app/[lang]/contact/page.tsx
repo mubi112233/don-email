@@ -14,19 +14,19 @@ export async function generateMetadata({
   const { lang: raw } = await params;
   const seg = publicLocalePathSegment(raw);
   const isDE = seg === "de";
-  const title = isDE ? "Kontakt — Webdesign Agentur" : "Contact — Web Design Agency";
+  const title = isDE ? "Kontakt — E-Mail-Management-Agentur" : "Contact — Email Management Agency";
   const description = isDE
-    ? "Kontaktieren Sie don-webdesign für eine kostenlose Beratung zu Webdesign, Webentwicklung und Website-Projekten."
-    : "Contact don-webdesign for a free consultation about web design, web development, and website projects.";
+    ? "Kontaktieren Sie don-email für eine kostenlose E-Mail-Beratung, Inbox-Management und E-Mail-Optimierung."
+    : "Contact don-email for a free consultation about email management, inbox organization, and email productivity.";
   const { languages } = hreflangAlternates("contact");
   const canonical = absoluteUrl(`/${seg}/contact`);
 
   return {
-    title: { absolute: `${title} | don-webdesign` },
+    title: { absolute: `${title} | don-email` },
     description,
     keywords: isDE
-      ? ["kontakt don-webdesign", "webdesign anfrage", "webentwicklung beratung", "website projekt"]
-      : ["contact don-webdesign", "web design inquiry", "web development consultation", "website agency contact"],
+      ? ["kontakt don-email", "E-Mail anfrage", "E-Mail-Beratung", "Inbox-Management"]
+      : ["contact don-email", "email management inquiry", "inbox consultation", "email agency contact"],
     alternates: {
       canonical,
       languages,
@@ -38,8 +38,8 @@ export async function generateMetadata({
       type: "website",
       locale: isDE ? "de_DE" : "en_US",
       alternateLocale: isDE ? "en_US" : "de_DE",
-      siteName: "don-webdesign",
-      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "don-webdesign Web Design Agency" }],
+      siteName: "don-email",
+      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "don-email Email Management" }],
     },
     twitter: {
       card: "summary_large_image",

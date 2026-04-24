@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion";
 import { useRef, useEffect, useState, useMemo } from "react";
-import { ArrowRight, Calendar, Sparkles, Search, TrendingUp, Award, Loader2, CheckCircle } from "lucide-react";
+import { ArrowRight, Calendar, Sparkles, Loader2, Users, Clock, Inbox } from "lucide-react";
 import { fetchHero, HeroData } from "@/lib/api";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -39,25 +39,25 @@ export const Hero = () => {
 
   const isGe = currentLang === "ge";
 
-  // don-webdesign style fallback data
+  // don-email style fallback data
   const fallbackData: HeroData = useMemo(() => isGe
     ? {
-        title: "don-webdesign: Websites that Convert",
-        subtitle: "Moderne Webdesign- und Entwicklungslösungen mit Fokus auf Geschwindigkeit, UX und Conversions. Von der Strategie bis zum Launch – alles individuell auf Ihre Marke zugeschnitten.",
-        tagline: "Vertraut von 500+ Unternehmen weltweit",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=900&fit=crop&q=80",
+        title: "Premium Kundenbetreuung Lösungen",
+        subtitle: "Transformieren Sie Ihre Kundenerfahrung mit unserem KI-gestützten Support-Team. Verfügbar 24/7 zur Bearbeitung von Anfragen, Steigerung der Zufriedenheit und Förderung des Wachstums.",
+        tagline: "KI-gestützter Support",
+        image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&h=900&fit=crop&q=80",
         ctaPrimary: "Kostenlose Beratung buchen",
-        urgency: "Kostenloses umfassendes SEO-Audit inklusive",
-        stats: { clients: "1M+", costSaved: "350%", rating: "#1" },
+        urgency: "Verfügbar 24/7",
+        stats: { clients: "500+", costSaved: "10M+", rating: "97%" },
       }
     : {
-        title: "don-webdesign: Websites that Convert",
-        subtitle: "Modern web design and development focused on speed, UX, and conversions. From strategy to launch — all tailored to your brand.",
-        tagline: "Trusted by 500+ Businesses Worldwide",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=900&fit=crop&q=80",
-        ctaPrimary: "Book Free Consult",
-        urgency: "Free comprehensive SEO audit included",
-        stats: { clients: "1M+", costSaved: "350%", rating: "#1" },
+        title: "Premium Customer Support Solutions",
+        subtitle: "Transform your customer experience with our AI-powered chat support team. Available 24/7 to handle inquiries, boost satisfaction, and drive growth.",
+        tagline: "AI-Powered Support",
+        image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&h=900&fit=crop&q=80",
+        ctaPrimary: "Book Free Consultation",
+        urgency: "Available 24/7",
+        stats: { clients: "500+", costSaved: "10M+", rating: "97%" },
       }, [isGe]);
 
   const [heroData, setHeroData] = useState<HeroData | null>(fallbackData);
@@ -98,8 +98,8 @@ export const Hero = () => {
   const stats = heroData?.stats || fallbackData.stats;
 
   const statsLabels = isGe
-    ? { clients: "Keywords Rankiert", costSaved: "Traffic-Steigerung", rating: "Top Platzierungen" }
-    : { clients: "Keywords Ranked", costSaved: "Traffic Boost", rating: "Top Rankings" };
+    ? { clients: "Kunden bedient", costSaved: "Wöchentlich gespart", rating: "Inbox Zero Rate" }
+    : { clients: "Clients Served", costSaved: "Saved Per Week", rating: "Inbox Zero Rate" };
 
   return (
     <motion.section
@@ -113,9 +113,9 @@ export const Hero = () => {
         </div>
       )}
 
-      {/* Background - uses CSS variables for light/dark mode */}
+      {/* Background - match navbar */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-background via-muted to-background/80 z-0"
+        className="absolute inset-0 bg-background z-0"
         style={{ y }}
       />
 
@@ -133,7 +133,7 @@ export const Hero = () => {
               stiffness: 100
             }}
           >
-            {/* Trust Badge - Gold Style like Frontend */}
+            {/* Badge - Blue Style */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8, y: 20 }}
               animate={isInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: 20 }}
@@ -144,35 +144,17 @@ export const Hero = () => {
                 stiffness: 120,
                 damping: 20
               }}
-              className="inline-block mb-3 sm:mb-4 md:mb-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-[hsl(45,100%,50%)]/10 border border-[hsl(45,100%,50%)]/30 rounded-full text-[hsl(45,100%,50%)] text-xs sm:text-sm font-semibold hover:bg-[hsl(45,100%,50%)]/20 hover:scale-105 transition-all duration-300 cursor-default"
+              className="inline-block mb-4 sm:mb-5 md:mb-6"
             >
-              <motion.span
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-                className="bg-gradient-to-r from-[hsl(45,100%,50%)] via-[hsl(30,100%,45%)] to-[hsl(45,100%,50%)] bg-[length:200%_100%] bg-clip-text text-transparent"
-              >
+              <span className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-primary/10 border border-primary/30 rounded-full text-primary text-xs sm:text-sm font-semibold">
+                <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" aria-hidden="true" />
                 {loading ? "Loading..." : tagline}
-              </motion.span>
+              </span>
             </motion.div>
 
-            {/* Title with Gold Gradient like Frontend */}
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-5 md:mb-6 leading-[1.15] sm:leading-[1.12] md:leading-[1.1]">
-              {loading ? "Loading..." : (
-                title?.includes(':') ? (
-                  <>
-                    <span className="text-foreground">{title.split(':')[0]}:</span>
-                    <span className="bg-gradient-to-r from-[hsl(45,100%,50%)] to-[hsl(30,100%,45%)] bg-clip-text text-transparent">{title.split(':')[1]}</span>
-                  </>
-                ) : (
-                  <span className="bg-gradient-to-r from-[hsl(45,100%,50%)] to-[hsl(30,100%,45%)] bg-clip-text text-transparent">{title}</span>
-                )
-              )}
+            {/* Title - White text, multi-line */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-5 md:mb-6 leading-[1.1] sm:leading-[1.08] md:leading-[1.05] text-foreground">
+              {loading ? "Loading..." : title}
             </h1>
 
             {/* Subtitle */}
@@ -185,44 +167,29 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="space-y-3"
+              className="space-y-4"
             >
               <Button
                 size="lg"
                 onClick={() => router.push(localizedPath((currentLang === "ge" ? "ge" : "en") as SiteLocale, siteConfig.routes.bookMeeting))}
-                className="group relative w-full sm:w-auto text-sm sm:text-base md:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 md:py-7 h-auto font-bold bg-[hsl(45,100%,50%)] text-[hsl(30,85%,10%)] hover:bg-[hsl(45,100%,45%)] transform hover:scale-[1.06] hover:-translate-y-2 transition-all duration-400 cursor-pointer overflow-hidden rounded-xl border-2 border-transparent hover:border-[hsl(45,100%,50%)]/50 shadow-lg shadow-[hsl(45,100%,50%)]/30"
+                className="group relative w-full sm:w-auto text-sm sm:text-base md:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 md:py-7 h-auto font-bold bg-[hsl(217,91%,60%)] text-white hover:bg-[hsl(217,91%,55%)] transform hover:scale-[1.02] transition-all duration-300 cursor-pointer overflow-hidden rounded-xl shadow-lg shadow-[hsl(217,91%,60%)]/25"
               >
-                {/* Gold shimmer effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
-                  animate={{
-                    x: ["-150%", "150%"]
-                  }}
-                  transition={{
-                    duration: 2.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    repeatDelay: 1.5
-                  }}
-                  aria-hidden="true"
-                />
-
                 <span className="relative z-10 flex items-center justify-center gap-2.5">
-                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
-                  <span className="font-semibold group-hover:tracking-wide transition-all duration-300">{ctaPrimary}</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-2 group-hover:scale-110 transition-all duration-300" aria-hidden="true" />
+                  <Calendar className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
+                  <span className="font-semibold">{ctaPrimary}</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-all duration-300" aria-hidden="true" />
                 </span>
               </Button>
 
-              {/* Urgency indicator */}
+              {/* Trust indicator */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
-                className="flex items-center justify-center sm:justify-start gap-2 text-xs sm:text-sm text-white/70"
+                className="flex items-center justify-center sm:justify-start gap-2 text-xs sm:text-sm text-white/60"
               >
-                <CheckCircle className="w-4 h-4 text-[hsl(45,100%,55%)]" aria-hidden="true" />
-                <span className="font-medium">{urgency}</span>
+                <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[hsl(217,91%,70%)]" aria-hidden="true" />
+                <span className="font-medium">{isGe ? "Vertraut von 500+ Unternehmen weltweit" : "Trusted by 500+ companies worldwide"}</span>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -235,140 +202,103 @@ export const Hero = () => {
             transition={{ duration: 0.9, delay: 0.4, ease: [0.6, -0.05, 0.01, 0.99] }}
             style={{ perspective: 1200 }}
           >
-            {/* Floating badge */}
+            {/* Floating badge - 500+ Clients */}
             <motion.div
               initial={{ opacity: 0, x: 20, y: -20 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
-              className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 z-20"
+              className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 z-20"
             >
               <motion.div
                 animate={{
-                  y: [-5, 5, -5],
-                  rotate: [-2, 2, -2]
+                  y: [-3, 3, -3]
                 }}
                 transition={{
-                  duration: 4,
+                  duration: 3,
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="bg-[hsl(45,100%,55%)] text-[#3D2817] px-3 py-2 sm:px-4 sm:py-2.5 rounded-full shadow-lg border-2 border-[#5C3D2A] flex items-center gap-1.5 sm:gap-2"
+                className="bg-primary text-primary-foreground px-3 py-2 sm:px-4 sm:py-2.5 rounded-full shadow-lg flex items-center gap-1.5 sm:gap-2"
               >
-                <Award className="w-3 h-3 sm:w-4 sm:h-4" aria-hidden="true" />
-                <span className="text-[10px] sm:text-xs font-bold whitespace-nowrap">{isGe ? "Top Bewertet" : "Top Rated"}</span>
+                <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+                </svg>
+                <span className="text-[10px] sm:text-xs font-bold whitespace-nowrap">500+ {isGe ? "Kunden" : "Clients"}</span>
               </motion.div>
             </motion.div>
 
-            {/* 3D tilt container */}
+            {/* Image container */}
             <motion.div
-              className="relative rounded-xl md:rounded-2xl overflow-hidden border-2 border-[hsl(45,100%,55%)]/30 group shadow-[0_30px_120px_-30px_hsl(45,100%,55%/0.45)]"
-              whileHover={{ rotateX: -6, rotateY: 10 }}
-              whileTap={{ scale: 0.98 }}
+              className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-primary/20 group shadow-2xl shadow-primary/10"
+              whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 220, damping: 20 }}
-              style={{ transformStyle: "preserve-3d" }}
             >
               {/* Image */}
-              <motion.div style={{ transform: "translateZ(20px)" }}>
+              <div className="relative">
                 <Image
                   src={heroImage}
-                  alt={isGe ? "SEO Analytics Dashboard" : "SEO Analytics Dashboard"}
+                  alt={isGe ? "Email Management Dashboard" : "Email Management Dashboard"}
                   width={1200}
                   height={900}
                   className="w-full h-auto object-cover"
                   priority
                   sizes="(min-width: 1024px) 50vw, 100vw"
                 />
-              </motion.div>
+                
+                {/* Dark overlay at bottom for stats */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
+              </div>
 
-              {/* Gold gradient veil */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-[hsl(45,100%,55%/0.15)] via-transparent to-[hsl(45,100%,55%/0.15)]"
-                style={{ transform: "translateZ(30px)" }}
-              />
-
-              {/* Concentric rings for depth */}
-              <motion.div
-                className="absolute -top-16 -left-16 w-64 h-64 rounded-full bg-gradient-to-br from-[hsl(45,100%,55%/0.25)] to-[hsl(30,100%,45%/0.25)] blur-3xl"
-                style={{ transform: "translateZ(60px)" }}
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <motion.div
-                className="absolute -bottom-16 -right-16 w-72 h-72 rounded-full bg-gradient-to-tr from-[hsl(30,100%,45%/0.2)] to-[hsl(45,100%,55%/0.2)] blur-3xl"
-                style={{ transform: "translateZ(40px)" }}
-                animate={{ scale: [1, 1.08, 1] }}
-                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-              />
-
-              {/* Stats Card overlay */}
+              {/* Stats Card overlay - positioned at bottom of image */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1 }}
-                className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 md:bottom-6 md:left-6 md:right-6 backdrop-blur-xl bg-gradient-to-br from-[#2A1B0E] via-[#3D2817] to-[#4A3320] border border-[hsl(45,100%,55%)]/50 rounded-xl p-4 sm:p-5 shadow-2xl"
-                style={{ transform: "translateZ(80px)" }}
+                className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 md:bottom-8 md:left-8 md:right-8 bg-card/90 backdrop-blur-md border border-primary/20 rounded-2xl p-4 sm:p-5 md:p-6"
               >
-                <div className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+                <div className="grid grid-cols-3 gap-4 sm:gap-6">
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 1.2, duration: 0.5 }}
-                    whileHover={{ scale: 1.05 }}
                     className="text-center"
                   >
-                    <motion.div
-                      animate={{ y: [-3, 3, -3] }}
-                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                      <Search className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-[hsl(45,100%,55%)] transition-colors" aria-hidden="true" />
-                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white">{stats.clients}</div>
-                      <div className="text-[9px] sm:text-[10px] md:text-xs text-white/70 font-medium">{statsLabels.clients}</div>
-                    </motion.div>
+                    <Users className="w-5 h-5 sm:w-6 sm:h-6 mx-auto mb-2 text-primary" aria-hidden="true" />
+                    <div className="text-lg sm:text-xl md:text-2xl font-bold text-card-foreground">{stats.clients}</div>
+                    <div className="text-[10px] sm:text-xs text-muted-foreground font-medium mt-0.5">{statsLabels.clients}</div>
                   </motion.div>
 
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 1.3, duration: 0.5 }}
-                    whileHover={{ scale: 1.05 }}
-                    className="text-center border-x border-white/20"
+                    className="text-center border-x border-border/50"
                   >
-                    <motion.div
-                      animate={{ y: [-3, 3, -3] }}
-                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-                    >
-                      <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-[hsl(45,100%,55%)] transition-colors" aria-hidden="true" />
-                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white">{stats.costSaved}</div>
-                      <div className="text-[9px] sm:text-[10px] md:text-xs text-white/70 font-medium">{statsLabels.costSaved}</div>
-                    </motion.div>
+                    <Clock className="w-5 h-5 sm:w-6 sm:h-6 mx-auto mb-2 text-primary" aria-hidden="true" />
+                    <div className="text-lg sm:text-xl md:text-2xl font-bold text-card-foreground">{stats.costSaved}</div>
+                    <div className="text-[10px] sm:text-xs text-muted-foreground font-medium mt-0.5">{statsLabels.costSaved}</div>
                   </motion.div>
 
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 1.4, duration: 0.5 }}
-                    whileHover={{ scale: 1.05 }}
                     className="text-center"
                   >
-                    <motion.div
-                      animate={{ y: [-3, 3, -3] }}
-                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-                    >
-                      <Award className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1 text-[hsl(45,100%,55%)] transition-colors" aria-hidden="true" />
-                      <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white">{stats.rating}</div>
-                      <div className="text-[9px] sm:text-[10px] md:text-xs text-white/70 font-medium">{statsLabels.rating}</div>
-                    </motion.div>
+                    <Inbox className="w-5 h-5 sm:w-6 sm:h-6 mx-auto mb-2 text-primary" aria-hidden="true" />
+                    <div className="text-lg sm:text-xl md:text-2xl font-bold text-card-foreground">{stats.rating}</div>
+                    <div className="text-[10px] sm:text-xs text-muted-foreground font-medium mt-0.5">{statsLabels.rating}</div>
                   </motion.div>
                 </div>
               </motion.div>
             </motion.div>
 
-            {/* Animated decorative elements */}
+            {/* Animated decorative elements - Blue theme */}
             <motion.div
-              className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-[hsl(45,100%,55%)]/20 rounded-full blur-3xl"
+              className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-20 h-20 sm:w-28 sm:h-28 bg-primary/20 rounded-full blur-3xl"
               animate={{
                 scale: [1, 1.3, 1],
-                opacity: [0.2, 0.5, 0.2]
+                opacity: [0.2, 0.4, 0.2]
               }}
               transition={{
                 duration: 4,
@@ -378,31 +308,16 @@ export const Hero = () => {
               aria-hidden="true"
             />
             <motion.div
-              className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 bg-[hsl(45,100%,55%)]/10 rounded-full blur-3xl"
+              className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 w-24 h-24 sm:w-32 sm:h-32 bg-primary/15 rounded-full blur-3xl"
               animate={{
                 scale: [1, 1.4, 1],
-                opacity: [0.1, 0.3, 0.1]
+                opacity: [0.1, 0.25, 0.1]
               }}
               transition={{
                 duration: 5,
                 repeat: Infinity,
                 ease: "easeInOut",
                 delay: 0.5
-              }}
-              aria-hidden="true"
-            />
-            <motion.div
-              className="absolute top-1/2 -left-4 w-12 h-12 sm:w-16 sm:h-16 bg-[hsl(45,100%,55%)]/20 rounded-full blur-2xl"
-              animate={{
-                x: [-10, 10, -10],
-                scale: [1, 1.2, 1],
-                opacity: [0.1, 0.2, 0.1]
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1
               }}
               aria-hidden="true"
             />

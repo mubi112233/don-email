@@ -19,8 +19,8 @@ const cards = {
     },
     {
       icon: Clock,
-      title: "24h Replacement Guarantee",
-      description: "If something isn't the right fit, we'll revise your design within 24 hours.",
+      title: "2h Response Time SLA",
+      description: "We respond to your urgent emails within 2 hours, guaranteed.",
     },
     {
       icon: Lock,
@@ -41,8 +41,8 @@ const cards = {
     },
     {
       icon: Clock,
-      title: "24h Ersatzgarantie",
-      description: "Wenn etwas nicht passt, überarbeiten wir Ihr Design innerhalb von 24 Stunden.",
+      title: "2h Antwortzeit SLA",
+      description: "Wir antworten auf Ihre dringenden E-Mails innerhalb von 2 Stunden, garantiert.",
     },
     {
       icon: Lock,

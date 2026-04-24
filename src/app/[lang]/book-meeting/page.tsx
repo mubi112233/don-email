@@ -14,10 +14,10 @@ export async function generateMetadata({
   const { lang: raw } = await params;
   const seg = publicLocalePathSegment(raw);
   const isDE = seg === "de";
-  const title = isDE ? "Termin buchen — Kostenlose Webdesign-Beratung | don-webdesign" : "Book a Meeting — Free Web Design Consultation | don-webdesign";
+  const title = isDE ? "Termin buchen — Kostenlose E-Mail-Beratung | don-email" : "Book a Meeting — Free Email Management Consultation | don-email";
   const description = isDE
-    ? "Vereinbaren Sie eine kostenlose Beratung mit don-webdesign und erfahren Sie, wie wir Ihnen helfen, Ihre Website zu optimieren."
-    : "Schedule a free consultation with don-webdesign and learn how we can help transform your website with premium design.";
+    ? "Vereinbaren Sie eine kostenlose E-Mail-Beratung mit don-email und erfahren Sie, wie wir Ihnen helfen, Ihren Posteingang zu optimieren."
+    : "Schedule a free email management consultation with don-email and learn how we can help transform your inbox with professional organization.";
   const { languages } = hreflangAlternates("book-meeting");
   const canonical = absoluteUrl(`/${seg}/book-meeting`);
 
@@ -25,8 +25,8 @@ export async function generateMetadata({
     title,
     description,
     keywords: isDE
-      ? ["Webdesign Beratung", "Webdesign Termin", "don-webdesign termin", "Website Beratung"]
-      : ["web design consultation", "web design call", "don-webdesign meeting", "website consultation"],
+      ? ["E-Mail-Beratung", "E-Mail-Termin", "don-email termin", "Inbox-Beratung"]
+      : ["email management consultation", "email audit call", "don-email meeting", "inbox consultation"],
     alternates: {
       canonical,
       languages,
@@ -38,8 +38,8 @@ export async function generateMetadata({
       type: "website",
       locale: isDE ? "de_DE" : "en_US",
       alternateLocale: isDE ? "en_US" : "de_DE",
-      siteName: "don-webdesign",
-      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "don-webdesign Web Design Agency" }],
+      siteName: "don-email",
+      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "don-email Email Management" }],
     },
     twitter: {
       card: "summary_large_image",

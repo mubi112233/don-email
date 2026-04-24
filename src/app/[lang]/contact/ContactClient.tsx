@@ -46,26 +46,26 @@ type FormValues = {
 const translations: Record<string, Record<string, string>> = {
   en: {
     badge: "Get In Touch",
-    title: "Let's Bring Your Vision to Life",
-    subtitle: "Tell us about your design project and we'll create stunning visuals that elevate your brand. Get a free consultation within 24 hours.",
+    title: "Let's Transform Your Inbox",
+    subtitle: "Tell us about your email challenges and we'll create a custom management solution. Get a free email audit within 24 hours.",
     email: "Email Address",
     phone: "Phone Number",
     companyName: "Company Name",
     contactName: "Your Name",
-    projectTypeLabel: "Project Type",
-    projectTypePlaceholder: "Select project type",
-    projectTypeOtherLabel: "Describe your project",
-    projectTypeOtherPlaceholder: "What design work do you need?",
-    budgetRangeLabel: "Budget Range (EUR)",
-    budgetRangePlaceholder: "e.g. 5000 - 10000",
+    projectTypeLabel: "Service Needed",
+    projectTypePlaceholder: "Select service type",
+    projectTypeOtherLabel: "Describe your needs",
+    projectTypeOtherPlaceholder: "What email management help do you need?",
+    budgetRangeLabel: "Monthly Email Volume",
+    budgetRangePlaceholder: "e.g. 100-300 emails/day",
     industryLabel: "Industry/Sector",
-    timelineLabel: "Project Timeline",
+    timelineLabel: "When do you need help?",
     timelinePlaceholder: "Select timeline",
-    designRequirementsLabel: "Design Requirements",
-    designRequirementsPlaceholder: "Describe your design needs, brand style, target audience...",
+    designRequirementsLabel: "Email Management Requirements",
+    designRequirementsPlaceholder: "Describe your inbox challenges, current email volume, platforms used...",
     otherInfoLabel: "Additional Information",
-    otherInfoPlaceholder: "Anything else we should know about your project...",
-    submit: "Request Free Consultation",
+    otherInfoPlaceholder: "Anything else we should know about your email needs...",
+    submit: "Request Free Email Audit",
     submitSending: "Sending...",
     emailRequired: "Email is required",
     emailInvalid: "Enter a valid email",
@@ -73,43 +73,43 @@ const translations: Record<string, Record<string, string>> = {
     phoneInvalid: "Enter a valid phone number",
     companyNameRequired: "Company name is required",
     contactNameRequired: "Your name is required",
-    projectTypeRequired: "Please select project type",
+    projectTypeRequired: "Please select service type",
     industryRequired: "Please select industry",
-    sideTitle: "Why Choose don-webdesign?",
-    stat1Value: "250+",
-    stat1Label: "Projects Delivered",
-    stat2Value: "2 Weeks",
-    stat2Label: "Avg. Turnaround",
-    stat3Value: "4.9/5",
+    sideTitle: "Why Choose don-email?",
+    stat1Value: "500+",
+    stat1Label: "Professionals Served",
+    stat2Value: "15h",
+    stat2Label: "Avg. Time Saved/Week",
+    stat3Value: "98%",
     stat3Label: "Client Satisfaction",
-    feature1: "Award-winning creative designers",
-    feature2: "Unlimited revisions until perfect",
-    feature3: "Full ownership of all design files",
-    feature4: "DACH region design specialists",
+    feature1: "Professional email managers",
+    feature2: "Custom automation workflows",
+    feature3: "Complete security & privacy",
+    feature4: "All major platforms supported",
     responseTime: "We respond within 2 hours during business hours",
   },
   ge: {
     badge: "Kontakt aufnehmen",
-    title: "Lassen Sie uns Ihre Vision zum Leben erwecken",
-    subtitle: "Erzählen Sie uns von Ihrem Design-Projekt und wir erstellen atemberaubende Visuals, die Ihre Marke aufwerten. Kostenlose Beratung innerhalb von 24 Stunden.",
+    title: "Lassen Sie uns Ihren Posteingang transformieren",
+    subtitle: "Erzählen Sie uns von Ihren E-Mail-Herausforderungen und wir erstellen eine maßgeschneiderte Management-Lösung. Kostenloser Audit innerhalb von 24 Stunden.",
     email: "E-Mail-Adresse",
     phone: "Telefonnummer",
     companyName: "Firmenname",
     contactName: "Ihr Name",
-    projectTypeLabel: "Projekttyp",
-    projectTypePlaceholder: "Projekttyp wählen",
-    projectTypeOtherLabel: "Projekt beschreiben",
-    projectTypeOtherPlaceholder: "Welche Design-Arbeit benötigen Sie?",
-    budgetRangeLabel: "Budget-Bereich (EUR)",
-    budgetRangePlaceholder: "z.B. 5000 - 10000",
+    projectTypeLabel: "Service benötigt",
+    projectTypePlaceholder: "Servicetyp wählen",
+    projectTypeOtherLabel: "Bedürfnisse beschreiben",
+    projectTypeOtherPlaceholder: "Welche E-Mail-Management-Hilfe benötigen Sie?",
+    budgetRangeLabel: "Monatliches E-Mail-Volumen",
+    budgetRangePlaceholder: "z.B. 100-300 E-Mails/Tag",
     industryLabel: "Branche/Sektor",
-    timelineLabel: "Projektzeitraum",
+    timelineLabel: "Wann benötigen Sie Hilfe?",
     timelinePlaceholder: "Zeitraum wählen",
-    designRequirementsLabel: "Design-Anforderungen",
-    designRequirementsPlaceholder: "Beschreiben Sie Ihre Design-Bedürfnisse, Markenstil, Zielgruppe...",
+    designRequirementsLabel: "E-Mail-Management-Anforderungen",
+    designRequirementsPlaceholder: "Beschreiben Sie Ihre Inbox-Herausforderungen, aktuelles E-Mail-Volumen, verwendete Plattformen...",
     otherInfoLabel: "Zusätzliche Informationen",
-    otherInfoPlaceholder: "Was sollten wir noch über Ihr Projekt wissen...",
-    submit: "Kostenlose Beratung anfragen",
+    otherInfoPlaceholder: "Was sollten wir noch über Ihre E-Mail-Bedürfnisse wissen...",
+    submit: "Kostenlosen E-Mail-Audit anfragen",
     submitSending: "Wird gesendet...",
     emailRequired: "E-Mail ist erforderlich",
     emailInvalid: "Gültige E-Mail eingeben",
@@ -117,33 +117,31 @@ const translations: Record<string, Record<string, string>> = {
     phoneInvalid: "Gültige Telefonnummer eingeben",
     companyNameRequired: "Firmenname ist erforderlich",
     contactNameRequired: "Ihr Name ist erforderlich",
-    projectTypeRequired: "Bitte wählen Sie den Projekttyp",
+    projectTypeRequired: "Bitte wählen Sie den Servicetyp",
     industryRequired: "Bitte wählen Sie die Branche",
-    sideTitle: "Warum don-webdesign wählen?",
-    stat1Value: "250+",
-    stat1Label: "Projekte geliefert",
-    stat2Value: "2 Wochen",
-    stat2Label: "Ø Lieferzeit",
-    stat3Value: "4.9/5",
+    sideTitle: "Warum don-email wählen?",
+    stat1Value: "500+",
+    stat1Label: "Bediente Profis",
+    stat2Value: "15h",
+    stat2Label: "Ø Zeitersparnis/Woche",
+    stat3Value: "98%",
     stat3Label: "Kundenzufriedenheit",
-    feature1: "Preisgekrönte Kreativdesigner",
-    feature2: "Unbegrenzte Überarbeitungen bis perfekt",
-    feature3: "Volle Eigentumsrechte an allen Design-Dateien",
-    feature4: "Spezialisten für DACH-Region",
+    feature1: "Professionelle E-Mail-Manager",
+    feature2: "Maßgeschneiderte Automatisierung",
+    feature3: "Komplette Sicherheit & Privatsphäre",
+    feature4: "Alle gängigen Plattformen unterstützt",
     responseTime: "Wir antworten innerhalb von 2 Stunden während der Geschäftszeiten",
   },
 };
 
 const projectTypeOptions = [
-  { value: "branding", label: "Branding / Logo Design" },
-  { value: "identity", label: "Complete Brand Identity" },
-  { value: "webdesign", label: "Website Design" },
-  { value: "print", label: "Print Design / Marketing Materials" },
-  { value: "packaging", label: "Packaging Design" },
-  { value: "social", label: "Social Media Graphics" },
-  { value: "uiux", label: "UI/UX Design" },
-  { value: "motion", label: "Motion Graphics / Video" },
-  { value: "illustration", label: "Custom Illustration" },
+  { value: "inbox", label: "Inbox Management" },
+  { value: "automation", label: "Email Automation & Workflows" },
+  { value: "campaigns", label: "Email Campaign Management" },
+  { value: "responses", label: "Response & Follow-up Management" },
+  { value: "filtering", label: "Email Filtering & Organization" },
+  { value: "analytics", label: "Email Analytics & Reporting" },
+  { value: "enterprise", label: "Enterprise Email Solutions" },
   { value: "other", label: "Other" },
 ];
 
@@ -161,12 +159,12 @@ const industryOptions = [
 ];
 
 const budgetRangeOptions = [
-  { value: "under2500", label: "Under €2,500" },
-  { value: "2500to5000", label: "€2,500 - €5,000" },
-  { value: "5000to10000", label: "€5,000 - €10,000" },
-  { value: "10000to25000", label: "€10,000 - €25,000" },
-  { value: "25000plus", label: "€25,000+" },
-  { value: "flexible", label: "Flexible / Discuss" },
+  { value: "under50", label: "Under 50 emails/day" },
+  { value: "50to100", label: "50-100 emails/day" },
+  { value: "100to300", label: "100-300 emails/day" },
+  { value: "300to500", label: "300-500 emails/day" },
+  { value: "500plus", label: "500+ emails/day" },
+  { value: "flexible", label: "Not sure / Discuss" },
 ];
 
 const timelineOptions = [
@@ -225,8 +223,8 @@ export default function ContactClient({ lang }: { lang: string }) {
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     const formData = new FormData();
     formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "8aff1902-6795-4608-ad79-be6702aa7f3a");
-    formData.append("to", "hello@don-webdesign.com");
-    formData.append("subject", "New Design Project Inquiry - don-webdesign");
+    formData.append("to", "hello@don-email.com");
+    formData.append("subject", "New Email Management Inquiry - don-email");
     formData.append("companyName", data.companyName);
     formData.append("contactName", data.contactName);
     formData.append("email", data.email);
@@ -330,7 +328,7 @@ export default function ContactClient({ lang }: { lang: string }) {
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 text-blue-400 fill-blue-400" />)}
               </div>
               <p className="text-sm text-muted-foreground italic leading-relaxed">
-                &ldquo;don-webdesign transformed our brand identity completely. The team's creativity and attention to detail exceeded all our expectations.&rdquo;
+                &ldquo;don-email transformed our brand identity completely. The team's creativity and attention to detail exceeded all our expectations.&rdquo;
               </p>
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500/30 to-blue-500/10 flex items-center justify-center">
@@ -544,7 +542,7 @@ export default function ContactClient({ lang }: { lang: string }) {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto px-10 py-3 bg-gold hover:bg-yellow-500 text-black font-bold rounded-xl shadow-lg shadow-gold/25 hover:shadow-gold/40 hover:scale-[1.02] active:scale-[0.99] transition-all duration-200 text-base"
+                    className="w-full sm:w-auto px-10 py-3 bg-gold hover:bg-[hsl(221,54%,45%)] text-white font-bold rounded-xl shadow-lg shadow-gold/25 hover:shadow-gold/40 hover:scale-[1.02] active:scale-[0.99] transition-all duration-200 text-base"
                   >
                     {isSubmitting ? (
                       <span className="flex items-center gap-2">

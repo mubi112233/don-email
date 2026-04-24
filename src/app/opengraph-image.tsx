@@ -9,7 +9,7 @@ export default function OgImage() {
     (
       <div
         style={{
-          background: "linear-gradient(135deg, #3D2817 0%, #4A3320 50%, #2A1B0F 100%)",
+          background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f172a 100%)",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -22,28 +22,28 @@ export default function OgImage() {
       >
         {/* Logo */}
         <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "40px" }}>
-          <div style={{ width: 56, height: 56, background: "#FFBC42", borderRadius: 14, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <span style={{ color: "#3D2817", fontWeight: 900, fontSize: 28 }}>D</span>
+          <div style={{ width: 56, height: 56, background: "#3e65cf", borderRadius: 14, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <span style={{ color: "#fff", fontWeight: 900, fontSize: 28 }}>E</span>
           </div>
-          <span style={{ color: "#fff", fontWeight: 800, fontSize: 32 }}>don-webdesign</span>
+          <span style={{ color: "#fff", fontWeight: 800, fontSize: 32 }}>don-email</span>
         </div>
 
         {/* Headline */}
         <h1 style={{ color: "#fff", fontSize: 64, fontWeight: 800, lineHeight: 1.1, margin: "0 0 24px 0", maxWidth: 800 }}>
-          Premium{" "}
-          <span style={{ color: "#FFBC42" }}>Web Design Services</span>
+          Professional{" "}
+          <span style={{ color: "#3e65cf" }}>Email Management</span>
         </h1>
 
         {/* Subtitle */}
         <p style={{ color: "rgba(255,255,255,0.7)", fontSize: 28, margin: "0 0 48px 0", maxWidth: 700 }}>
-          Save 70% on Web Development. Modern Websites That Convert. Native Quality, Guaranteed.
+          Save 15+ Hours Per Week. Inbox Zero Daily. 80% Time Savings Guaranteed.
         </p>
 
         {/* Stats */}
         <div style={{ display: "flex", gap: "40px" }}>
-          {[["250+", "Projects"], ["98%", "Client Satisfaction"], ["50+", "Brands"]].map(([val, label]) => (
+          {[["500+", "Professionals"], ["98%", "Client Satisfaction"], ["15h", "Saved/Week"]].map(([val, label]) => (
             <div key={label} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <span style={{ color: "#FFBC42", fontSize: 36, fontWeight: 800 }}>{val}</span>
+              <span style={{ color: "#3e65cf", fontSize: 36, fontWeight: 800 }}>{val}</span>
               <span style={{ color: "rgba(255,255,255,0.5)", fontSize: 18 }}>{label}</span>
             </div>
           ))}
@@ -51,7 +51,7 @@ export default function OgImage() {
 
         {/* Domain */}
         <div style={{ position: "absolute", bottom: 60, right: 80, color: "rgba(255,255,255,0.4)", fontSize: 22 }}>
-          don-webdesign.com
+          don-email.com
         </div>
       </div>
     ),

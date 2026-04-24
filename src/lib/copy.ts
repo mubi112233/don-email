@@ -9,28 +9,28 @@ export const copy = {
     // How It Works
     howItWorks: {
       badge: "Our Process",
-      heading: "From Concept to <span class=\"text-gold\">Creation</span>",
-      description: "Our streamlined 4-step process ensures every design project exceeds your expectations.",
+      heading: "From Chaos to <span class=\"text-gold\">Inbox Zero</span>",
+      description: "Our streamlined 4-step process transforms your email chaos into organized productivity.",
       steps: {
         step1: {
           step: "Step 1",
-          title: "Discovery & Strategy",
-          description: "We dive deep into your brand, goals, and target audience to develop a winning creative strategy."
+          title: "Inbox Audit & Strategy",
+          description: "We analyze your email volume, patterns, and priorities to create a custom management strategy."
         },
         step2: {
           step: "Step 2",
-          title: "Concept Development",
-          description: "Our designers create multiple creative concepts for you to choose from and refine."
+          title: "Setup & Automation",
+          description: "We configure smart filters, labels, rules, and automation to organize your incoming emails."
         },
         step3: {
           step: "Step 3",
-          title: "Design & Refinement",
-          description: "We bring your chosen concept to life with meticulous attention to detail and iterative feedback."
+          title: "Daily Management",
+          description: "Our team handles your inbox daily—sorting, responding, and keeping everything organized."
         },
         step4: {
           step: "Step 4",
-          title: "Delivery & Support",
-          description: "You receive all final files in multiple formats with ongoing support for future needs."
+          title: "Optimization & Reporting",
+          description: "Weekly performance reports and continuous optimization to improve your email workflow."
         }
       }
     },
@@ -39,26 +39,26 @@ export const copy = {
     whyChooseUs: {
       badge: "Why Choose Us",
       heading: "What makes us <span class=\"text-gold\">different</span>",
-      description: "Award-winning creativity, strategic thinking, and pixel-perfect execution for every project.",
+      description: "Professional email management with 80% time savings, complete security, and 24/7 monitoring.",
     },
 
     // Testimonials
     testimonials: {
-      heading: "Trusted by <span class=\"text-gold\">Leading Brands</span>",
-      subheading: "Creative transformations that drive business growth.",
+      heading: "Trusted by <span class=\"text-gold\">500+ Professionals</span>",
+      subheading: "Email transformations that save time and boost productivity.",
       caseStudy: {
         badge: "Success Story",
-        title: "Case Study: <span class=\"text-gold\">Brand Transformation</span>",
-        description: "See how we rebranded a tech startup, increasing their brand recognition by 200% and customer engagement by 85%.",
+        title: "Case Study: <span class=\"text-gold\">75% Time Saved</span>",
+        description: "See how we helped a Fortune 500 executive achieve inbox zero and reduce email processing time from 4 hours to 1 hour daily.",
         cta: "View Full Case Study",
       },
     },
 
     // Blog
     blog: {
-      badge: "Design Journal",
-      heading: "Latest <span class=\"text-gold\">Insights</span>",
-      description: "Design trends, branding tips, and creative inspiration for forward-thinking brands.",
+      badge: "Email Insights",
+      heading: "Latest <span class=\"text-gold\">Email Guides</span>",
+      description: "Expert email management strategies, automation tips, security best practices, and productivity guides.",
       by: "By",
       readMore: "Read more",
       read: "Read",
@@ -66,107 +66,110 @@ export const copy = {
 
     // Case Studies
     caseStudies: {
-      badge: "Portfolio",
-      heading: "Creative <span class=\"text-gold\">Success Stories</span>",
-      description: "Transformative design projects that elevated brands and drove measurable business results.",
+      badge: "Success Stories",
+      heading: "Email <span class=\"text-gold\">Success Stories</span>",
+      description: "See how we transformed email chaos into organized efficiency with smart automation and professional management.",
       labels: {
-        saved: "Brand Growth",
-        teamSize: "Deliverables",
-        timeline: "Timeline",
+        saved: "Time Saved",
+        teamSize: "Emails/Day",
+        timeline: "Timeframe",
         viewFull: "View Full Case Study",
-        viewStudy: "View Project",
+        viewStudy: "View Case Study",
       },
     },
 
     // FAQ
     faq: {
-      badge: "FAQ",
+      badge: "Email Management FAQs",
       title: "Frequently Asked Questions",
-      description: "Answers to common questions about our design process, timelines, and deliverables.",
-      qualityCardTitle: "Design Quality Assurance",
-      qualityCardText: "Every design goes through rigorous quality checks and refinements to ensure excellence.",
-      toolsCardTitle: "Flexible File Formats",
-      toolsCardText: "We deliver files in all formats you need - from print-ready PDFs to web-optimized assets.",
+      description: "Answers to common questions about our email management services, platforms, security, and timelines.",
+      qualityCardTitle: "Security & Compliance",
+      qualityCardText: "End-to-end encryption, two-factor authentication, GDPR compliance, and enterprise-grade security.",
+      toolsCardTitle: "Complete Email Management",
+      toolsCardText: "Inbox Organization • Response Management • Automation • Security • Reporting • Campaigns",
       stillHaveQuestionsTitle: "Still have questions?",
-      stillHaveQuestionsText: "Our design team is ready to discuss your project needs.",
-      contactSupport: "Contact Our Team",
+      stillHaveQuestionsText: "Our team is here to help. Get in touch and we'll respond within 2 hours.",
+      contactSupport: "Contact Support",
       viewPricing: "View Pricing",
     },
 
     // Pricing
     pricing: {
-      sectionBadge: "Pricing",
-      sectionTitle: "Design Packages",
-      sectionDescription: "Choose a design package that fits your needs. Flexible options for every project.",
-      vaCountLabel: "How many design projects?",
-      vaCountHelper: "Select the number of concurrent projects you need",
-      startingFrom: "Starting from €{price}/project",
-      bulkDiscount: "{percent}% multi-project discount applied!",
+      sectionBadge: "Transparent Pricing",
+      sectionTitle: "Email Management Packages",
+      sectionDescription: "Choose a plan that fits your email volume and needs. Professional management with transparent pricing. No hidden fees.",
+      vaCountLabel: "How many emails per day?",
+      vaCountHelper: "Select your average daily email volume",
+      startingFrom: "Starting from €{price}/month",
+      bulkDiscount: "{percent}% volume discount applied!",
       bulkSavings: "You save €{amount} total",
-      bulkHint: "Add {count} more project{suffix} to unlock {percent}% discount",
-      bannerBadge: "Free Consultation",
-      bannerTitle: "Book Your Free Design Consultation",
-      bannerSubtitle: "Discuss your vision with our creative team and get a custom quote",
+      bulkHint: "Add {count} more email{suffix} to unlock {percent}% discount",
+      bannerBadge: "Free 15‑Minute Consultation",
+      bannerTitle: "Get Expert Advice on Email Management",
+      bannerSubtitle: "Discuss your inbox challenges and get a custom workflow optimization plan",
       bannerPoints: {
         noCommitment: "No obligation",
         cancelAnytime: "Cancel anytime",
-        fullAccess: "Full creative brief"
+        fullAccess: "Free inbox audit"
       },
       plans: {
         starter: {
-          name: "Logo & Branding",
-          hours: "Starter Package",
+          name: "Starter",
+          hours: "Up to 100 emails/day",
           features: [
-            "3 Logo Concepts",
-            "Color Palette & Typography",
-            "Brand Style Guide",
-            "Business Card Design",
-            "3 Revision Rounds"
+            "Inbox organization & filtering",
+            "Priority inbox setup",
+            "Basic automation rules",
+            "Email response templates",
+            "Weekly performance reports"
           ]
         },
         professional: {
-          name: "Complete Brand Identity",
-          hours: "Full Brand Package",
+          name: "Professional",
+          hours: "Up to 300 emails/day",
+          badge: "Most Popular",
           features: [
-            "Everything in Logo Package",
-            "Brand Strategy Session",
-            "Social Media Kit",
-            "Stationery Design Suite",
-            "Unlimited Revisions"
+            "Everything in Starter",
+            "Advanced automation & workflows",
+            "Email campaign management",
+            "2-hour response time SLA",
+            "Daily summaries + analytics",
+            "Priority support"
           ]
         },
         enterprise: {
-          name: "Full Design Suite",
-          hours: "Enterprise Package",
+          name: "Enterprise",
+          hours: "Unlimited emails",
           badge: "Best Value",
           features: [
-            "Complete Brand Identity",
-            "Website Design (5 pages)",
-            "Marketing Collateral",
-            "Packaging Design",
-            "Priority Support & Updates"
+            "Everything in Professional",
+            "Dedicated email manager",
+            "Enterprise security protocols",
+            "Custom integrations & API",
+            "24/7 monitoring & support",
+            "Custom SLAs & compliance"
           ]
         }
       },
       button: "Get Started",
-      perMonth: "",
-      hoursUnit: "deliverables",
-      planSetupFee: "+€{fee} consultation fee",
-      planNoSetupFee: "Free consultation included",
-      disclaimer: "All packages include source files. Additional revisions available at €75/hour."
+      perMonth: "/month",
+      hoursUnit: "email volume",
+      planSetupFee: "+€{fee} setup fee",
+      planNoSetupFee: "Free setup included",
+      disclaimer: "All plans billed monthly with no long-term contracts. Upgrade or downgrade anytime. Typical turnaround 24–72h."
     },
 
     // Final CTA
     finalCTA: {
-      badge: "Ready to Transform Your Brand?",
-      title: "Let's Create Something <span class=\"text-gold\">Amazing</span> Together",
-      description: "Book your free design consultation and discover how we can elevate your brand.",
+      badge: "Achieve Inbox Zero Today",
+      title: "Ready to Master <span class=\"text-gold\">Your Inbox?</span>",
+      description: "Transform email chaos into organized productivity with professional inbox management, automation, and daily optimization.",
     },
 
     // Value Proposition (if used)
     valueProposition: {
-      heading: "Why <span class=\"text-gold\">Choose Us</span>",
-      description: "Award-winning creativity, strategic thinking, and pixel-perfect execution for every project.",
+      heading: "Why <span class=\"text-gold\">500+</span> Professionals Trust Us",
+      description: "Professional email management with 80% time savings, complete security, and 24/7 monitoring.",
     },
   },
 
@@ -174,28 +177,28 @@ export const copy = {
     // How It Works
     howItWorks: {
       badge: "Unser Prozess",
-      heading: "Von der Konzept <span class=\"text-gold\">zur Kreation</span>",
-      description: "Unser optimierter 4-Schritte-Prozess sorgt dafür, dass jedes Design-Projekt Ihre Erwartungen übertrifft.",
+      heading: "Vom Chaos zum <span class=\"text-gold\">Inbox Zero</span>",
+      description: "Unser optimierter 4-Schritte-Prozess verwandelt Ihr E-Mail-Chaos in organisierte Produktivität.",
       steps: {
         step1: {
           step: "Schritt 1",
-          title: "Entdeckung & Strategie",
-          description: "Wir tauchen tief in Ihre Marke, Ziele und Zielgruppe ein, um eine erfolgreiche Kreativstrategie zu entwickeln."
+          title: "Inbox-Audit & Strategie",
+          description: "Wir analysieren Ihr E-Mail-Volumen, Muster und Prioritäten, um eine maßgeschneiderte Management-Strategie zu erstellen."
         },
         step2: {
           step: "Schritt 2",
-          title: "Konzeptentwicklung",
-          description: "Unsere Designer erstellen mehrere kreative Konzepte zur Auswahl und Verfeinerung."
+          title: "Setup & Automatisierung",
+          description: "Wir konfigurieren intelligente Filter, Labels, Regeln und Automatisierung zur Organisation Ihrer E-Mails."
         },
         step3: {
           step: "Schritt 3",
-          title: "Design & Verfeinerung",
-          description: "Wir bringen Ihr gewähltes Konzept mit Liebe zum Detail und iterativem Feedback zum Leben."
+          title: "Tägliches Management",
+          description: "Unser Team verwaltet Ihren Posteingang täglich – sortiert, antwortet und hält alles organisiert."
         },
         step4: {
           step: "Schritt 4",
-          title: "Lieferung & Support",
-          description: "Sie erhalten alle Enddateien in mehreren Formaten mit kontinuierlichem Support für zukünftige Bedürfnisse."
+          title: "Optimierung & Reporting",
+          description: "Wöchentliche Performance-Berichte und kontinuierliche Optimierung zur Verbesserung Ihres Workflows."
         }
       }
     },
@@ -204,26 +207,26 @@ export const copy = {
     whyChooseUs: {
       badge: "Warum wir",
       heading: "Was uns <span class=\"text-gold\">auszeichnet</span>",
-      description: "Preisgekrönte Kreativität, strategisches Denken und pixelgenaue Ausführung für jedes Projekt.",
+      description: "Professionelles E-Mail-Management mit 80% Zeitersparnis, kompletter Sicherheit und 24/7 Überwachung.",
     },
 
     // Testimonials
     testimonials: {
-      heading: "Vertrauen von <span class=\"text-gold\">führenden Marken</span>",
-      subheading: "Kreative Transformationen, die Geschäftswachstum fördern.",
+      heading: "Vertrauen von <span class=\"text-gold\">500+ Profis</span>",
+      subheading: "E-Mail-Transformationen, die Zeit sparen und Produktivität steigern.",
       caseStudy: {
         badge: "Erfolgsgeschichte",
-        title: "Fallstudie: <span class=\"text-gold\">Markentransformation</span>",
-        description: "Erfahren Sie, wie wir ein Tech-Startup neu positionierten und die Markenbekanntheit um 200% sowie die Kundenbindung um 85% steigerten.",
+        title: "Fallstudie: <span class=\"text-gold\">75% Zeit gespart</span>",
+        description: "Erfahren Sie, wie wir einem Fortune-500-Executive halfen, Inbox Zero zu erreichen und die E-Mail-Bearbeitungszeit von 4 auf 1 Stunde täglich zu reduzieren.",
         cta: "Vollständige Fallstudie ansehen",
       },
     },
 
     // Blog
     blog: {
-      badge: "Design Journal",
-      heading: "Aktuelle <span class=\"text-gold\">Einblicke</span>",
-      description: "Design-Trends, Branding-Tipps und kreative Inspiration für zukunftsorientierte Marken.",
+      badge: "E-Mail Insights",
+      heading: "Aktuelle <span class=\"text-gold\">E-Mail Guides</span>",
+      description: "Experten-Tipps zu E-Mail-Management, Automatisierung, Sicherheit und Produktivität.",
       by: "Von",
       readMore: "Weiterlesen",
       read: "Lesen",
@@ -231,107 +234,110 @@ export const copy = {
 
     // Case Studies
     caseStudies: {
-      badge: "Portfolio",
-      heading: "Kreative <span class=\"text-gold\">Erfolgsgeschichten</span>",
-      description: "Transformative Design-Projekte, die Marken aufgewertet und messbare Geschäftsergebnisse erzielt haben.",
+      badge: "Erfolgsgeschichten",
+      heading: "E-Mail <span class=\"text-gold\">Erfolgsgeschichten</span>",
+      description: "Sehen Sie, wie wir E-Mail-Chaos in organisierte Effizienz mit smarter Automatisierung verwandelt haben.",
       labels: {
-        saved: "Markenwachstum",
-        teamSize: "Deliverables",
+        saved: "Zeit gespart",
+        teamSize: "E-Mails/Tag",
         timeline: "Zeitrahmen",
         viewFull: "Vollständige Fallstudie ansehen",
-        viewStudy: "Projekt ansehen",
+        viewStudy: "Fallstudie ansehen",
       },
     },
 
     // FAQ
     faq: {
-      badge: "FAQ",
+      badge: "E-Mail Management FAQs",
       title: "Häufig gestellte Fragen",
-      description: "Antworten auf häufige Fragen zu unserem Design-Prozess, Zeitplänen und Deliverables.",
-      qualityCardTitle: "Design-Qualitätssicherung",
-      qualityCardText: "Jedes Design durchläuft strenge Qualitätskontrollen und Verfeinerungen, um Exzellenz zu gewährleisten.",
-      toolsCardTitle: "Flexible Dateiformate",
-      toolsCardText: "Wir liefern Dateien in allen Formaten, die Sie brauchen – von druckfertigen PDFs bis zu web-optimierten Assets.",
+      description: "Antworten zu unseren E-Mail-Management-Services, Plattformen, Sicherheit und Zeitplänen.",
+      qualityCardTitle: "Sicherheit & Compliance",
+      qualityCardText: "End-to-End-Verschlüsselung, Zwei-Faktor-Authentifizierung, DSGVO-Konformität und Enterprise-Sicherheit.",
+      toolsCardTitle: "Komplettes E-Mail-Management",
+      toolsCardText: "Inbox-Organisation • Response-Management • Automatisierung • Sicherheit • Reporting • Kampagnen",
       stillHaveQuestionsTitle: "Noch Fragen?",
-      stillHaveQuestionsText: "Unser Design-Team steht bereit, um Ihre Projektwünsche zu besprechen.",
-      contactSupport: "Team kontaktieren",
+      stillHaveQuestionsText: "Unser Team hilft Ihnen gerne. Wir antworten innerhalb von 2 Stunden.",
+      contactSupport: "Support kontaktieren",
       viewPricing: "Preise ansehen",
     },
 
     // Pricing
     pricing: {
-      sectionBadge: "Preise",
-      sectionTitle: "Design-Pakete",
-      sectionDescription: "Wählen Sie das Design-Paket, das zu Ihren Bedürfnissen passt. Flexible Optionen für jedes Projekt.",
-      vaCountLabel: "Wie viele Design-Projekte?",
-      vaCountHelper: "Wählen Sie die Anzahl der gleichzeitigen Projekte, die Sie benötigen",
-      startingFrom: "Ab €{price}/Projekt",
-      bulkDiscount: "{percent}% Rabatt bei mehreren Projekten!",
+      sectionBadge: "Transparente Preise",
+      sectionTitle: "E-Mail-Management-Pakete",
+      sectionDescription: "Wählen Sie einen Plan, der zu Ihrem E-Mail-Volumen passt. Professionelles Management mit transparenten Preisen.",
+      vaCountLabel: "Wie viele E-Mails pro Tag?",
+      vaCountHelper: "Wählen Sie Ihr durchschnittliches tägliches E-Mail-Volumen",
+      startingFrom: "Ab €{price}/Monat",
+      bulkDiscount: "{percent}% Volumenrabatt!",
       bulkSavings: "Gesamtersparnis: €{amount}",
-      bulkHint: "Fügen Sie {count} weitere Projekt{suffix} hinzu, um {percent}% Rabatt zu erhalten",
-      bannerBadge: "Kostenlose Beratung",
-      bannerTitle: "Kostenloses Design-Gespräch vereinbaren",
-      bannerSubtitle: "Besprechen Sie Ihre Vision mit unserem Kreativteam und erhalten Sie ein individuelles Angebot",
+      bulkHint: "Fügen Sie {count} weitere E-Mail{suffix} hinzu, um {percent}% Rabatt zu erhalten",
+      bannerBadge: "Kostenlose 15-Min-Beratung",
+      bannerTitle: "Expertenrat zum E-Mail-Management",
+      bannerSubtitle: "Besprechen Sie Ihre Inbox-Herausforderungen und erhalten Sie einen Workflow-Optimierungsplan",
       bannerPoints: {
         noCommitment: "Keine Verpflichtung",
-        cancelAnytime: "Jederzeit kündbar", 
-        fullAccess: "Volles Kreativ-Briefing"
+        cancelAnytime: "Jederzeit kündbar",
+        fullAccess: "Kostenloser Inbox-Audit"
       },
       plans: {
         starter: {
-          name: "Logo & Branding",
-          hours: "Starter-Paket",
+          name: "Starter",
+          hours: "Bis zu 100 E-Mails/Tag",
           features: [
-            "3 Logo-Konzepte",
-            "Farbschema & Typografie",
-            "Marken-Styleguide",
-            "Visitenkarten-Design",
-            "3 Überarbeitungsrunden"
+            "Inbox-Organisation & Filterung",
+            "Priority-Inbox-Setup",
+            "Basis-Automatisierungsregeln",
+            "E-Mail-Antwort-Vorlagen",
+            "Wöchentliche Performance-Berichte"
           ]
         },
         professional: {
-          name: "Komplette Markenidentität", 
-          hours: "Full Brand-Paket",
+          name: "Professional",
+          hours: "Bis zu 300 E-Mails/Tag",
+          badge: "Beliebteste Wahl",
           features: [
-            "Alles aus Logo-Paket",
-            "Markenstrategie-Session",
-            "Social Media Kit",
-            "Briefpapier-Design Suite",
-            "Unbegrenzte Überarbeitungen"
+            "Alles aus Starter",
+            "Erweiterte Automatisierung & Workflows",
+            "E-Mail-Kampagnen-Management",
+            "2-Stunden-Antwortzeit SLA",
+            "Tägliche Zusammenfassungen + Analytics",
+            "Prioritätsupport"
           ]
         },
         enterprise: {
-          name: "Full Design Suite",
-          hours: "Enterprise-Paket", 
+          name: "Enterprise",
+          hours: "Unbegrenzte E-Mails",
           badge: "Bester Wert",
           features: [
-            "Komplette Markenidentität",
-            "Website-Design (5 Seiten)",
-            "Marketing-Kollateral",
-            "Verpackungsdesign",
-            "Prioritätsupport & Updates"
+            "Alles aus Professional",
+            "Dedizierter E-Mail-Manager",
+            "Enterprise-Sicherheitsprotokolle",
+            "Custom-Integrationen & API",
+            "24/7 Überwachung & Support",
+            "Custom SLAs & Compliance"
           ]
         }
       },
       button: "Jetzt starten",
-      perMonth: "",
-      hoursUnit: "Deliverables",
-      planSetupFee: "+€{fee} Beratungsgebühr",
-      planNoSetupFee: "Kostenlose Beratung inklusive",
-      disclaimer: "Alle Pakete beinhalten Quelldateien. Zusätzliche Überarbeitungen verfügbar ab €75/Stunde."
+      perMonth: "/Monat",
+      hoursUnit: "E-Mail-Volumen",
+      planSetupFee: "+€{fee} Setup-Gebühr",
+      planNoSetupFee: "Kostenloses Setup inklusive",
+      disclaimer: "Alle Pläne monatlich abrechnbar ohne Langzeitvertrag. Jederzeit upgraden oder downgraden. Typische Einarbeitung 24–72h."
     },
 
     // Final CTA
     finalCTA: {
-      badge: "Bereit, Ihre Marke zu transformieren?",
-      title: "Lassen Sie uns etwas <span class=\"text-gold\">Großartiges</span> zusammen schaffen",
-      description: "Buchen Sie Ihr kostenloses Design-Gespräch und entdecken Sie, wie wir Ihre Marke aufwerten können."
+      badge: "Erreichen Sie heute Inbox Zero",
+      title: "Bereit, Ihren <span class=\"text-gold\">Posteingang zu meistern?</span>",
+      description: "Verwandeln Sie E-Mail-Chaos in organisierte Produktivität mit professionellem Inbox-Management, Automatisierung und täglicher Optimierung."
     },
 
     // Value Proposition (if used)
     valueProposition: {
-      heading: "Warum <span class=\"text-gold\">wir</span>?",
-      description: "Preisgekrönte Kreativität, strategisches Denken und pixelgenaue Ausführung für jedes Projekt.",
+      heading: "Warum <span class=\"text-gold\">500+</span> Profis uns vertrauen",
+      description: "Professionelles E-Mail-Management mit 80% Zeitersparnis, kompletter Sicherheit und 24/7 Überwachung.",
     },
   },
 } as const;

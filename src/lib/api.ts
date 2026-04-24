@@ -10,7 +10,7 @@ const getApiBase = () =>
   process.env.NEXT_PUBLIC_API_BASE || "https://api.don-va.com";
 
 const getTenantId = () => {
-  const tenantId = process.env.NEXT_PUBLIC_TENANT_ID || 'webdesign';
+  const tenantId = process.env.NEXT_PUBLIC_TENANT_ID || 'email';
   if (typeof window !== 'undefined') {
     console.log('[API] Using Tenant ID:', tenantId);
   }

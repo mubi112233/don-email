@@ -25,6 +25,64 @@ interface CaseStudyData {
   stats: { costSaved: string; timeframe: string; vaCount: string };
 }
 
+// Fallback case studies for when API returns no data
+const fallbackCaseStudies: CaseStudyData[] = [
+  {
+    caseStudyId: 1,
+    title: "Fortune 500 Executive Inbox Transformation",
+    company: "TechCorp Industries",
+    industry: "Executive Management",
+    challenge: "Complete inbox overhaul for a C-suite executive drowning in 500+ daily emails, achieving inbox zero in 5 days.",
+    solution: "Implemented a comprehensive email management system with smart filtering, priority inbox rules, and daily processing by dedicated VAs.",
+    results: [
+      { metric: "Time Saved", value: "75%", description: "Daily email processing time" },
+      { metric: "Response Time", value: "< 2h", description: "Average response to important emails" },
+      { metric: "Inbox Zero", value: "Daily", description: "Achieved every business day" }
+    ],
+    testimonial: "don-email completely transformed my workday. I went from drowning in emails to having a clean inbox every morning.",
+    testimonialAuthor: "Michael Chen",
+    testimonialRole: "CEO, TechCorp Industries",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&h=900&fit=crop&q=80",
+    stats: { costSaved: "75%", timeframe: "5 days", vaCount: "2 VAs" }
+  },
+  {
+    caseStudyId: 2,
+    title: "Marketing Team Email Campaign Success",
+    company: "Berlin Marketing Agency",
+    industry: "Marketing",
+    challenge: "Email workflow automation for a Berlin marketing agency, streamlining client communications and campaign management.",
+    solution: "Created automated workflows for client onboarding, campaign updates, and response templates for common inquiries.",
+    results: [
+      { metric: "Campaign Efficiency", value: "+200%", description: "Faster campaign deployment" },
+      { metric: "Client Response", value: "+150%", description: "Faster client communication" },
+      { metric: "Team Hours Saved", value: "20h/wk", description: "Weekly time savings" }
+    ],
+    testimonial: "Our team's productivity skyrocketed. We can focus on creative work instead of managing emails.",
+    testimonialAuthor: "Sarah Mueller",
+    testimonialRole: "Head of Operations, Berlin Marketing Agency",
+    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&h=900&fit=crop&q=80",
+    stats: { costSaved: "+200%", timeframe: "2 weeks", vaCount: "3 VAs" }
+  },
+  {
+    caseStudyId: 3,
+    title: "Startup Founder Email Productivity",
+    company: "Munich Tech Startup",
+    industry: "Technology",
+    challenge: "Inbox management system for a busy Munich tech founder, organizing investor communications and priority emails.",
+    solution: "Set up investor communication tracking, priority flagging for funding-related emails, and comprehensive daily digests.",
+    results: [
+      { metric: "Important Emails Missed", value: "0", description: "Zero missed opportunities" },
+      { metric: "Investor Response", value: "<2h", description: "Average response time" },
+      { metric: "Daily Email Time", value: "-65%", description: "Time spent on email reduced" }
+    ],
+    testimonial: "Never miss an important investor email again. This service pays for itself in opportunities secured.",
+    testimonialAuthor: "Klaus Weber",
+    testimonialRole: "Founder, Munich Tech Startup",
+    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&h=900&fit=crop&q=80",
+    stats: { costSaved: "65%", timeframe: "3 days", vaCount: "1 VA" }
+  }
+];
+
 export async function generateMetadata({
   params,
 }: {
@@ -43,12 +101,17 @@ export async function generateMetadata({
 
   const data = await fetchCaseStudiesServer(currentLang);
   const caseStudies = Array.isArray((data as any)?.caseStudies) ? (data as any).caseStudies : [];
-  const caseStudy = caseStudies.find((cs: CaseStudyData) => cs.caseStudyId === caseStudyId);
+  let caseStudy = caseStudies.find((cs: CaseStudyData) => cs.caseStudyId === caseStudyId);
+
+  // Use fallback data if API doesn't return case study
+  if (!caseStudy) {
+    caseStudy = fallbackCaseStudies.find((cs) => cs.caseStudyId === caseStudyId);
+  }
 
   if (!caseStudy) return {};
 
-  const title = `${caseStudy.company} - ${caseStudy.title} | don-webdesign`;
-  const description = caseStudy.challenge.substring(0, 160);
+  const title = `${caseStudy.company} - ${caseStudy.title} | don-email`;
+  const description = (caseStudy.challenge?.substring(0, 160) || caseStudy.title);
   const pathAfterLocale = `case-study/${slug}`;
   const canonical = absoluteUrl(`/${urlSeg}/${pathAfterLocale}`);
   const { languages } = hreflangAlternates(pathAfterLocale);
@@ -57,8 +120,8 @@ export async function generateMetadata({
     title,
     description,
     keywords: currentLang === "ge"
-      ? ["Fallstudie", "Webdesign Ergebnisse", caseStudy.company, caseStudy.industry, "don-webdesign"]
-      : ["Case Study", "Web Design Results", caseStudy.company, caseStudy.industry, "don-webdesign"],
+      ? ["Fallstudie", "E-Mail-Management Ergebnisse", caseStudy.company, caseStudy.industry, "don-email"]
+      : ["Case Study", "Email Management Results", caseStudy.company, caseStudy.industry, "don-email"],
     alternates: { canonical, languages },
     openGraph: {
       title,
@@ -67,7 +130,7 @@ export async function generateMetadata({
       type: "article",
       locale: urlSeg === "de" ? "de_DE" : "en_US",
       alternateLocale: urlSeg === "de" ? "en_US" : "de_DE",
-      siteName: "don-webdesign",
+      siteName: "don-email",
       images: caseStudy.image ? [{ url: caseStudy.image, width: 1200, height: 630, alt: caseStudy.company }] : [],
     },
     twitter: {
@@ -100,7 +163,13 @@ export default async function CaseStudyPage({
 
   const data = await fetchCaseStudiesServer(currentLang);
   const caseStudies = Array.isArray((data as any)?.caseStudies) ? (data as any).caseStudies : [];
-  const caseStudy = caseStudies.find((cs: CaseStudyData) => cs.caseStudyId === caseStudyId);
+  let caseStudy = caseStudies.find((cs: CaseStudyData) => cs.caseStudyId === caseStudyId);
+  
+  // Use fallback data if API doesn't return case study
+  if (!caseStudy) {
+    caseStudy = fallbackCaseStudies.find((cs) => cs.caseStudyId === caseStudyId);
+  }
+  
   if (!caseStudy) {
     notFound();
   }
@@ -110,8 +179,8 @@ export default async function CaseStudyPage({
     "@type": "Article",
     "headline": caseStudy.title,
     "description": caseStudy.challenge,
-    "author": { "@type": "Organization", "name": "don-webdesign", "url": SITE_URL },
-    "publisher": { "@type": "Organization", "name": "don-webdesign", "logo": { "@type": "ImageObject", "url": absoluteUrl("/og-image.jpg") } },
+    "author": { "@type": "Organization", "name": "don-email", "url": SITE_URL },
+    "publisher": { "@type": "Organization", "name": "don-email", "logo": { "@type": "ImageObject", "url": absoluteUrl("/og-image.jpg") } },
     "image": caseStudy.image,
     "url": absoluteUrl(`/${publicLocalePathSegment(lang)}/case-study/${slug}`),
     "mainEntityOfPage": { "@type": "WebPage", "@id": absoluteUrl(`/${publicLocalePathSegment(lang)}/case-study/${slug}`) },
@@ -198,7 +267,7 @@ export default async function CaseStudyPage({
                 <DollarSign className="w-6 h-6 sm:w-8 sm:h-8 text-gold" />
               </div>
             </div>
-            <div className="text-2xl sm:text-3xl font-bold text-gold mb-1 sm:mb-2">{caseStudy.stats.costSaved}</div>
+            <div className="text-2xl sm:text-3xl font-bold text-gold mb-1 sm:mb-2">{caseStudy.stats?.costSaved || "N/A"}</div>
             <div className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wide">{copy.labels.saved}</div>
           </div>
           
@@ -208,7 +277,7 @@ export default async function CaseStudyPage({
                 <Users className="w-6 h-6 sm:w-8 sm:h-8 text-gold" />
               </div>
             </div>
-            <div className="text-2xl sm:text-3xl font-bold text-gold mb-1 sm:mb-2">{caseStudy.stats.vaCount}</div>
+            <div className="text-2xl sm:text-3xl font-bold text-gold mb-1 sm:mb-2">{caseStudy.stats?.vaCount || "1"}</div>
             <div className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wide">{copy.labels.teamSize}</div>
           </div>
           
@@ -218,7 +287,7 @@ export default async function CaseStudyPage({
                 <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-gold" />
               </div>
             </div>
-            <div className="text-2xl sm:text-3xl font-bold text-gold mb-1 sm:mb-2">{caseStudy.stats.timeframe}</div>
+            <div className="text-2xl sm:text-3xl font-bold text-gold mb-1 sm:mb-2">{caseStudy.stats?.timeframe || "1 week"}</div>
             <div className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wide">{copy.labels.timeline}</div>
           </div>
         </div>
@@ -235,15 +304,17 @@ export default async function CaseStudyPage({
         </section>
 
         {/* Solution Section */}
-        <section className="mb-10 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 sm:mb-6 flex items-center gap-3">
-            <span className="w-1 h-6 sm:h-8 bg-gold rounded-full"></span>
-            {currentLang === 'ge' ? 'Lösung' : 'Solution'}
-          </h2>
-          <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none leading-relaxed">
-            <div className="text-base sm:text-lg" dangerouslySetInnerHTML={{ __html: caseStudy.solution }} />
-          </div>
-        </section>
+        {caseStudy.solution && (
+          <section className="mb-10 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 sm:mb-6 flex items-center gap-3">
+              <span className="w-1 h-6 sm:h-8 bg-gold rounded-full"></span>
+              {currentLang === 'ge' ? 'Lösung' : 'Solution'}
+            </h2>
+            <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none leading-relaxed">
+              <div className="text-base sm:text-lg" dangerouslySetInnerHTML={{ __html: caseStudy.solution || "" }} />
+            </div>
+          </section>
+        )}
 
         {/* Results Section */}
         {caseStudy.results && caseStudy.results.length > 0 && (

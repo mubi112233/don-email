@@ -47,52 +47,52 @@ const fallbackStepsCopy: Record<string, HowItWorksStep[]> = {
   en: [
     {
       stepNumber: 1,
-      title: "Schedule a Free Consultation",
-      description: "Book a 30-minute call with our team to discuss your needs and requirements.",
+      title: "Schedule a Free Email Audit",
+      description: "Book a 15-minute call with our team to discuss your inbox challenges and email volume.",
       icon: "Calendar"
     },
     {
       stepNumber: 2,
-      title: "Design & Development",
-      description: "We craft custom designs and develop your website with precision and creativity.",
+      title: "Setup & Automation",
+      description: "We configure smart filters, rules, and automation to organize your incoming emails.",
       icon: "UserCheck"
     },
     {
       stepNumber: 3,
-      title: "Launch & Optimize",
-      description: "We launch your website and optimize it for maximum performance and conversions.",
+      title: "Daily Management Begins",
+      description: "Our team starts managing your inbox daily—sorting, responding, and keeping everything organized.",
       icon: "Rocket"
     },
     {
       stepNumber: 4,
-      title: "Watch Your Brand Grow",
-      description: "See your business thrive as your new website drives conversions and growth.",
+      title: "Watch Your Productivity Grow",
+      description: "See your productivity soar as your organized inbox saves you 15+ hours every week.",
       icon: "LineChart"
     }
   ],
   ge: [
     {
       stepNumber: 1,
-      title: "Kostenlose Beratung vereinbaren",
-      description: "Vereinbaren Sie einen 30-minütigen Anruf mit unserem Team, um Ihre Bedürfnisse zu besprechen.",
+      title: "Kostenlosen E-Mail-Audit vereinbaren",
+      description: "Vereinbaren Sie einen 15-minütigen Anruf mit unserem Team, um Ihre Inbox-Herausforderungen zu besprechen.",
       icon: "Calendar"
     },
     {
       stepNumber: 2,
-      title: "Design & Entwicklung",
-      description: "Wir gestalten individuelle Designs und entwickeln Ihre Website mit Präzision und Kreativität.",
+      title: "Setup & Automatisierung",
+      description: "Wir konfigurieren intelligente Filter, Regeln und Automatisierung zur Organisation Ihrer E-Mails.",
       icon: "UserCheck"
     },
     {
       stepNumber: 3,
-      title: "Launch & Optimierung",
-      description: "Wir starten Ihre Website und optimieren sie für maximale Leistung und Conversions.",
+      title: "Tägliches Management beginnt",
+      description: "Unser Team beginnt mit der täglichen Inbox-Verwaltung – sortieren, antworten, organisieren.",
       icon: "Rocket"
     },
     {
       stepNumber: 4,
-      title: "Sehen Sie Ihre Marke wachsen",
-      description: "Erleben Sie, wie Ihr Unternehmen wächst, während Ihre neue Website Conversions und Wachstum vorantreibt.",
+      title: "Sehen Sie Ihre Produktivität steigen",
+      description: "Erleben Sie, wie Ihre Produktivität steigt, während Ihr organisierter Posteingang 15+ Stunden pro Woche spart.",
       icon: "LineChart"
     }
   ]

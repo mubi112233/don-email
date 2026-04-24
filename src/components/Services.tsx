@@ -16,14 +16,14 @@ const iconMap: Record<string, any> = {
 
 const sectionCopy = {
   en: {
-    badge: "Our Services",
-    heading: "Creative Solutions for Forward-Thinking Brands",
-    subheading: "From brand identity to digital experiences — we provide comprehensive design services that help businesses stand out and connect with their audiences.",
+    badge: "Email Management Services",
+    heading: "Complete Inbox Solutions for Busy Professionals",
+    subheading: "From inbox organization to campaign management — we provide comprehensive email services that help professionals save time and stay productive.",
   },
   ge: {
-    badge: "Unsere Leistungen",
-    heading: "Kreative Lösungen für zukunftsorientierte Marken",
-    subheading: "Von der Markenidentität bis zu digitalen Erlebnissen – wir bieten umfassende Design-Services, die Unternehmen helfen, sich abzuheben.",
+    badge: "E-Mail-Management-Services",
+    heading: "Komplette Inbox-Lösungen für beschäftigte Profis",
+    subheading: "Von der Inbox-Organisation bis zum Kampagnen-Management – wir bieten umfassende E-Mail-Services, die Profis helfen, Zeit zu sparen.",
   },
 };
 

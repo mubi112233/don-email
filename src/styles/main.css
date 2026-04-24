@@ -1,65 +1,91 @@
-/* Main CSS File for don-webdesign Next.js Application */
+/* Main CSS File for don-email Next.js Application */
 
 /* CSS Custom Properties for Theme */
 :root.main-css-theme {
-  --background: 0 0% 100%;
-  --foreground: 0 0% 0%;
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 0%;
+  /* Light Mode - Improved Gmail Color Scheme */
+  --background: 210 20% 97%; /* Softer blue-tinted background like Gmail */
+  --foreground: 210 20% 10%; /* Blue-black text for better readability */
+  --card: 0 0% 100%; /* Pure white cards for contrast */
+  --card-foreground: 210 20% 10%;
   --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 0%;
-  --primary: 40 100% 50%;
+  --popover-foreground: 210 20% 10%;
+  --primary: 221 54% 53%; /* Gmail Blue (#3e65cf) */
   --primary-foreground: 0 0% 100%;
-  --secondary: 48 100% 97%;
-  --secondary-foreground: 24 30% 15%;
-  --muted: 48 40% 96%;
-  --muted-foreground: 24 20% 40%;
-  --accent: 45 100% 52%;
-  --accent-foreground: 24 30% 15%;
-  --destructive: 8 84% 60%;
-  --destructive-foreground: 0 0% 100%;
-  --border: 40 20% 85%;
-  --input: 40 20% 85%;
-  --ring: 40 100% 50%;
+  --secondary: 3 85% 42%; /* Gmail Red (#c71610) */
+  --secondary-foreground: 0 0% 100%;
+  --muted: 210 20% 95%; /* Blue-tinted muted background */
+  --muted-foreground: 210 15% 40%; /* Better contrast for muted text */
+  --accent: 221 54% 53%; /* Gmail Blue accent */
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 210 25% 88%; /* More visible borders with blue tint */
+  --input: 210 20% 92%; /* Softer input backgrounds */
+  --ring: 221 54% 53%; /* Gmail Blue focus ring */
   --radius: 0.5rem;
-  --gold: 45 100% 50%;
-  --gold-dark: 40 95% 45%;
-  --gold-light: 50 100% 60%;
+  /* Custom tokens for Gmail theme */
+  --gold: 221 54% 53%; /* Gmail Blue (#3e65cf) */
+  --gold-dark: 221 54% 45%; /* Darker Gmail Blue */
+  --gold-light: 221 54% 65%; /* Lighter Gmail Blue */
+  --brand-blue: 221 54% 51%; /* Gmail Blue Alt (#3b60c4) */
+  --gmail-red: 3 85% 42%; /* Gmail Red (#c71610) */
+  --gmail-yellow: 43 92% 50%; /* Gmail Yellow (#f2a60c) */
+  --gmail-green: 133 89% 28%; /* Gmail Green (#08851b) */
 }
 
 .main-css-theme.dark {
-  --background: 30 76% 18%;
-  --foreground: 0 0% 98%;
-  --card: 30 72% 20%;
-  --card-foreground: 0 0% 98%;
-  --popover: 30 72% 20%;
-  --popover-foreground: 0 0% 98%;
-  --primary: 45 100% 55%;
-  --primary-foreground: 30 85% 10%;
-  --secondary: 30 50% 24%;
-  --secondary-foreground: 0 0% 98%;
-  --muted: 30 50% 24%;
-  --muted-foreground: 45 60% 85%;
-  --accent: 45 100% 55%;
-  --accent-foreground: 30 85% 10%;
-  --destructive: 8 84% 60%;
-  --destructive-foreground: 0 0% 100%;
-  --border: 30 35% 34%;
-  --input: 30 35% 34%;
-  --ring: 45 100% 55%;
-  --gold: 45 100% 60%;
-  --gold-dark: 40 100% 55%;
+  /* Dark Mode - Gmail Dark Theme */
+  --background: 0 0% 12%;
+  --foreground: 0 0% 95%;
+  --card: 0 0% 15%;
+  --card-foreground: 0 0% 95%;
+  --popover: 0 0% 15%;
+  --popover-foreground: 0 0% 95%;
+  --primary: 221 54% 53%; /* Gmail Blue (#3e65cf) */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 3 85% 42%; /* Gmail Red (#c71610) */
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 20%;
+  --muted-foreground: 0 0% 65%;
+  --accent: 221 54% 53%; /* Gmail Blue accent */
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 210 20% 25%;
+  --input: 210 20% 25%;
+  --ring: 211 100% 55%;
+  /* Custom tokens for Gmail dark theme */
+  --gold: 221 54% 53%; /* Gmail Blue (#3e65cf) */
+  --gold-dark: 221 54% 45%; /* Darker Gmail Blue */
+  --brand-blue: 221 54% 51%; /* Gmail Blue (#3b60c4) */
+  --gmail-red: 3 85% 42%; /* Gmail Red (#c71610) */
+  --gmail-yellow: 43 92% 50%; /* Gmail Yellow (#f2a60c) */
+  --gmail-green: 133 89% 28%; /* Gmail Green (#08851b) */
 }
 
 /* Base Styles */
 * {
   border-color: hsl(var(--border));
+  scroll-behavior: smooth;
+  transition: color 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              background-color 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              border-color 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Simple Background Styling for Dark Mode */
+.main-css-theme.dark,
+.main-css-theme.dark body {
+  background: hsl(330, 15%, 12%);
 }
 
 /* Smooth Scrolling */

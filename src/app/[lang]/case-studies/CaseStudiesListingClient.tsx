@@ -6,15 +6,13 @@ import { SPACING } from "@/lib/constants";
 import { localizedPath, siteConfig, localeUrlPrefix, type SiteLocale } from "@/lib/site-config";
 import { fetchCaseStudiesCardsData } from "@/lib/data-fetching";
 
-const slugify = (title: string | undefined | null) => {
-  if (!title) return "untitled";
-  return title
+const slugify = (title: string) =>
+  title
     .toLowerCase()
     .replace(/[^\w\s-]/g, "")
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-")
     .trim();
-};
 
 export async function CaseStudies({ lang }: { lang: string }) {
   const studies = await fetchCaseStudiesCardsData(lang);
@@ -63,26 +61,20 @@ export async function CaseStudies({ lang }: { lang: string }) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
-          {studies.map((study, index) => (
+          {studies.map((study) => (
             <Link
-              key={`case-study-${study.id ?? index}-${index}`}
+              key={study.id}
               href={`/${urlSeg}/case-study/${slugify(study.title)}-${study.id}`}
               className="group bg-card border border-border rounded-xl sm:rounded-2xl overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 w-full block"
             >
-              <div className="relative h-44 sm:h-52 md:h-48 lg:h-56 overflow-hidden bg-muted">
-                {study.image ? (
-                  <Image
-                    src={study.image}
-                    alt={study.company || "Case study"}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-muted to-muted/50">
-                    <span className="text-muted-foreground text-sm font-medium">{study.company || "Case Study"}</span>
-                  </div>
-                )}
+              <div className="relative h-44 sm:h-52 md:h-48 lg:h-56 overflow-hidden">
+                <Image
+                  src={study.image}
+                  alt={study.company}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
                 <div className="absolute top-4 left-4">
                   <span className="px-3 py-1 bg-primary text-primary-foreground text-xs font-bold rounded-full">
                     {study.industry}
@@ -141,5 +133,3 @@ export async function CaseStudies({ lang }: { lang: string }) {
     </section>
   );
 }
-
-

@@ -19,31 +19,33 @@ const plans: PricingPlan[] = [
   {
     id: 'starter',
     name: "Starter",
-    hours: "10h / week",
+    hours: "Up to 100 emails/day",
     price: 369,
     setupFee: 149,
     features: [
-      "Dedicated Design Specialist",
-      "Native Quality Control", 
-      "24h Replacement Guarantee",
-      "Slack/Email Support",
-      "14 Days Money-Back Warranty"
+      "Inbox Organization & Filtering",
+      "Priority Inbox Setup",
+      "Basic Automation Rules",
+      "Email Response Templates",
+      "Weekly Performance Reports"
     ],
     highlighted: false,
-    badge: "Perfect for small businesses"
+    badge: "Perfect for individuals"
   },
   {
     id: 'professional',
     name: "Professional",
-    hours: "20h / week",
+    hours: "Up to 300 emails/day",
     price: 629,
     setupFee: 0,
     features: [
       "Everything in Starter",
       "No Setup Fee",
-      "Priority Support",
-      "Bi-weekly Progress Reports",
-      "Flexible Hour Rollover"
+      "Advanced Automation & Workflows",
+      "Email Campaign Management",
+      "2-Hour Response Time SLA",
+      "Daily Summaries + Analytics",
+      "Priority Support"
     ],
     highlighted: true,
     badge: undefined
@@ -51,7 +53,7 @@ const plans: PricingPlan[] = [
   {
     id: 'enterprise',
     name: "Enterprise",
-    hours: "40h / week",
+    hours: "Unlimited emails",
     price: 1169,
     setupFee: 0,
     highlighted: false,
@@ -59,9 +61,11 @@ const plans: PricingPlan[] = [
     features: [
       "Everything in Professional",
       "No Setup Fee",
-      "Dedicated Account Manager",
-      "Weekly Strategy Calls",
-      "Custom Workflow Integration"
+      "Dedicated Email Manager",
+      "Enterprise Security Protocols",
+      "Custom Integrations & API",
+      "24/7 Monitoring & Support",
+      "Custom SLAs & Compliance"
     ]
   }
 ];

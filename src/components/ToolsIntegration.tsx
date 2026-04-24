@@ -5,32 +5,28 @@ import { usePathname } from "next/navigation";
 import { SPACING } from "@/lib/constants";
 
 const tools = [
-  { name: "Adobe Creative Suite", category: "Design Software" },
-  { name: "Figma", category: "UI/UX Design" },
-  { name: "Sketch", category: "UI/UX Design" },
-  { name: "Adobe Illustrator", category: "Vector Graphics" },
-  { name: "Adobe Photoshop", category: "Photo Editing" },
-  { name: "Adobe InDesign", category: "Print Design" },
-  { name: "Canva", category: "Design Platform" },
-  { name: "Blender", category: "3D Design" },
-  { name: "After Effects", category: "Motion Graphics" },
-  { name: "Premiere Pro", category: "Video Editing" },
-  { name: "Webflow", category: "Web Design" },
-  { name: "Framer", category: "Prototyping" },
+  { name: "Gmail", category: "Email Platform" },
+  { name: "Outlook", category: "Email Platform" },
+  { name: "Apple Mail", category: "Email Platform" },
+  { name: "Google Workspace", category: "Business Suite" },
+  { name: "Microsoft 365", category: "Business Suite" },
+  { name: "Mailchimp", category: "Campaign Tools" },
+  { name: "SendGrid", category: "Campaign Tools" },
+  { name: "HubSpot", category: "CRM & Email" },
+  { name: "Salesforce", category: "CRM & Email" },
+  { name: "Zapier", category: "Automation" },
+  { name: "Slack", category: "Communication" },
+  { name: "Notion", category: "Productivity" },
 ];
 
 const categoryLabels: Record<string, { en: string; ge: string }> = {
-  "Design Software":    { en: "Design Software",     ge: "Design-Software" },
-  "UI/UX Design":       { en: "UI/UX Design",       ge: "UI/UX Design" },
-  "Vector Graphics":    { en: "Vector Graphics",    ge: "Vektorgrafik" },
-  "Photo Editing":      { en: "Photo Editing",      ge: "Bildbearbeitung" },
-  "Print Design":       { en: "Print Design",       ge: "Print-Design" },
-  "Design Platform":    { en: "Design Platform",    ge: "Design-Plattform" },
-  "3D Design":          { en: "3D Design",          ge: "3D-Design" },
-  "Motion Graphics":    { en: "Motion Graphics",    ge: "Motion Graphics" },
-  "Video Editing":      { en: "Video Editing",      ge: "Video-Bearbeitung" },
-  "Web Design":         { en: "Web Design",         ge: "Webdesign" },
-  "Prototyping":        { en: "Prototyping",         ge: "Prototyping" },
+  "Email Platform":     { en: "Email Platform",     ge: "E-Mail-Plattform" },
+  "Business Suite":     { en: "Business Suite",     ge: "Business-Suite" },
+  "Campaign Tools":     { en: "Campaign Tools",     ge: "Kampagnen-Tools" },
+  "CRM & Email":        { en: "CRM & Email",        ge: "CRM & E-Mail" },
+  "Automation":         { en: "Automation",         ge: "Automatisierung" },
+  "Communication":      { en: "Communication",      ge: "Kommunikation" },
+  "Productivity":       { en: "Productivity",       ge: "Produktivität" },
 };
 
 export const ToolsIntegration = () => {
@@ -59,15 +55,15 @@ export const ToolsIntegration = () => {
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-foreground">
             {isGe ? (
-              <>Expertise in führenden <span className="text-primary">Design-Tools</span></>
+              <>Expertise in führenden <span className="text-primary">E-Mail-Plattformen</span></>
             ) : (
-              <>Expertise in Leading <span className="text-primary">Design Tools</span></>
+              <>Expertise in Leading <span className="text-primary">Email Platforms</span></>
             )}
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl">
             {isGe
-              ? "Unser Team beherrscht alle gängigen Design-Software und liefert in jedem Format, das Sie benötigen."
-              : "Our team masters all popular design software and delivers in any format you need."}
+              ? "Unser Team beherrscht alle gängigen E-Mail-Plattformen und integriert nahtlos in Ihre bestehenden Tools."
+              : "Our team masters all popular email platforms and integrates seamlessly with your existing tools."}
           </p>
         </motion.div>
 
@@ -109,14 +105,14 @@ export const ToolsIntegration = () => {
           >
             <p className="text-base sm:text-lg text-foreground mb-3 sm:mb-4">
               <span className="font-bold text-primary">
-                {isGe ? "Benötigen Sie ein spezielles Format?" : "Need a specific file format?"}
+                {isGe ? "Benötigen Sie eine spezielle Integration?" : "Need a specific integration?"}
               </span>{" "}
               {isGe ? "Einfach fragen." : "Just ask."}
             </p>
             <p className="text-sm sm:text-base text-muted-foreground">
               {isGe
-                ? "Wir liefern in jedem Format – von druckfertigen PDFs bis zu web-optimierten Assets."
-                : "We deliver in any format — from print-ready PDFs to web-optimized assets."}
+                ? "Wir integrieren sich mit allen gängigen E-Mail-Plattformen und Produktivitätstools."
+                : "We integrate with all major email platforms and productivity tools."}
             </p>
           </motion.div>
         </div>
