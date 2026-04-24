@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   verification: {
-    google: "owA83i5dtMBx2-hhn9CBrI0wGgffRYCV2ux3FXUGG04",
+    google: "zgcogxyprhBhJw6ZwAznROIfIfKA4zi8jaNyibuqxPI",
   },
   robots: {
     index: true,
@@ -241,21 +241,22 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         
-        {/* Security */}
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y41TLVJ50H" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6DBMX3W1VS" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-Y41TLVJ50H');
+              gtag('config', 'G-6DBMX3W1VS');
             `,
           }}
         />
+        
+        {/* Security */}
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
