@@ -3,8 +3,8 @@ import { Navbar } from "@/components/Navbar";
 import { HomeBelowFold } from "@/components/HomeBelowFold.hybrid";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { fetchApiData, API_ENDPOINTS, normalizeLanguage, fetchFAQ } from "@/lib/api";
-import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/structured-data";
+import { fetchApiData, API_ENDPOINTS, normalizeLanguage } from "@/lib/api";
+import { generateBreadcrumbSchema } from "@/lib/structured-data";
 import { SITE_URL, absoluteUrl, hreflangAlternates, publicLocalePathSegment } from "@/lib/site-url";
 
 export const revalidate = 3600;
@@ -187,15 +187,6 @@ export default async function HomeLangPage({
   const lang = rawLang === 'de' || rawLang === 'ge' ? 'ge' : 'en';
   const jsonLd = pageJsonLd(SITE_URL)[lang];
 
-  // Fetch FAQ data for structured data
-  const faqData = await fetchFAQ(lang);
-  const faqs = faqData?.faqs?.slice(0, 10) || []; // Limit to 10 FAQs for schema
-
-  // Generate FAQ schema
-  const faqSchema = faqs.length > 0
-    ? generateFAQSchema(faqs.map((f: any) => ({ question: f.question, answer: f.answer })))
-    : null;
-
   // Generate breadcrumb schema
   const breadcrumbSchema = generateBreadcrumbSchema([
     { label: lang === 'ge' ? 'Startseite' : 'Home', href: `/${lang}` },
@@ -211,12 +202,6 @@ export default async function HomeLangPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      {faqSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-      )}
       <Navbar />
       <main id="main-content" className="overflow-x-hidden">
         <Hero />

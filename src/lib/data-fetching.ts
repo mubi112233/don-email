@@ -196,9 +196,22 @@ export async function fetchCaseStudiesCardsData(lang: string): Promise<CaseStudy
   try {
     const normalizedLang = normalizeLanguage(lang);
     console.log('[fetchCaseStudiesCardsData] Fetching for lang:', normalizedLang);
-    const response = await fetchAPI(`${API_ENDPOINTS.CASE_STUDIES}?lang=${normalizedLang}`);
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
+    let response: Response;
+    try {
+      response = await fetchAPI(`${API_ENDPOINTS.CASE_STUDIES}?lang=${normalizedLang}`, { signal: controller.signal });
+    } catch {
+      clearTimeout(timeout);
+      console.warn('[fetchCaseStudiesCardsData] Network error, using fallback');
+      return fallbackCaseStudies;
+    }
+    clearTimeout(timeout);
+    if (!response.ok) {
+      console.warn('[fetchCaseStudiesCardsData] Non-OK response:', response.status);
+      return fallbackCaseStudies;
+    }
     const data = await response.json();
-    console.log('[fetchCaseStudiesCardsData] Full API response:', JSON.stringify(data, null, 2).substring(0, 2000));
     
     // Handle different API response structures
     const caseStudiesArray = data?.caseStudies || data?.data || data?.items || data;
