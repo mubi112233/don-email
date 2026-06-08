@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, Clock, ArrowLeft, Share2 } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, Share2, Loader2 } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { fetchApiDataClient, API_ENDPOINTS, normalizeLanguage } from "@/lib/api";
 import { getCopy } from "@/lib/copy";
 import { SPACING } from "@/lib/constants";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -12,6 +13,7 @@ import { localizedPath, siteConfig, type SiteLocale } from "@/lib/site-config";
 
 interface BlogPost {
   blogId: number;
+  id?: number;
   title: string;
   excerpt: string;
   content: string;
@@ -23,32 +25,54 @@ interface BlogPost {
 }
 
 export default function BlogPostClient({
-  post,
+  slug,
   lang,
 }: {
-  post: BlogPost;
+  slug: string;
   lang: string;
 }) {
   const router = useRouter();
+  const [post, setPost] = useState<BlogPost | null>(null);
+  const [loading, setLoading] = useState(true);
   const [copied, setCopied] = useState(false);
   const copy = getCopy(lang, "blog");
   const isGe = lang === "ge";
 
+  useEffect(() => {
+    const slugify = (title: string) =>
+      title.toLowerCase().replace(/[^\w\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-").trim();
+
+    fetchApiDataClient<any>(API_ENDPOINTS.BLOGS, normalizeLanguage(lang))
+      .then((data) => {
+        const posts: BlogPost[] = Array.isArray(data?.posts)
+          ? data.posts
+          : Array.isArray(data?.blogs)
+          ? data.blogs
+          : [];
+        const lastSegment = slug.split("-").pop() ?? "";
+        const postId = Number(lastSegment);
+        let found: BlogPost | undefined;
+        if (!isNaN(postId) && postId > 0) {
+          found = posts.find((p) => p.blogId === postId || p.id === postId);
+        }
+        if (!found) {
+          found = posts.find((p) => {
+            const titleSlug = slugify(p.title);
+            return slug === titleSlug || slug === `${titleSlug}-${p.blogId}` || slug === `${titleSlug}-${p.id}`;
+          });
+        }
+        setPost(found ?? null);
+      })
+      .catch(() => setPost(null))
+      .finally(() => setLoading(false));
+  }, [slug, lang]);
+
   const handleShare = async () => {
-    const shareData = {
-      title: post.title,
-      text: post.excerpt,
-      url: typeof window !== "undefined" ? window.location.href : "",
-    };
+    const url = typeof window !== "undefined" ? window.location.href : "";
+    const shareData = { title: post?.title ?? "", text: post?.excerpt ?? "", url };
     if (navigator.share && navigator.canShare?.(shareData)) {
-      try {
-        await navigator.share(shareData);
-      } catch (err) {
-        if ((err as Error).name !== "AbortError") copyToClipboard();
-      }
-    } else {
-      copyToClipboard();
-    }
+      try { await navigator.share(shareData); } catch (err) { if ((err as Error).name !== "AbortError") copyToClipboard(); }
+    } else { copyToClipboard(); }
   };
 
   const copyToClipboard = () => {
@@ -56,6 +80,22 @@ export default function BlogPostClient({
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (!post) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-muted-foreground">{isGe ? "Artikel nicht gefunden." : "Post not found."}</p>
+      </div>
+    );
+  }
 
   return (
     <div className={`min-h-screen ${SPACING.sideMargin} bg-background`}>
